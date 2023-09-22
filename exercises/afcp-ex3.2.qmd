@@ -1,0 +1,38 @@
+## 1. qustion 
+> ex3.2 掷 两 枚 均 匀 骰 子 ， 求 给 定 两 枚 骰 子 点 数 之 和 为i 的 条 件 下 ， 
+>第 一 枚 点 数 为 6 的 条 件 概 率。 计 算 i 取 值 从 2 到 1 2 的 所 有 情 况
+
+## 2. workflow
+
+ - 1. 构建全概率空间
+ - 2. 根据限制条件筛选出子空间
+ - 3. 计算条件概率
+
+### 2.1 构建全概率空间
+
+```{julia}
+ma=[[x,y] for x in 1:6, y in 1:6]|>d->reshape(d,(1,36))|>vec
+span=2:12
+```
+
+### 2.2 筛选子空间
+```{julia}
+pA=[filter(x->sum(x)==i,ma) for i in span]
+```
+
+### 2.3 计算条件概率
+筛选的条件表达式为
+
+```julia
+  # 第一枚骰子点数为 6
+  condition(x::Array)::Bool=x[1]==6
+```
+```{julia}
+    condition(x::Array)::Bool=x[1]==6
+    for (idx,arr) in zip(span,pA)
+        local pB=filter(x->condition(x),arr)
+        @info "i=$(idx)"=>length(pB)//length(arr)
+
+    end
+```
+

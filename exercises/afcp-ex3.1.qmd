@@ -1,0 +1,35 @@
+### 1. question 
+    ex3.1 掷两枚均匀的骰子，求已知两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率。
+    
+    -  1. 首先构建出总的概率空间: 扔两枚骰子的组合
+    -  2. 筛选出点数不同的组合作为子空间
+    -  3. 在2子空间下筛选出至少有一个骰子为6 的组合
+    -  4. 根据 2,3 计算条件概率
+
+### 2. total probablity  space  
+```{julia}
+  ma=[[x,y] for x in 1:6, y in 1:6]|>d->reshape(d,(1,36))
+  
+```
+
+### 3. according to condition to get sub  probability  space 
+```julia
+#数组两个数不同
+condition(x::Array)=x[1] !=x[2] 
+```
+
+```{julia}
+      condition(x::Array)=x[1] !=x[2]
+      pA=filter(x->condition(x),vec(ma))
+      show(pA)
+```
+
+```julia
+   #数组中两个数有至少有一个等于 6
+   x->x[1]==6||x[2]==6
+```
+### 4.  conditional probablity
+```{julia}
+    pB=filter(x->x[1]==6||x[2]==6,pA)
+    length(pB)//length(pA)      #1//3
+```

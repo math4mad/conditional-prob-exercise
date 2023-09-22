@@ -1,0 +1,11 @@
+{
+  "hash": "451803ef5507d921e54fe76f5017ece4",
+  "result": {
+    "markdown": "---\ntitle: 1. question\n---\n\n\n> 坛子里最初有5个白球和7个黑球.每次取出一个球，记下它的颜色后放回坛子，同时再放人相同 颜色的2 个球.计算如下概率:\n>(a)前两个球是黑色的，后两个球是白色的\n>(b)前4个球中恰好有2个是黑色的。\n\n\n## 2. (a)  \n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\nw=5 #\nb=7\nt=w+b\nprob=(b//t)*((b+2)//(t+2))*(w//(t+2+2))*((w+2)//(t+2+2+2))\n```\n\n::: {.cell-output .cell-output-display execution_count=12}\n```\n35//768\n```\n:::\n:::\n\n\n1. $(b//t)$  表示为从总数中抽取第一个黑球的概率\n2. $((b+2)//(t+2))$ 第二次抽取时黑球要增加 2, 总数也增加 2\n3. $(w//(t+2+2))$   第三次抽取前,黑球数和总数再增加 2 $t+2+2$ \n4. $((w+2)//(t+2+2+2))$ 第四次抽取前, 总数和白球数再分别增加 2\n乘积就是(a) 描述的条件概率\n\n\n## 3. (b)\n\n::: {.cell execution_count=2}\n``` {.julia .cell-code}\nw=5\nb=7\nt=w+b\n\nbbww=(b//t)*((b+2)//(t+2))*(w//(t+2+2))*((w+2)//(t+2+2+2))\n\nbwbw=(b//t)*((w)//(t+2))*((b+2)//(t+2+2))*((w+2)//(t+2+2+2))  \n\nbwwb=(b//t)*((w)//(t+2))*((w+2)//(t+2+2))*((b+2)//(t+2+2+2))\n\nwwbb=(w//t)*((w+2)//(t+2))*(b//(t+2+2))*((b+2)//(t+2+2+2))\n\nwbwb= (w//t)*((b)//(t+2))*((w+2)//(t+2+2))*((b+2)//(t+2+2+2))\n\nwbbw=(w//t)*((b)//(t+2))*((b+2)//(t+2+2))*((w+2)//(t+2+2+2))\n\nprob=bbww+bwbw+bwwb+wwbb+wbwb+wbbw\n```\n\n::: {.cell-output .cell-output-display execution_count=13}\n```\n35//128\n```\n:::\n:::\n\n\n总是会取出两个白球和两个黑球\n无论那种顺序, 球的总数都是 $t+2+2+2$\n分子也是一样的, \n\n",
+    "supporting": [
+      "afcp-ex3.14_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

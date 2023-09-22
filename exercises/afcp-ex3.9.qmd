@@ -1,0 +1,84 @@
+## 1. question 
+> ex3.9 假设有3个坛子，坛子A有2个白球和4个红球，坛子B有8个白球和4 个红球，坛子C有1个白 球和3个红球，
+> 如果从每个坛子各取一个球，那么在正好取了两个白球的条件下，从坛子A 里取的 是白球的条件概 率是多大?
+
+## 2. 概率路径图
+我们先列出一个家庭有两个孩子的全概率图
+
+### 2.1. 从第一个罐子取出白球的概率为白球数目除以总的球数量,其他相同
+$$p1,p2,p3 =2//6,8//12,1//4$$
+
+###  2.2. 三个概率的补集,就是没有取出白球的概率
+$$p1c,p2c,p3c=1-p1,1-p2,1-p3$$ 
+
+###  2.3. 取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集,但是不考虑顺序
+$$two_{whiteball}=+(p1*p2*p3c,p1c*p2*p3,p1*p2c*p3)$$
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+      A(V) ==white :1/3 ==> B(white)
+      A(V) == red:2/3 ==>C(red)
+      
+      B(V1) ==white :8/12 ==>D(white)
+      B(V1) == red:4/12==> E(red)
+      
+      C(V1) == white:8/12 ==>F(white)
+      C(V1) == red:4/12==> G(red)
+      
+       D(V2) == white:1/4 ==>I(V3)
+       D(V2) == red:3/4==> J(V3)
+       
+       E(V2) ==white: 1/4 ==>K(V3)
+       E(V2) == red:3/4==> L(V3)
+       
+       F(V2) == white:1/4 ==>M(V3)
+       F(V2) == red:3/4==> N(V3)
+       G(V2) == white:1//4 ==>O(V3)
+       G(V2) == red:3//4==> P(V3)
+
+       style C fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style E fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style G fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style J fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style L fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style N fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style P fill: #FF0000, stroke: #333, stroke-width: 2px;
+        
+```
+
+## 3. 计算
+
+### 3.1 全概率,根据上面分析全概率为:
+
+```{julia}
+  p1,p2,p3 =2//6,8//12,1//4  #从各个罐子抽出白球的概率
+  p1c,p2c,p3c=1-p1,1-p2,1-p3 # 从各个罐子抽出红球的概率,为抽出白球的补集
+  #其中之一不为白球:p3c,p1c,p2c
+  total=+(p1*p2*p3c,p1c*p2*p3,p1*p2c*p3)
+```
+
+### 3.2 第一个球为白色的概率
+```{julia}
+  frist_white=+(p1*p2*p3c,p1*p2c*p3)
+```
+
+### 3.3 条件概率计算为:
+```{julia}
+frist_white//total
+```
+
+
+
+::: {.callout-tip}
+## 进一步的思考
+这个实验可以看做是三个均一硬币实验的延伸版本
+如果把白色=head,红色=tail
+
+- 第一枚硬币偏向红色     p(head)=2//6
+- 第二枚硬币偏向白色     p(head)=8//12
+- 第三枚硬币偏向红色      p(head)=1//3
+  
+所以这里的试验和三枚硬币的试验一样, 正反面出现的权重不同
+:::
+

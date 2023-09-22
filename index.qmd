@@ -1,5 +1,13 @@
 ---
-title: "Course Title"
+title: "Conditional Prob Exe"
 ---
 
-Course info & details here
+Exercise qmd note for  A first course probability  chapter 3 
+
+1. language: Julia
+2. chart:mermaid
+3. table: [online table tools ](https://www.rapidtables.com/tools/table-chart.html#)
+
+
+
+

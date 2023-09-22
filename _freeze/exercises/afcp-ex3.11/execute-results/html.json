@@ -1,0 +1,11 @@
+{
+  "hash": "97a25fbd595de17202969e7fd9f9bb05",
+  "result": {
+    "markdown": "---\ntitle: 1.从52 张牌抽出2 张的条件概率计算\n---\n\n\n\n### 2. 全概率路径图 @fig-1\n\n\n```{mermaid}\n%%| fig-width: 6.5\n%%| label: fig-1\n%%| fig-cap: \"A diagram of pick up two cards\"\n\nflowchart LR\n      A(poker) ==s1:4/52 ==> B(\"A\")\n      A(poker) == f1:48/52 ==>C(\"NotA\")\n      \n      B(\"A\") ==s2:3/51 ==> D(\"A\")\n      B(\"A\") ==f2:48/51 ==> E(\"NotA\")\n      \n      C(\"NotA\") ==s3:4/51 ==> F(\"A\")\n      C(\"NotA\") ==f3:47/51==> G(\"NotA\")\n\n    style B  fill: #9c0312, stroke: #333, stroke-width: 2px;\n    style D  fill: #9c0312, stroke: #333, stroke-width: 2px;\n    style F  fill: #9c0312, stroke: #333, stroke-width: 2px;\n\n```\n\n\n### 3. 已知一张为黑桃 A, 两张都是 A 的概率\n\n>由于有一张已经知道是 A, 另一张也为 A的概率就是:$s2=3/51$,这里与是否是黑桃无关,\n>因为这个信息没有参与到概率计算中\n\n### 4. 至少抽中一张 A的条件下,两张都是 A 的 概率\n\n至少有一张 A的全概率为:\n$$p_{total}=s_1*s_2+s_1*f_2+f_1*s_3 \\tag{1.1}$$\n\n两张都为 A的概率为:\n$$p_{doubleA}=s_1*s_2 \\tag{1.2}$$\n\n因此概率计算为:\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\ns1=4//52;s2=3//51;s3=4//51\ntotal=s1*s2+s1*(1-s2)+(1-s1)*s3\npda=s1*s2\n\n\"both_A\"=>pda//total\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\n\"both_A\" => 1//33\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "afcp-ex3.11_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

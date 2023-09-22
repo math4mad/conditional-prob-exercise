@@ -1,0 +1,11 @@
+{
+  "hash": "a1467bb67cc5915b9bbd01c8831b04ac",
+  "result": {
+    "markdown": "---\ntitle: 1. question\n---\n\n\n\n::: {.callout-note   title=\"Question\"}\n  大学里，52%的学生为女生，5%的学生为计算机科学专业，2%的学生为计算机科学专业的女生 如果随机挑选一 名学生，求以 下条件概 率:\n \n - (a) 在 已 知 该 学 生 主 修 计 算 机 科 学 的 条 件 下 ， 该 生 为 女 生 的 条 件 概 率 ; \n - (b) 已知该生为女生的条件 下，该生 主修计算机科学的条件几率\n:::\n\n\n### 2. 双向表\n\n根据描述,填充双向表\n\n::: {.callout-tip title=\"build two-way table in this page \"}\n [`RapidTable`](https://www.rapidtables.com/tools/table-chart.html#)\n:::\n\n![](./images/ex3.20.jpeg){width=400}\n\n\n### 3. (a)\n在上表中,第一列的数据就是主修计算机的所有学生,女生为$0.02$,因此条件概率为:\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\n0.02/0.05\n```\n\n::: {.cell-output .cell-output-display execution_count=16}\n```\n0.39999999999999997\n```\n:::\n:::\n\n\n### 4. (b)\n上表中,第一行就是所有女生的数据, 主修计算机的为$0.02$,条件概率为:\n\n::: {.cell execution_count=2}\n``` {.julia .cell-code}\n0.02/0.52\n```\n\n::: {.cell-output .cell-output-display execution_count=17}\n```\n0.038461538461538464\n```\n:::\n:::\n\n\n### 5. 总结\n\n上面两个问题的 联合分布是一样的, 在不同的条件下在不同的概率空间下的比例不同\n\n",
+    "supporting": [
+      "afcp-ex3.20_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

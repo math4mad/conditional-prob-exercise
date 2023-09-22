@@ -1,0 +1,42 @@
+
+### 1. question
+
+::: {.callout-note   title="Question"}
+  参加过某个“ 戒烟班”的人，有48 %的女性和37%的男性在结束后一年内坚持没有吸烟，这些人参 加了年末的庆功会.如果 一开始，班里有62%的男性，问:
+ 
+ - (a)参加庆功会的 女性所占百分比是名少 ?
+ - (b)参加庆功会的人数占全班的百分比是多少
+:::
+
+
+### 2. 构建双向表
+
+![](./images/ex3.19-Smoking%20%20Cessation.jpeg){width=500}
+
+
+$$p(woman)=1-p(man)=1-0.62=0.38$$
+
+$$p(not again|woman)=0.48$$
+
+$$p(not again, woman)=p(not again|woman)*p(woman)\approx 0.18$$
+
+同理得:  $$p(not again, man)=0.23$$
+
+
+$$p(notagain)=p(not again, man)+p(not again, woman)=0.23+0.18=0.41$$
+
+这就是(b) 的答案:0.41,假设参加戒烟训练班的有 100人, 41 人没有再碰过烟
+
+(a) 的答案:
+
+$$p(woman|not again)=\frac{p(not again, woman)}{p(not again)}=\frac{0.18}{0.41}\approx 0.439$$
+
+注:在不同样本空间下的比例不要直接放在一起比较, 如果需要比较,需要标准化, 统一样本空间的大小
+
+
+::: {.callout-warning title="总结"}
+   问题稍显绕口
+
+   - (a) 问的是 戒烟成功的女性在所有戒烟成功人里占多少, 样本空间是总的戒烟成功人数
+   - (b) 问的是 成功戒烟的人占参见戒烟训练班的总人数比例, 样本空间是参见训练班的所有人数
+:::

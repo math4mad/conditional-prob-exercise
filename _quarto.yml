@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Course Title"
+  title: "Conditional-Probability-Exercise"
   sidebar:
     background: primary
     # logo: "images/logo.png"
@@ -11,18 +11,41 @@ website:
     align: center
     tools:
       - icon: github
-        href: https://github.com/Pakillo/quarto-course-website-template
+        href: https://github.com/math4mad/conditional-prob-exercise
         text: GitHub
     style: docked
     contents:
       - href: index.qmd
         text: Home
-      - href: schedule.qmd
-        text: Schedule
-      - href: materials.qmd
-        text: Materials
-      - href: https://github.com/Pakillo/quarto-course-website-template/discussions
-        text: Forum
+      - href: ./exercises/afcp-ex3.1.qmd
+        text: ex3.1
+      - href: ./exercises/afcp-ex3.2.qmd
+        text: ex3.2
+      - href: ./exercises/afcp-ex3.4.qmd
+        text: ex3.4
+      - href: ./exercises/afcp-ex3.7.qmd
+        text: ex3.7
+      - href: ./exercises/afcp-ex3.8.qmd
+        text: ex3.8
+      - href: ./exercises/afcp-ex3.9.qmd
+        text: ex3.9
+      - href: ./exercises/afcp-ex3.10.qmd
+        text: ex3.10
+      - href: ./exercises/afcp-ex3.11.qmd
+        text: ex3.11
+      - href: ./exercises/afcp-ex3.12.qmd
+        text: ex3.12
+      - href: ./exercises/afcp-ex3.14.qmd
+        text: ex3.14
+      - href: ./exercises/afcp-ex3.16.qmd
+        text: ex3.16
+      - href: ./exercises/afcp-ex3.17.qmd
+        text: ex3.17
+      - href: ./exercises/afcp-ex3.19.qmd
+        text: ex3.19
+      - href: ./exercises/afcp-ex3.20.qmd
+        text: ex3.20
+      
 
 format:
   html:

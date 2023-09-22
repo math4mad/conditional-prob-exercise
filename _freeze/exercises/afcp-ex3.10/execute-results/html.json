@@ -1,0 +1,11 @@
+{
+  "hash": "86b5e2228fde34ce045a7d3f89d3ef47",
+  "result": {
+    "markdown": "---\ntitle: 1. question\n---\n\n\n```julia\n#= \n      从一副牌中抽出三张牌 已知条件是第二张和第三张都是黑桃,\n      求第一张是黑桃的概率\n      在实际打牌中, 三张牌可能属于不同的人,那么可以根第二个人和第三个人的牌来推算第一根得到某张牌的概率\n      因而第二张和第三张为黑桃,\n      所以第一张为黑桃的可能性是 11, 总的样本空间为 50\n\n      在条件下,第一张牌是黑桃的概率从 0.25降为 0.22\n\n=#\n```\n\n## 2. probability modify\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\n   (\"unconditional\"=>13/52,\" conditional\"=>11/50)\n```\n\n::: {.cell-output .cell-output-display execution_count=5}\n```\n(\"unconditional\" => 0.25, \" conditional\" => 0.22)\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "afcp-ex3.10_files/figure-html"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
