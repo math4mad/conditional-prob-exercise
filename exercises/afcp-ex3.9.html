@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conditional-Probability-Exercise - Schedule</title>
+<title>Conditional-Probability-Exercise – afcp-ex3.9</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +20,58 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -58,7 +92,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -71,9 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Conditional-Probability-Exercise
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.9.html">ex3.9</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -88,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Conditional-Probability-Exercise</a> 
+      <a href="../">Conditional-Probability-Exercise</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/math4mad/conditional-prob-exercise" rel="" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
@@ -103,91 +140,91 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.1.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.1</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.2.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.2</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.4.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.4</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.7.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.7</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.8.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.8.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.8</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.9.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.9.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">ex3.9</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.10.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.10.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.10</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.11.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.11</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.12.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.12.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.12</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.14.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.14.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.14</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.16.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.16.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.16</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.17.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.17.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.17</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.19.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.19.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.19</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./exercises/afcp-ex3.20.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.20.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.20</span></a>
   </div>
 </li>
@@ -197,14 +234,31 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#概率路径图" id="toc-概率路径图" class="nav-link active" data-scroll-target="#概率路径图">2. 概率路径图</a>
+  <ul class="collapse">
+  <li><a href="#从第一个罐子取出白球的概率为白球数目除以总的球数量其他相同" id="toc-从第一个罐子取出白球的概率为白球数目除以总的球数量其他相同" class="nav-link" data-scroll-target="#从第一个罐子取出白球的概率为白球数目除以总的球数量其他相同">2.1. 从第一个罐子取出白球的概率为白球数目除以总的球数量,其他相同</a></li>
+  <li><a href="#三个概率的补集就是没有取出白球的概率" id="toc-三个概率的补集就是没有取出白球的概率" class="nav-link" data-scroll-target="#三个概率的补集就是没有取出白球的概率">2.2. 三个概率的补集,就是没有取出白球的概率</a></li>
+  <li><a href="#取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集但是不考虑顺序" id="toc-取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集但是不考虑顺序" class="nav-link" data-scroll-target="#取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集但是不考虑顺序">2.3. 取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集,但是不考虑顺序</a></li>
+  </ul></li>
+  <li><a href="#计算" id="toc-计算" class="nav-link" data-scroll-target="#计算">3. 计算</a>
+  <ul class="collapse">
+  <li><a href="#全概率根据上面分析全概率为" id="toc-全概率根据上面分析全概率为" class="nav-link" data-scroll-target="#全概率根据上面分析全概率为">3.1 全概率,根据上面分析全概率为:</a></li>
+  <li><a href="#第一个球为白色的概率" id="toc-第一个球为白色的概率" class="nav-link" data-scroll-target="#第一个球为白色的概率">3.2 第一个球为白色的概率</a></li>
+  <li><a href="#条件概率计算为" id="toc-条件概率计算为" class="nav-link" data-scroll-target="#条件概率计算为">3.3 条件概率计算为:</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule</h1>
+<h1 class="title">1. question</h1>
 </div>
 
 
@@ -219,50 +273,117 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Example schedule:</p>
-<table class="table">
-<colgroup>
-<col style="width: 6%">
-<col style="width: 45%">
-<col style="width: 48%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;">Morning</th>
-<th style="text-align: center;">Afternoon</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">L</td>
-<td style="text-align: center;">Intro + Data manipulation</td>
-<td style="text-align: center;">git / GitHub</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">M</td>
-<td style="text-align: center;">Generalised Linear Models</td>
-<td style="text-align: center;">Data visualisation</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">X</td>
-<td style="text-align: center;">Mixed models / GAM / Bayes</td>
-<td style="text-align: center;">Functional programming + Students work</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">J</td>
-<td style="text-align: center;">Multivariate analyses</td>
-<td style="text-align: center;">Reproducible workflows</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">V</td>
-<td style="text-align: center;">Using R as GIS + Students work</td>
-<td style="text-align: center;">Project presentations</td>
-</tr>
-</tbody>
-</table>
+<blockquote class="blockquote">
+<p>ex3.9 假设有3个坛子，坛子A有2个白球和4个红球，坛子B有8个白球和4 个红球，坛子C有1个白 球和3个红球， 如果从每个坛子各取一个球，那么在正好取了两个白球的条件下，从坛子A 里取的 是白球的条件概 率是多大?</p>
+</blockquote>
+<section id="概率路径图" class="level2">
+<h2 class="anchored" data-anchor-id="概率路径图">2. 概率路径图</h2>
+<p>我们先列出一个家庭有两个孩子的全概率图</p>
+<section id="从第一个罐子取出白球的概率为白球数目除以总的球数量其他相同" class="level3">
+<h3 class="anchored" data-anchor-id="从第一个罐子取出白球的概率为白球数目除以总的球数量其他相同">2.1. 从第一个罐子取出白球的概率为白球数目除以总的球数量,其他相同</h3>
+<p><span class="math display">\[p1,p2,p3 =2//6,8//12,1//4\]</span></p>
+</section>
+<section id="三个概率的补集就是没有取出白球的概率" class="level3">
+<h3 class="anchored" data-anchor-id="三个概率的补集就是没有取出白球的概率">2.2. 三个概率的补集,就是没有取出白球的概率</h3>
+<p><span class="math display">\[p1c,p2c,p3c=1-p1,1-p2,1-p3\]</span></p>
+</section>
+<section id="取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集但是不考虑顺序" class="level3">
+<h3 class="anchored" data-anchor-id="取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集但是不考虑顺序">2.3. 取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集,但是不考虑顺序</h3>
+<p><span class="math display">\[two_{whiteball}=+(p1*p2*p3c,p1c*p2*p3,p1*p2c*p3)\]</span></p>
+<div class="cell" data-fig-width="6.5">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+      A(V) ==white :1/3 ==&gt; B(white)
+      A(V) == red:2/3 ==&gt;C(red)
+      
+      B(V1) ==white :8/12 ==&gt;D(white)
+      B(V1) == red:4/12==&gt; E(red)
+      
+      C(V1) == white:8/12 ==&gt;F(white)
+      C(V1) == red:4/12==&gt; G(red)
+      
+       D(V2) == white:1/4 ==&gt;I(V3)
+       D(V2) == red:3/4==&gt; J(V3)
+       
+       E(V2) ==white: 1/4 ==&gt;K(V3)
+       E(V2) == red:3/4==&gt; L(V3)
+       
+       F(V2) == white:1/4 ==&gt;M(V3)
+       F(V2) == red:3/4==&gt; N(V3)
+       G(V2) == white:1//4 ==&gt;O(V3)
+       G(V2) == red:3//4==&gt; P(V3)
+
+       style C fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style E fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style G fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style J fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style L fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style N fill: #FF0000, stroke: #333, stroke-width: 2px;
+       style P fill: #FF0000, stroke: #333, stroke-width: 2px;
+        
+</pre>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="计算" class="level2">
+<h2 class="anchored" data-anchor-id="计算">3. 计算</h2>
+<section id="全概率根据上面分析全概率为" class="level3">
+<h3 class="anchored" data-anchor-id="全概率根据上面分析全概率为">3.1 全概率,根据上面分析全概率为:</h3>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  p1,p2,p3 <span class="op">=</span><span class="fl">2</span><span class="op">//</span><span class="fl">6</span>,<span class="fl">8</span><span class="op">//</span><span class="fl">12</span>,<span class="fl">1</span><span class="op">//</span><span class="fl">4</span>  <span class="co">#从各个罐子抽出白球的概率</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  p1c,p2c,p3c<span class="op">=</span><span class="fl">1</span><span class="op">-</span>p1,<span class="fl">1</span><span class="op">-</span>p2,<span class="fl">1</span><span class="op">-</span>p3 <span class="co"># 从各个罐子抽出红球的概率,为抽出白球的补集</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#其中之一不为白球:p3c,p1c,p2c</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  total<span class="op">=</span><span class="fu">+</span>(p1<span class="op">*</span>p2<span class="op">*</span>p3c,p1c<span class="op">*</span>p2<span class="op">*</span>p3,p1<span class="op">*</span>p2c<span class="op">*</span>p3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>11//36</code></pre>
+</div>
+</div>
+</section>
+<section id="第一个球为白色的概率" class="level3">
+<h3 class="anchored" data-anchor-id="第一个球为白色的概率">3.2 第一个球为白色的概率</h3>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>  frist_white<span class="op">=</span><span class="fu">+</span>(p1<span class="op">*</span>p2<span class="op">*</span>p3c,p1<span class="op">*</span>p2c<span class="op">*</span>p3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>7//36</code></pre>
+</div>
+</div>
+</section>
+<section id="条件概率计算为" class="level3">
+<h3 class="anchored" data-anchor-id="条件概率计算为">3.3 条件概率计算为:</h3>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>frist_white<span class="op">//</span>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>7//11</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+进一步的思考
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>这个实验可以看做是三个均一硬币实验的延伸版本 如果把白色=head,红色=tail</p>
+<ul>
+<li>第一枚硬币偏向红色 p(head)=2//6</li>
+<li>第二枚硬币偏向白色 p(head)=8//12</li>
+<li>第三枚硬币偏向红色 p(head)=1//3</li>
+</ul>
+<p>所以这里的试验和三枚硬币的试验一样, 正反面出现的权重不同</p>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
