@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conditional-Probability-Exercise – afcp-ex3.7</title>
+<title>Conditional-Probability-Exercise – afcp-ex3.25</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -58,9 +58,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -76,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.7.html">ex3.7</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.25.html">ex3.25</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -130,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exercises/afcp-ex3.7.html" class="sidebar-item-text sidebar-link active">
+  <a href="../exercises/afcp-ex3.7.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.7</span></a>
   </div>
 </li>
@@ -214,7 +211,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exercises/afcp-ex3.25.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.25.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">ex3.25</span></a>
   </div>
 </li>
@@ -259,8 +256,8 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#question" id="toc-question" class="nav-link active" data-scroll-target="#question">1. question</a></li>
-  <li><a href="#概率路径图" id="toc-概率路径图" class="nav-link" data-scroll-target="#概率路径图">2. 概率路径图</a></li>
-  <li><a href="#计算" id="toc-计算" class="nav-link" data-scroll-target="#计算">3. 计算</a></li>
+  <li><a href="#分析" id="toc-分析" class="nav-link" data-scroll-target="#分析">2. 分析</a></li>
+  <li><a href="#类比" id="toc-类比" class="nav-link" data-scroll-target="#类比">3. 类比</a></li>
   </ul>
 </nav>
     </div>
@@ -269,38 +266,24 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="question" class="level3">
-<h3 class="anchored" data-anchor-id="question">1. question</h3>
+<section id="question" class="level2">
+<h2 class="anchored" data-anchor-id="question">1. question</h2>
 <blockquote class="blockquote">
-<p>ex3.7 如果国王来自有两个孩子的家庭，那么另一个孩子是他姐妹的概率是多大?</p>
+<p>以下方法用于估计10000 人的城镇里的50 岁以上的人又的数量:“ 当你在街上做步时， 数一数你 碰到的50 岁以上的人数，再算出它们占你遇到的人的百分数，这样做几天后， 用10 0000 去乘得 到的百分数就是所求的估值• “ 对这个方法作出你的评价</p>
 </blockquote>
 </section>
-<section id="概率路径图" class="level3">
-<h3 class="anchored" data-anchor-id="概率路径图">2. 概率路径图</h3>
-<p>我们先列出一个家庭有两个孩子的全概率图</p>
-<div class="cell" data-fig-width="6.5">
-<div class="cell-output-display">
-<div>
-<div>
-<pre class="mermaid mermaid-js">
-flowchart LR
-      
-        Y--&gt;A(boy)
-        Y--&gt;B(girl)
-        A--&gt;C(boy)
-        A--&gt;D(girl)
-        B--&gt;E(boy)
-        B--&gt;F(girl)
-</pre>
-</div>
-</div>
-</div>
-</div>
+<section id="分析" class="level2">
+<h2 class="anchored" data-anchor-id="分析">2. 分析</h2>
+<p>这个方法在抽样理论是叫做<a href="https://web.mnstate.edu/harms/math105/Fall05/Week2.pdf"><code>capture-recapture method</code></a></p>
+<p>在研究某个野生动物的种群数量是, 先捕获一批动物,做标记后放回, 然后在捕获动物(无论打过标记与否), 可以依据一下公式计算出种群数量参见<a href="https://web.mnstate.edu/harms/math105/Fall05/Week2.pdf"><code>capture-recapture method</code></a></p>
+<p><span class="math display">\[\frac{tagged \; in \; total \; population}{Total \; population}=\frac{tagged \; in \; recapture \; sample }{Total \; in \; recapture \; sample}\]</span></p>
+<p>原理和计算溶液体积一样, 假设我们想知道一个桶里的溶液体积,可以混合 1kg 氯化钠, 混合均匀后 从溶液中抽出 1 升溶液, 测出氯化钠的量, 就可以计算出溶液体积,<strong>不变量是氯化钠溶液的浓度</strong>, 无论是总体还是样本,溶液浓度是均匀的</p>
+<p><span class="math display">\[\frac{1kgNaCl}{未知溶液体积(升)}=\frac{1升溶液里NaCl量}{1 升NaCl溶液}\]</span></p>
 </section>
-<section id="计算" class="level3">
-<h3 class="anchored" data-anchor-id="计算">3. 计算</h3>
-<p>根据介绍, 国王肯定是男性, 所以子概率空间为 3, 除开最下面一条路径</p>
-<p>如果国王有姐姐或者妹妹, 那么是其中两条路径,因此条件概率为: <span class="math display">\[\frac{2}{3}\]</span></p>
+<section id="类比" class="level2">
+<h2 class="anchored" data-anchor-id="类比">3. 类比</h2>
+<p>在本例中, 50岁以上的人口密度是不变量,如果分布均匀, 在街头采样的密度就是人群中的密度.</p>
+<p><span class="math display">\[1000 人中50 岁以上人数=\frac{街头遇到的 50 岁以上人数}{街头遇到的总人数}*1000\]</span></p>
 
 
 </section>
