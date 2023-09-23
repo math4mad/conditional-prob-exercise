@@ -45,6 +45,25 @@ website:
         text: ex3.19
       - href: ./exercises/afcp-ex3.20.qmd
         text: ex3.20
+      - href: ./exercises/afcp-ex3.21.qmd
+        text: ex3.21
+      - href: ./exercises/afcp-ex3.22.qmd
+        text: ex3.22
+      - href: ./exercises/afcp-ex3.23.qmd
+        text: ex3.23
+      - href: ./exercises/afcp-ex3.25.qmd
+        text: ex3.25
+      - href: ./exercises/afcp-ex3.26.qmd
+        text: ex3.26
+      - href: ./exercises/afcp-ex3.30.qmd
+        text: ex3.30
+      - href: ./exercises/afcp-ex3.33.qmd
+        text: ex3.33
+      - href: ./exercises/afcp-ex3.37.qmd
+        text: ex3.37
+      - href: ./exercises/afcp-ex3.38.qmd
+        text: ex3.38
+      
       
 
 format:

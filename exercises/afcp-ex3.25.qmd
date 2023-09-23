@@ -1,0 +1,25 @@
+## 1. question
+> 以下方法用于估计10000 人的城镇里的50 岁以上的人又的数量:“ 当你在街上做步时，
+> 数一数你 碰到的50 岁以上的人数，再算出它们占你遇到的人的百分数，这样做几天后，
+> 用10 0000 去乘得 到的百分数就是所求的估值• “ 对这个方法作出你的评价
+
+## 2. 分析
+这个方法在抽样理论是叫做[`capture-recapture method`](https://web.mnstate.edu/harms/math105/Fall05/Week2.pdf)
+
+在研究某个野生动物的种群数量是, 先捕获一批动物,做标记后放回, 然后在捕获动物(无论打过标记与否), 
+可以依据一下公式计算出种群数量参见[`capture-recapture method`](https://web.mnstate.edu/harms/math105/Fall05/Week2.pdf)
+
+$$\frac{tagged \; in \; total \; population}{Total \; population}=\frac{tagged \; in \; recapture \; sample }{Total \; in \; recapture \; sample}$$
+
+
+原理和计算溶液体积一样, 假设我们想知道一个桶里的溶液体积,可以混合 1kg 氯化钠, 混合均匀后
+从溶液中抽出 1 升溶液, 测出氯化钠的量, 就可以计算出溶液体积,**不变量是氯化钠溶液的浓度**,
+无论是总体还是样本,溶液浓度是均匀的
+
+$$\frac{1kgNaCl}{未知溶液体积(升)}=\frac{1升溶液里NaCl量}{1 升NaCl溶液}$$
+
+## 3. 类比
+
+在本例中, 50岁以上的人口密度是不变量,如果分布均匀, 在街头采样的密度就是人群中的密度.
+
+$$1000 人中50 岁以上人数=\frac{街头遇到的 50 岁以上人数}{街头遇到的总人数}*1000$$

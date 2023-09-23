@@ -11,6 +11,7 @@
 ## 2. 路径图
 
 ```{mermaid}
+
     flowchart LR
     A(Community)==36%==>B(has dog)
     A(Community)==64%==>C(no dog)

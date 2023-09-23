@@ -1,0 +1,56 @@
+## 1. 调查项目
+> 500对夫妇参加收入调查, 双向表如下
+
+## 2. 调查表格
+
+::: {.callout-tip title="build two-way table in this page "}
+ [`RapidTable`](https://www.rapidtables.com/tools/table-chart.html#)
+:::
+
+![](./images/ex3.21.jpg){width=400}
+
+ 1. `total` 所在的列和行是边缘分布(margin distributions)
+ 2.  图例:第二行,第二列:**36**,代表在 **500对夫妇中有36** 对夫妇妻子收入超过 **25,000**美元,同时丈夫收入低于**25,000**美元,这是联合分布
+ 3.  联合分布的统计量不会改变, 但是在不同的条件下出现在行或者列中,比例可能会不同
+
+## 3. question
+     根据调查表格回答一下问题:
+ - (a) 丈夫收入低于 25,000美元的概率
+ - (b) 丈夫收入高于 25,000条件下,妻子收入高于 25,000美元
+ - (c) 丈夫收入低于 25,000条件下,妻子收入高于 25,000美元
+
+## 4. 解答
+```{julia}
+     using PrettyTables
+     matrix=[212 198;36 54]
+     pretty_table(matrix;tf=tf_matrix,show_header = false)
+```
+### 4.1 (a)
+   第一列边缘分布就是丈夫收入低于25,000 的总数
+```{julia}
+   total=sum(matrix)
+   husband_less25000=sum(matrix[:,1])
+   husband_less25000//total
+```
+### 4.2 (b)
+   第二列边缘分布就是丈夫收入高于25,000 的总数
+
+   丈夫收入高于 25,000条件下,妻子收入高于 25,000美元的联合分布为第二行
+   第二列
+```{julia}
+  husband_morethan25000=sum(matrix[:,2])
+  husband_morethan25000_wife_morethan25000=matrix[2,2]
+  husband_morethan25000_wife_morethan25000//husband_morethan2500
+```
+### 4.3 (c)
+   丈夫收入低于 25,000条件 在 4.1 计算
+
+   丈夫收入低于 25,000条件下,妻子收入高于 25,000美元的边缘分布为第二行
+   第一列
+
+
+```{julia}
+   husband_less25000_wife_morethan25000=matrix[2,1]
+   husband_less25000_wife_morethan25000//husband_less25000
+
+```

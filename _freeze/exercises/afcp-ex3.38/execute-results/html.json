@@ -1,0 +1,11 @@
+{
+  "hash": "f291d904c3ebc2a479f5bac6ebdc2321",
+  "result": {
+    "markdown": "---\ntitle: 1. question\n---\n\n\n> 罐子 A内有5 个白球7 个黑球,罐子 B中有3 个白球和 12 个黑球. 抛一枚均匀硬币,如果正面\n> 就从 A中取一个球, 如果反面就从 B中取一个球\n> 如果取出的球是白球,硬币反面朝上的概率多大?\n\n## 2. 绘出概率路径图\n根据表述\n\n\n```{mermaid}\nflowchart LR\n    A(Coin)==head:1/2==>B(A)\n    A(Coin)==tail:1/2==>C(B)\n    B(A)==aw:5/12==>D(whiteball)\n    B(A)==ab:7/12==>F(blackball)\n    C(B)==bw:3/15==>G(whiteball)\n    C(B)==bb:12/15==>H(blackball)\n    style D  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style G  fill: #FF0000, stroke: #333, stroke-width: 2px;\n```\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\n head=tail=1//2\n aw=5//12;ab=7//12\n bw=3//15;bb=12/15\n\n path1=head*aw\n path2=tail*bw\n p_white=path1+path2 \n \n \"取出的白球来自B的概率为\"=>path2//p_white\n```\n\n::: {.cell-output .cell-output-display execution_count=8}\n```\n\"取出的白球来自B的概率为\" => 12//37\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "afcp-ex3.38_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

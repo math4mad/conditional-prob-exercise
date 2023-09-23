@@ -1,0 +1,13 @@
+```{julia}
+#| label: fig-plots
+#| fig-cap: "Multiple Plots"
+#| fig-subcap:
+#|   - "Plot 1"
+#|   - "Plot 2"
+#| layout-ncol: 2
+
+using Plots
+gr(size=(400,300))
+display(plot(sin, x -> sin(2x), 0, 2))
+display(plot(x -> sin(4x), y -> sin(5y), 0, 2))
+```

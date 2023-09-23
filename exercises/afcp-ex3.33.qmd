@@ -1,0 +1,28 @@
+## 1.quesiton
+>在雨天的时候，乔伊有0.3的概率迟到;平时，他有0. 1的概率迟到.而明天下爾的几率是0.7.
+>
+> - (a) 求出乔伊明天不迟到的概率。
+> - (b) 在 乔 伊 没 有 迟 到 的 条 件 下， 下雨 的 条 件 概 率 是 多 少?
+
+## 2. two-table
+::: {.callout-tip title="build two-way table in this page "}
+ [`RapidTable`](https://www.rapidtables.com/tools/table-chart.html#)
+:::
+
+1. 明天下雨的概率为$p(rain)=0.7$,$p(notrain)=0.3$
+2. 如果下雨,$p(late|rain)=0.3$, $p(rain,late)=p(late|rain)*p(rain)=0.3*0.7=0.21$
+3. 如果不下雨,$p(late|notrain)=0.1$,$p(notrain,lage)=p(late|notrain)*p(notrain)=0.1*0.3=0.03$
+4. 根据归一法, 填充其他项
+![](./images/ex3.33.jpeg)
+
+
+## 3. solution
+
+### 3.1 (a)
+明天不迟到的全概率为 第二行的边缘分布,即$p(notlate)=0.76$
+
+### 3.2 (b)
+下雨,但是没有迟到的联合分布为第二行,第一列 $p(notlate,rain)=0.49$
+所以 $$p(rain|notlate)=\frac{p(notlate,rain)}{p(notlate)}$$
+$$p(rain|notlate)=\frac{0.49}{0.76}$$
+

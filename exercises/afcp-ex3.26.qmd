@@ -1,0 +1,34 @@
+## 1.question
+>假设有5%的男性和0.25%的女性为色盲，并假定男性和女性的数量相等.随机选择一个色盲的 人 ， 
+>他 是 男 性 的 概 率 是 多 大?
+
+## 2. build two-way-table
+::: {.callout-tip title="build two-way table in this page "}
+ [`RapidTable`](https://www.rapidtables.com/tools/table-chart.html#)
+:::
+
+计算示例: 
+
+1. 第三行数据根据介绍`[total,man]=0.50,[total,woman]=0.50`
+2. 男性色盲根据介绍, 填充第一列数据` [colorblind,man]=0.50*5%=0.025`.
+3. `[non colorbind]=0.50-0.025=0.475`,第二列同样处理
+4. 利用归一法,填充剩余的项目
+ 
+![](./images/ex3.26.png)
+
+## 3. build matrix
+```{julia}
+using PrettyTables
+matrix=[0.025 0.00125; 0.475 0.49875]
+pretty_table(matrix;tf=tf_matrix,show_header = false)
+```
+## 4. 计算条件概率
+色盲的边缘概率为矩阵的第一行的和, 男性色盲的联合概率分布为第一行,第一列数据
+
+```{julia}
+pb=matrix[1,:]|>sum
+pbm=matrix[1,1]
+"色盲中男性概率"=>pbm/pb
+```
+
+

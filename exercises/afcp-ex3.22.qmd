@@ -1,0 +1,45 @@
+## 1. question 
+ >有三个骰子,红,黄,蓝(R,Y,B)
+
+   - (a) 三个骰子点数都不同的概率
+   - (b) 在(a) 的条件下,`B<Y<R` 的 概率
+   - (c) `P(B<Y<R)`
+
+## 2. workflow 
+::: {.callout-note}
+构建全概率空间,然后根据条件筛选(过滤)出符合条件的项,概率就是容量的比值,计算式中分母表示
+条件的概率空间,分子表示在条件概率空间下筛选出的更小的概率空间. 不失一般性, 全概率空间也可以
+出现在分母中
+:::
+### 2.1  构建全概率空间,并计算 `size`
+```{julia}
+total_space=[[blue,yellow,red] for blue in 1:6, yellow in 1:6,red in 1:6]
+total_size=length(total_space)
+"全样本容量"=>total_size
+```
+
+### 2.2 计算三枚骰子点数都不同的概率
+```{julia}
+  cond(arr::Array)::Bool=(arr[1]!=arr[2])&&(arr[1]!=arr[3])&&(arr[2]!=arr[3])
+  diff=filter(cond,vec(total_space))
+  
+  "三枚骰子点数都不同的概率"=>length(diff)//total_size
+```
+
+### 2.3 在 2.2条件下计算`B<Y<R` 的 概率
+```{julia}
+cond2(arr::Array)::Bool=arr[1]<arr[2]<arr[3]
+diff2=filter(cond2,diff)
+"三枚骰子点数都不同的条件下,点数Y<B<R的概率"=>length(diff2)//length(diff)
+```
+
+### 2.4  在全概率空间下计算`B<Y<R` 的 概率
+筛选条件不变,但空间是全概率空间
+```{julia}
+diff3=filter(cond2,vec(total_space))
+"点数Y<B<R的概率"=>length(diff3)//total_size
+```
+### total space
+```{julia}
+display(total_space)
+```

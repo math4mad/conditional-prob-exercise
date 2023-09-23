@@ -1,0 +1,11 @@
+{
+  "hash": "0bd54a2dc9124a760e81d666315324b8",
+  "result": {
+    "markdown": "---\ntitle: 1.question\n---\n\n\n>假设有5%的男性和0.25%的女性为色盲，并假定男性和女性的数量相等.随机选择一个色盲的 人 ， \n>他 是 男 性 的 概 率 是 多 大?\n\n## 2. build two-way-table\n::: {.callout-tip title=\"build two-way table in this page \"}\n [`RapidTable`](https://www.rapidtables.com/tools/table-chart.html#)\n:::\n\n计算示例: \n\n1. 第三行数据根据介绍`[total,man]=0.50,[total,woman]=0.50`\n2. 男性色盲根据介绍, 填充第一列数据` [colorblind,man]=0.50*5%=0.025`.\n3. `[non colorbind]=0.50-0.025=0.475`,第二列同样处理\n4. 利用归一法,填充剩余的项目\n \n![](./images/ex3.26.png)\n\n## 3. build matrix\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\nusing PrettyTables\nmatrix=[0.025 0.00125; 0.475 0.49875]\npretty_table(matrix;tf=tf_matrix,show_header = false)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n┌                ┐\n│ 0.025  0.00125 │\n│ 0.475  0.49875 │\n└                ┘\n```\n:::\n:::\n\n\n## 4. 计算条件概率\n色盲的边缘概率为矩阵的第一行的和, 男性色盲的联合概率分布为第一行,第一列数据\n\n::: {.cell execution_count=2}\n``` {.julia .cell-code}\npb=matrix[1,:]|>sum\npbm=matrix[1,1]\n\"色盲中男性概率\"=>pbm/pb\n```\n\n::: {.cell-output .cell-output-display execution_count=7}\n```\n\"色盲中男性概率\" => 0.9523809523809523\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "afcp-ex3.26_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
