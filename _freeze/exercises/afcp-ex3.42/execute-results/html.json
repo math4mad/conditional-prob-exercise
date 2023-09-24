@@ -1,0 +1,11 @@
+{
+  "hash": "0c41e39834036bb9a143e951bdde8726",
+  "result": {
+    "markdown": "---\ntitle: 1. question\n---\n\n\n>全美有12%的家庭在加州.全美总共有1.3%的家庭总收人超过250000 美元每年，而全加州有 3. 3%的\n>家庭年总收人超过250000 美元•\n>\n> - (a)求非加州地区家庭中年收人超过25000 美元的家庭比例。 \n> - (b)假设随机地抽取年收人超过25000 美元的一个美国家庭，请问该家庭是加州地区的機率是多少?\n\n## 2. two-way-table\n\n构建 two-way-table\n\n::: {.callout-tip title=\"build two-way table in this page \"}\n [`RapidTable`](https://www.rapidtables.com/tools/table-chart.html#)\n:::\n\n1. CA=0.12,所以 NCA=1-CA\n2. 加州有 3.3% 家庭收入>250,000, 所以在第一行,第一列为$0.033*0.12=0.00396$\n3. 第一行>250,000 的边缘分布为$1.3%$\n4. 根据归一化填充其他项\n\n![](./images/ex3.42.jpg){width=600}\n\n## 3. 计算\n构建数据矩阵\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\nusing PrettyTables\nmatrix=[0.00396 0.00904 0.013;\n        0.11604 0.87096 0.987;\n        0.12    0.88    1.00\n       ]\npretty_table(matrix;tf=tf_matrix,show_header = false)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n┌                         ┐\n│ 0.00396  0.00904  0.013 │\n│ 0.11604  0.87096  0.987 │\n│    0.12     0.88    1.0 │\n└                         ┘\n```\n:::\n:::\n\n\n### 3.1 (a) 非加州地区>250,000的比例\n第二列为条件, >250,000的比例\n\n::: {.cell execution_count=2}\n``` {.julia .cell-code}\n\"非加州地区>250,000的比例\"=>matrix[1,2]/matrix[3,2]\n```\n\n::: {.cell-output .cell-output-display execution_count=15}\n```\n\"非加州地区>250,000的比例\" => 0.010272727272727272\n```\n:::\n:::\n\n\n### 3.2 (b) 随机抽取一个>250,000的家庭,是加州家庭的概率\n第一行作为条, 第一行,第一列是联合分布\n\n::: {.cell execution_count=3}\n``` {.julia .cell-code}\n\"随机抽取一个>250,000的家庭,是加州家庭的概率\"=>matrix[1,1]/matrix[1,3]\n```\n\n::: {.cell-output .cell-output-display execution_count=16}\n```\n\"随机抽取一个>250,000的家庭,是加州家庭的概率\" => 0.3046153846153846\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "afcp-ex3.42_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}

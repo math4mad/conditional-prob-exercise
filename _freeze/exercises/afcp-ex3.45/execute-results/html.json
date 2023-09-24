@@ -1,0 +1,11 @@
+{
+  "hash": "d1b2e92c6c15a166295512d6f97dfa90",
+  "result": {
+    "markdown": "---\ntitle: 1. question\n---\n\n\n> 假定有10 枚硬币，挪第i 枚硬币正面朝上的概率为i/ 10，i= 1，2，...，10.如果先随机选择一枚硬币来掷，结果为正面，\n> 那么它是第5 枚硬币的概率是多少?\n\n## 2. 计算\n概率路径图原理与 ex3.43 一样, 这里直接计算路径全概率和第五枚硬币抛出正面的概率\n然后计算比值\n$$path_i=\\frac{1}{10}*\\frac{i}{10} \\tag{1.1}$$\n$$total=\\sum_{1}^{10}path_i \\tag{1.2}$$\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\npaths=[1//10*(i//10) for i in 1:10]\nshow(\"正面的全路径概率集合\"=>paths)\npath5=paths[5];total=sum(paths)\n\n\"若抛出正面, 来自第五枚硬币的概率为\"=>path5//total\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\"正面的全路径概率集合\" => Rational{Int64}[1//100, 1//50, 3//100, 1//25, 1//20, 3//50, 7//100, 2//25, 9//100, 1//10]\n```\n:::\n\n::: {.cell-output .cell-output-display execution_count=26}\n```\n\"若抛出正面, 来自第五枚硬币的概率为\" => 1//11\n```\n:::\n:::\n\n\n",
+    "supporting": [
+      "afcp-ex3.45_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
