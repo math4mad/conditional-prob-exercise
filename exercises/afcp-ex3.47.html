@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conditional-Probability-Exercise – afcp-ex3.4</title>
+<title>Conditional-Probability-Exercise – afcp-ex3.47</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.4.html">ex3.4</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.47.html">ex3.47</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exercises/afcp-ex3.4.html" class="sidebar-item-text sidebar-link active">
+  <a href="../exercises/afcp-ex3.4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.4</span></a>
   </div>
 </li>
@@ -303,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exercises/afcp-ex3.47.html" class="sidebar-item-text sidebar-link">
+  <a href="../exercises/afcp-ex3.47.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">ex3.47</span></a>
   </div>
 </li>
@@ -325,25 +325,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">2. workflow</a>
-  <ul class="collapse">
-  <li><a href="#构建全概率空间" id="toc-构建全概率空间" class="nav-link" data-scroll-target="#构建全概率空间">2.1 构建全概率空间</a></li>
-  <li><a href="#筛选子空间" id="toc-筛选子空间" class="nav-link" data-scroll-target="#筛选子空间">2.2 筛选子空间</a></li>
-  <li><a href="#计算条件概率" id="toc-计算条件概率" class="nav-link" data-scroll-target="#计算条件概率">2.3 计算条件概率</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">1. qustion</h1>
+<h1 class="title">1. question</h1>
 </div>
 
 
@@ -359,81 +348,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <blockquote class="blockquote">
-<p>ex3.4 掷 两 枚 均 匀 骰 子 ， 求 给 定 两 枚 骰 子 点 数 之 和 为i 的 条 件 下 ， 至少有一枚是 6 的条件概率</p>
-</blockquote>
-<section id="workflow" class="level2">
-<h2 class="anchored" data-anchor-id="workflow">2. workflow</h2>
+<p>坛子里有5个白球和10个黑球.若掷一枚均匀的假子，掷出几点就从坛子中取几个球，则取出的球</p>
 <ul>
-<li><ol type="1">
-<li>构建全概率空间</li>
-</ol></li>
-<li><ol start="2" type="1">
-<li>根据限制条件筛选出子空间</li>
-</ol></li>
-<li><ol start="3" type="1">
-<li>计算条件概率</li>
-</ol></li>
+<li>1都是白球的概率是多少?</li>
+<li>2在取出的球都是白球的条件下，掷出的骰 子点数为3的条件概率是多少?</li>
 </ul>
-<section id="构建全概率空间" class="level3">
-<h3 class="anchored" data-anchor-id="构建全概率空间">2.1 构建全概率空间</h3>
+</blockquote>
+<p>用<code>cumprod</code> 方法累乘取出白球的概率</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ma<span class="op">=</span>[[x,y] for x <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, y <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>]<span class="op">|&gt;</span><span class="fu">d-&gt;reshape</span>(d,(<span class="fl">1</span>,<span class="fl">36</span>))<span class="op">|&gt;</span>vec</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>span<span class="op">=</span><span class="fl">2</span><span class="op">:</span><span class="fl">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>2:12</code></pre>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>paths<span class="op">=</span><span class="fu">cumprod</span>([<span class="fl">5</span><span class="op">//</span><span class="fl">15</span>,<span class="fl">4</span><span class="op">//</span><span class="fl">14</span>,<span class="fl">3</span><span class="op">//</span><span class="fl">13</span>,<span class="fl">2</span><span class="op">//</span><span class="fl">12</span>,<span class="fl">1</span><span class="op">//</span><span class="fl">11</span>])</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>total<span class="op">=</span><span class="fu">sum</span>(paths)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(<span class="st">"全部为白色球的全概率"</span><span class="op">=&gt;</span>total)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>path3<span class="op">=</span>paths[<span class="fl">3</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">" 色子点数为 3 的概率为:"</span><span class="op">=&gt;</span>path3<span class="op">//</span>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>"全部为白色球的全概率" =&gt; 5//11</code></pre>
 </div>
-</div>
-</section>
-<section id="筛选子空间" class="level3">
-<h3 class="anchored" data-anchor-id="筛选子空间">2.2 筛选子空间</h3>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pA<span class="op">=</span>[<span class="fu">filter</span>(<span class="fu">x-&gt;sum</span>(x)<span class="op">==</span>i,ma) for i <span class="kw">in</span> span]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<pre><code>11-element Vector{Vector{Vector{Int64}}}:
- [[1, 1]]
- [[2, 1], [1, 2]]
- [[3, 1], [2, 2], [1, 3]]
- [[4, 1], [3, 2], [2, 3], [1, 4]]
- [[5, 1], [4, 2], [3, 3], [2, 4], [1, 5]]
- [[6, 1], [5, 2], [4, 3], [3, 4], [2, 5], [1, 6]]
- [[6, 2], [5, 3], [4, 4], [3, 5], [2, 6]]
- [[6, 3], [5, 4], [4, 5], [3, 6]]
- [[6, 4], [5, 5], [4, 6]]
- [[6, 5], [5, 6]]
- [[6, 6]]</code></pre>
-</div>
-</div>
-</section>
-<section id="计算条件概率" class="level3">
-<h3 class="anchored" data-anchor-id="计算条件概率">2.3 计算条件概率</h3>
-<p>筛选的条件表达式为</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 至少有一个骰子点数为 6</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">condition</span>(x<span class="op">::</span><span class="dt">Array</span>)<span class="op">::</span><span class="dt">Bool</span>=x[<span class="fl">1</span>]<span class="op">==</span><span class="fl">6</span><span class="op">||</span>x[<span class="fl">2</span>]<span class="op">==</span><span class="fl">6</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">condition</span>(x<span class="op">::</span><span class="dt">Array</span>)<span class="op">::</span><span class="dt">Bool</span>=x[<span class="fl">1</span>]<span class="op">==</span><span class="fl">6</span><span class="op">||</span>x[<span class="fl">2</span>]<span class="op">==</span><span class="fl">6</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (idx,arr) <span class="kw">in</span> <span class="fu">zip</span>(span,pA)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="kw">local</span> pB<span class="op">=</span><span class="fu">filter</span>(<span class="fu">x-&gt;condition</span>(x),arr)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>        <span class="pp">@info</span> <span class="st">"i=</span><span class="sc">$</span>(idx)<span class="st">"</span><span class="op">=&gt;</span><span class="fu">length</span>(pB)<span class="op">//</span><span class="fu">length</span>(arr)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>[ Info: "i=2" =&gt; 0//1
-[ Info: "i=3" =&gt; 0//1
-[ Info: "i=4" =&gt; 0//1
-[ Info: "i=5" =&gt; 0//1
-[ Info: "i=6" =&gt; 0//1
-[ Info: "i=7" =&gt; 1//3
-[ Info: "i=8" =&gt; 2//5
-[ Info: "i=9" =&gt; 1//2
-[ Info: "i=10" =&gt; 2//3
-[ Info: "i=11" =&gt; 1//1
-[ Info: "i=12" =&gt; 1//1</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>" 色子点数为 3 的概率为:" =&gt; 22//455</code></pre>
 </div>
 </div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
