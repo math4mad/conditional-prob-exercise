@@ -14,7 +14,7 @@
 3. `[non colorbind]=0.50-0.025=0.475`,第二列同样处理
 4. 利用归一法,填充剩余的项目
  
-![](./images/ex3.26.png)
+![](./images/ex.3.26.jpg)
 
 ## 3. build matrix
 ```{julia}

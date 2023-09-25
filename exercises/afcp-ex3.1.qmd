@@ -31,5 +31,5 @@ condition(x::Array)=x[1] !=x[2]
 ### 4.  conditional probablity
 ```{julia}
     pB=filter(x->x[1]==6||x[2]==6,pA)
-    length(pB)//length(pA)      #1//3
+    "两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率"=>length(pB)//length(pA)      #1//3
 ```
