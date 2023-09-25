@@ -365,7 +365,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="total-probablity-space">2. total probablity space</h3>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>  ma<span class="op">=</span>[[x,y] for x <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>, y <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">6</span>]<span class="op">|&gt;</span><span class="fu">d-&gt;reshape</span>(d,(<span class="fl">1</span>,<span class="fl">36</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>1×36 Matrix{Vector{Int64}}:
  [1, 1]  [2, 1]  [3, 1]  [4, 1]  [5, 1]  …  [3, 6]  [4, 6]  [5, 6]  [6, 6]</code></pre>
 </div>
@@ -390,9 +390,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="conditional-probablity">4. conditional probablity</h3>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    pB<span class="op">=</span><span class="fu">filter</span>(x<span class="op">-&gt;</span>x[<span class="fl">1</span>]<span class="op">==</span><span class="fl">6</span><span class="op">||</span>x[<span class="fl">2</span>]<span class="op">==</span><span class="fl">6</span>,pA)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">length</span>(pB)<span class="op">//</span><span class="fu">length</span>(pA)      <span class="co">#1//3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
-<pre><code>1//3</code></pre>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率"</span><span class="op">=&gt;</span><span class="fu">length</span>(pB)<span class="op">//</span><span class="fu">length</span>(pA)      <span class="co">#1//3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>"两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率" =&gt; 1//3</code></pre>
 </div>
 </div>
 

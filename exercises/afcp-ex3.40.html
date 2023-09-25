@@ -370,7 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>(a)没有白球;</li>
 <li>(b)只有1 个白球;</li>
-<li>(c)是了个白球;</li>
+<li>(c)全部是白球;</li>
 <li>(d)刚好有2 个白球。</li>
 </ul>
 </blockquote>
@@ -382,22 +382,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <div>
 <pre class="mermaid mermaid-js">flowchart LR
-    A(Vase)==w1:5/12==&gt;B(white)
-    A(Vase)==r1:7/12==&gt;C(red)
-    B(white)==ww2:6/13==&gt;D(white)
-    B(white)==wr2:7/13==&gt;F(red)
-    C(red)==rw2:5/13==&gt;G(white)
-    C(red)==rr2:8/13==&gt;H(red)
-    D(white)==www3:7/14==&gt;I(white)
-    D(white)==wwr3:7/14==&gt;J(red)
-    F(red)==wrw3:6/14==&gt;L(white)
-    F(red)==wrr3:8/14==&gt;M(red)
+    A("⚪️⚪️⚪️⚪️⚪️\n🔴🔴🔴🔴🔴🔴🔴")==w1:5/12==&gt;B("⚪️")
+    A("⚪️⚪️⚪️⚪️⚪️\n🔴🔴🔴🔴🔴🔴🔴")==r1:7/12==&gt;C("🔴")
+    B("⚪️")==ww2:6/13==&gt;D("⚪️")
+    B("⚪️")==wr2:7/13==&gt;F("🔴")
+    C("🔴")==rw2:5/13==&gt;G("⚪️")
+    C("🔴")==rr2:8/13==&gt;H("🔴")
+    D("⚪️")==www3:7/14==&gt;I("⚪️")
+    D("⚪️")==wwr3:7/14==&gt;J("🔴")
+    F("🔴")==wrw3:6/14==&gt;L("⚪️")
+    F("🔴")==wrr3:8/14==&gt;M("🔴")
 
-    G(white)==rww3:6/14==&gt;N(white)
-    G(white)==rwr3:8/14==&gt;O(red)
+    G("⚪️")==rww3:6/14==&gt;N("⚪️")
+    G("⚪️")==rwr3:8/14==&gt;O("🔴")
 
-    H(red)==rrw3:5/14==&gt;P(white)
-    H(red)==rrr3:9/14==&gt;Q(red)
+    H("🔴")==rrw3:5/14==&gt;P("⚪️")
+    H("🔴")==rrr3:9/14==&gt;Q("🔴")
    
 </pre>
 </div>
@@ -420,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>r1<span class="op">=</span><span class="fl">7</span><span class="op">//</span><span class="fl">12</span>;rr2<span class="op">=</span><span class="fl">8</span><span class="op">//</span><span class="fl">13</span>;rrr3<span class="op">=</span><span class="fl">9</span><span class="op">//</span><span class="fl">14</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>all_3_red<span class="op">=</span>r1<span class="op">*</span>rr2<span class="op">*</span>rrr3</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="st">"取出三个都是红球的概率"</span><span class="op">=&gt;</span>all_3_red</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>"取出三个都是红球的概率" =&gt; 3//13</code></pre>
 </div>
 </div>
@@ -442,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>p3<span class="op">=</span>r1<span class="op">*</span>rr2<span class="op">*</span>rrw3</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>only_1_white<span class="op">=</span>p1<span class="op">+</span>p2<span class="op">+</span>p3</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">"只取出一个白球的概率"</span><span class="op">=&gt;</span>only_1_white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>"只取出一个白球的概率" =&gt; 5//13</code></pre>
 </div>
 </div>
@@ -454,7 +454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>w1<span class="op">=</span><span class="fl">5</span><span class="op">//</span><span class="fl">12</span>;ww2<span class="op">=</span><span class="fl">6</span><span class="op">//</span><span class="fl">13</span>;www3<span class="op">=</span><span class="fl">7</span><span class="op">//</span><span class="fl">14</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>all_3_white<span class="op">=</span>w1<span class="op">*</span>ww2<span class="op">*</span>www3</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="st">"三个全部是白球概率"</span><span class="op">=&gt;</span>all_3_white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>"三个全部是白球概率" =&gt; 5//52</code></pre>
 </div>
 </div>
@@ -477,7 +477,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>either_2_white<span class="op">=</span>p1<span class="op">+</span>p2<span class="op">+</span>p3</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="st">"取出三个球有两个是白色的概率"</span><span class="op">=&gt;</span>either_2_white</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>"取出三个球有两个是白色的概率" =&gt; 15//52</code></pre>
 </div>
 </div>
