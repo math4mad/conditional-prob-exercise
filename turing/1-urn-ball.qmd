@@ -1,0 +1,67 @@
+### 1. question
+
+:::{.callout-note}
+from hakank-bayes-code
+
+Urns and balls
+
+urn1 contains 40 blue balls and 20 red balls 
+urn2 contains 25 blue balls and 30 red balls.
+
+throw a fair coin to descide to choos which urn, head for urn1, tail for urn2
+"What is the probability of drawing a blue ball?"
+
+The exact answer of drawing a blue call is
+0.540/60 + 0.525/55 = 0.56060606060606060606
+:::
+
+###  概率路径图
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+     A["🪙"]
+     Urn1[("🔵:40\n 🔴:20")]
+     Urn2[(" 🔵:25\n 🔴:30")]
+    A==h1:1/2==>Urn1
+    A==t1:1/2==>Urn2
+    Urn1==h1b2:40/60==>h1b2("🔵")
+    Urn1==h1r2:20/60==>h1r2("🔴")
+    Urn2==t1b2:25/55==>t1b2("🔵")
+    Urn2==t1r2:30/55==>t1r2("🔴")
+```
+
+### 3.  turing model
+
+#### 3.1 define model
+```{julia}
+    using Turing,Distributions
+    include("./utils.jl")
+    
+
+    @model function urns_and_balls()
+        tail = 1
+        head = 2
+        coin ~ Categorical(simplex([0.5,0.5]))
+        
+        blue = 1
+        red = 2
+        urn1=Categorical(simplex([40,20]))
+        urn2=Categorical(simplex([25,30]))
+        draw ~ coin == head ? urn1 : urn2 
+    end
+```
+
+#### 3.2 mcmc sampling
+
+```{julia}
+    model = urns_and_balls()
+    chns = sample(model, IS(), 40_000)
+    display(chns)
+```
+#### 3.3 results
+```{julia}
+    show_var_dist_pct(chns,:draw,["blue","red"])
+    show_var_dist_pct(chns,:coin,["tail","head"])
+```
+

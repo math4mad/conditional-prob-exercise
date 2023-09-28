@@ -1,0 +1,76 @@
+## 1. question 
+
+:::{.callout-note title="Question"}
+   a bag of marbles with
+   4 white, 
+   8 blue
+   6 red marbles. 
+   如果取出第一次取出的的是白球, 第二次取出白球的概率
+:::
+
+### 2. 概率路径图
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+     Bag[("⚪️:4\n🔵:8\n 🔴:6 \n " )]
+     Bag2[("⚪️:4\n🔵:8\n 🔴:5 \n " )]
+     Bag-->Bag2
+     Bag-->Pickup("🔴")
+     Bag2==w:4/17==>White2("⚪️")
+     Bag2==b:8/17==>Blue2("🔵")
+     Bag2==r:5/17==>Red2("🔴")
+```
+
+## 3. turing modeling
+
+### 3.1 define model 
+```{julia}
+using Turing
+    include("utils.jl")
+
+    @model function bag_of_marbles(start::Array{Int}=[4,8,6],first::Int=1)
+
+        white = 1
+        blue  = 2
+        red   = 3
+        colors = [white,blue,red]
+
+        draw0 ~ Categorical(simplex([start[white],start[blue],start[red]]))
+        if draw0 == first
+            draw1 ~ Categorical(simplex([start[white]-1,start[blue],start[red]]))
+        elseif draw0==first
+            draw1 ~ Categorical(simplex([start[white],start[blue]-1,start[red]]))
+        else
+            # red
+            draw1 ~ Categorical([start[white],start[blue],start[red]-1]|>simplex);
+        end
+
+        true ~ Dirac(draw0 == first)
+
+    end
+```
+
+### 3.2  MCMC Sampling
+```{julia}
+    "white=4,blue=8,red=6"
+    init=[4,8,6]
+    "1:第一次取白球, 2:第一次取蓝色球,3, 第一次红色球"
+    first_pickup=1
+    model = bag_of_marbles(init,first_pickup)
+    num_chns = 4
+    chns = sample(model, MH(), 10_000)
+    display(chns)
+
+```
+
+### 3.3 results
+```{julia}
+show_var_dist_pct(chns,:draw0,["white","blue","red"])
+println("\ndraw1: The probability of drawing white is the probability for 1.0")
+show_var_dist_pct(chns,:draw1,["white","blue","red"])
+```
+
+
+
+
+
