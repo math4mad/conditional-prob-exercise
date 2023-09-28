@@ -1,139 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/test.html</loc>
-    <lastmod>2023-09-28T00:12:34.773Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/materials.html</loc>
-    <lastmod>2023-09-28T00:12:34.025Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.4.html</loc>
-    <lastmod>2023-09-28T00:12:33.301Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.47.html</loc>
-    <lastmod>2023-09-28T00:12:32.637Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.22.html</loc>
-    <lastmod>2023-09-28T00:12:31.925Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.45.html</loc>
-    <lastmod>2023-09-28T00:12:31.229Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.30.html</loc>
-    <lastmod>2023-09-28T00:12:30.521Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.20.html</loc>
-    <lastmod>2023-09-28T00:12:29.777Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.9.html</loc>
-    <lastmod>2023-09-28T00:12:29.101Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.42.html</loc>
-    <lastmod>2023-09-28T00:12:28.361Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.33.html</loc>
-    <lastmod>2023-09-28T00:12:27.569Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.2.html</loc>
-    <lastmod>2023-09-28T00:12:26.853Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.14.html</loc>
-    <lastmod>2023-09-28T00:12:26.065Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.48.html</loc>
-    <lastmod>2023-09-28T00:12:25.249Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.23.html</loc>
-    <lastmod>2023-09-28T00:12:24.609Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.10.html</loc>
-    <lastmod>2023-09-28T00:12:23.873Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.38.html</loc>
-    <lastmod>2023-09-28T00:12:23.033Z</lastmod>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/turing/2-bag-of-marbles.html</loc>
+    <lastmod>2023-09-28T16:26:14.727Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/math4mad/conditional-prob-exercise/index.html</loc>
-    <lastmod>2023-09-28T00:12:21.229Z</lastmod>
+    <lastmod>2023-09-28T16:26:13.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.38.html</loc>
+    <lastmod>2023-09-28T16:26:12.763Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.11.html</loc>
-    <lastmod>2023-09-28T00:12:23.509Z</lastmod>
+    <lastmod>2023-09-28T16:26:11.683Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.16.html</loc>
-    <lastmod>2023-09-28T00:12:24.229Z</lastmod>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.9.html</loc>
+    <lastmod>2023-09-28T16:26:10.759Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.7.html</loc>
-    <lastmod>2023-09-28T00:12:24.893Z</lastmod>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.10.html</loc>
+    <lastmod>2023-09-28T16:26:09.763Z</lastmod>
   </url>
   <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.1.html</loc>
-    <lastmod>2023-09-28T00:12:25.617Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.37.html</loc>
-    <lastmod>2023-09-28T00:12:26.465Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.43.html</loc>
-    <lastmod>2023-09-28T00:12:27.245Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.21.html</loc>
-    <lastmod>2023-09-28T00:12:27.969Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.19.html</loc>
-    <lastmod>2023-09-28T00:12:28.705Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.50.html</loc>
-    <lastmod>2023-09-28T00:12:29.405Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.17.html</loc>
-    <lastmod>2023-09-28T00:12:30.137Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.12.html</loc>
-    <lastmod>2023-09-28T00:12:30.889Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.8.html</loc>
-    <lastmod>2023-09-28T00:12:31.525Z</lastmod>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.14.html</loc>
+    <lastmod>2023-09-28T16:26:08.771Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.26.html</loc>
-    <lastmod>2023-09-28T00:12:32.293Z</lastmod>
+    <lastmod>2023-09-28T16:26:07.623Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.16.html</loc>
+    <lastmod>2023-09-28T16:26:06.535Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.21.html</loc>
+    <lastmod>2023-09-28T16:26:05.515Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.48.html</loc>
+    <lastmod>2023-09-28T16:26:04.395Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.17.html</loc>
+    <lastmod>2023-09-28T16:26:03.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.33.html</loc>
+    <lastmod>2023-09-28T16:26:02.355Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.25.html</loc>
-    <lastmod>2023-09-28T00:12:32.913Z</lastmod>
+    <lastmod>2023-09-28T16:26:01.355Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.1.html</loc>
+    <lastmod>2023-09-28T16:26:00.403Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.22.html</loc>
+    <lastmod>2023-09-28T16:25:59.403Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.4.html</loc>
+    <lastmod>2023-09-28T16:25:58.279Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/test.html</loc>
+    <lastmod>2023-09-28T16:25:57.311Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/materials.html</loc>
+    <lastmod>2023-09-28T16:25:56.243Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.19.html</loc>
+    <lastmod>2023-09-28T16:25:57.747Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.2.html</loc>
+    <lastmod>2023-09-28T16:25:58.815Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.45.html</loc>
+    <lastmod>2023-09-28T16:25:59.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.23.html</loc>
+    <lastmod>2023-09-28T16:26:00.967Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.30.html</loc>
+    <lastmod>2023-09-28T16:26:01.907Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.50.html</loc>
+    <lastmod>2023-09-28T16:26:02.767Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.40.html</loc>
-    <lastmod>2023-09-28T00:12:33.749Z</lastmod>
+    <lastmod>2023-09-28T16:26:03.871Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.37.html</loc>
+    <lastmod>2023-09-28T16:26:04.947Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.42.html</loc>
+    <lastmod>2023-09-28T16:26:06.031Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.47.html</loc>
+    <lastmod>2023-09-28T16:26:07.067Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.43.html</loc>
+    <lastmod>2023-09-28T16:26:08.143Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.20.html</loc>
+    <lastmod>2023-09-28T16:26:09.315Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.7.html</loc>
+    <lastmod>2023-09-28T16:26:10.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.8.html</loc>
+    <lastmod>2023-09-28T16:26:11.167Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/exercises/afcp-ex3.12.html</loc>
+    <lastmod>2023-09-28T16:26:12.223Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/math4mad/conditional-prob-exercise/schedule.html</loc>
-    <lastmod>2023-09-28T00:12:34.357Z</lastmod>
+    <lastmod>2023-09-28T16:26:13.207Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/math4mad/conditional-prob-exercise/turing/1-urn-ball.html</loc>
+    <lastmod>2023-09-28T16:26:14.159Z</lastmod>
   </url>
 </urlset>

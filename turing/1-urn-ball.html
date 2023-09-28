@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conditional-Probability-Exercise – afcp-ex3.16</title>
+<title>Conditional-Probability-Exercise – urn-ball</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -96,8 +96,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -110,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.1.html">AFCP</a></li><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.16.html">ex3.16</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../turing/1-urn-ball.html">Turing.jl</a></li><li class="breadcrumb-item"><a href="../turing/1-urn-ball.html">1-urn-ball</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -215,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exercises/afcp-ex3.16.html" class="sidebar-item-text sidebar-link active">
+  <a href="../exercises/afcp-ex3.16.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ex3.16</span></a>
   </div>
 </li>
@@ -346,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../turing/1-urn-ball.html" class="sidebar-item-text sidebar-link">
+  <a href="../turing/1-urn-ball.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">1-urn-ball</span></a>
   </div>
 </li>
@@ -368,9 +366,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#全概率图为-fig-1" id="toc-全概率图为-fig-1" class="nav-link active" data-scroll-target="#全概率图为-fig-1">2. 全概率图为 Figure&nbsp;1</a></li>
-  <li><a href="#分娩成功全概率表示为" id="toc-分娩成功全概率表示为" class="nav-link" data-scroll-target="#分娩成功全概率表示为">3. 分娩成功全概率表示为:</a></li>
-  <li><a href="#计算" id="toc-计算" class="nav-link" data-scroll-target="#计算">4. 计算</a></li>
+  <li><a href="#概率路径图" id="toc-概率路径图" class="nav-link active" data-scroll-target="#概率路径图">概率路径图</a></li>
+  <li><a href="#turing-model" id="toc-turing-model" class="nav-link" data-scroll-target="#turing-model">3. turing model</a></li>
   </ul>
 </nav>
     </div>
@@ -394,49 +391,123 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<blockquote class="blockquote">
-<p>98%的婴儿分娩是安全的.然而有15% 的分娩是剖腹产. 当采用剖腹产时，婴儿的生存概率为 9 6 %. 如 果 随 机 选 择 一 个 采 用 非 剖 腹 产 的 孕妇 ， 那 么 其 婴 儿 的 生 存 概 率 是 多 少?</p>
-</blockquote>
-<section id="全概率图为-fig-1" class="level3">
-<h3 class="anchored" data-anchor-id="全概率图为-fig-1">2. 全概率图为 <a href="#fig-1">Figure&nbsp;1</a></h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>from hakank-bayes-code</p>
+<p>Urns and balls</p>
+<p>urn1 contains 40 blue balls and 20 red balls urn2 contains 25 blue balls and 30 red balls.</p>
+<p>throw a fair coin to descide to choos which urn, head for urn1, tail for urn2 “What is the probability of drawing a blue ball?”</p>
+<p>The exact answer of drawing a blue call is 0.540/60 + 0.525/55 = 0.56060606060606060606</p>
+</div>
+</div>
+<section id="概率路径图" class="level3">
+<h3 class="anchored" data-anchor-id="概率路径图">概率路径图</h3>
 <div class="cell" data-fig-width="6.5">
 <div class="cell-output-display">
-<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
 <div>
-<pre class="mermaid mermaid-js" data-label="fig-1">    flowchart LR
-    A(P)==自然分娩==&gt;B(85%)
-    A(P)==剖腹产==&gt;C(15%)
-
-    B(85%)==生存==&gt;D(PA)
-    B(85%)==夭折==&gt;E(1-PA)
-
-    C(15%)==生存==&gt;F(96%)
-    C(15%)==夭折==&gt;G(4%)
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+     A["🪙"]
+     Urn1[("🔵:40\n 🔴:20")]
+     Urn2[(" 🔵:25\n 🔴:30")]
+    A==h1:1/2==&gt;Urn1
+    A==t1:1/2==&gt;Urn2
+    Urn1==h1b2:40/60==&gt;h1b2("🔵")
+    Urn1==h1r2:20/60==&gt;h1r2("🔴")
+    Urn2==t1b2:25/55==&gt;t1b2("🔵")
+    Urn2==t1r2:30/55==&gt;t1r2("🔴")
 </pre>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;1: A baby success</figcaption>
-</figure>
 </div>
 </div>
 </div>
 </section>
-<section id="分娩成功全概率表示为" class="level3">
-<h3 class="anchored" data-anchor-id="分娩成功全概率表示为">3. 分娩成功全概率表示为:</h3>
-<p><span class="math display">\[(0.85*PA)+(0.15*0.96)=0.98 \tag{1.1}\]</span></p>
-<p>可以变换为:</p>
-<p><span class="math display">\[PA=\frac{0.98-(0.15*0.96)}{0.85} \tag{1.2}\]</span></p>
-</section>
-<section id="计算" class="level3">
-<h3 class="anchored" data-anchor-id="计算">4. 计算</h3>
+<section id="turing-model" class="level3">
+<h3 class="anchored" data-anchor-id="turing-model">3. turing model</h3>
+<section id="define-model" class="level4">
+<h4 class="anchored" data-anchor-id="define-model">3.1 define model</h4>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PA<span class="op">=</span>(<span class="fl">0.98</span><span class="fu">-</span>(<span class="fl">0.15</span><span class="op">*</span><span class="fl">0.96</span>))<span class="op">/</span><span class="fl">0.85</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="im">using</span> <span class="bu">Turing</span>,<span class="bu">Distributions</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">include</span>(<span class="st">"./utils.jl"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="pp">@model</span> <span class="kw">function</span> <span class="fu">urns_and_balls</span>()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        tail <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        head <span class="op">=</span> <span class="fl">2</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        coin <span class="op">~</span> <span class="fu">Categorical</span>(<span class="fu">simplex</span>([<span class="fl">0.5</span>,<span class="fl">0.5</span>]))</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        blue <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        red <span class="op">=</span> <span class="fl">2</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        urn1<span class="op">=</span><span class="fu">Categorical</span>(<span class="fu">simplex</span>([<span class="fl">40</span>,<span class="fl">20</span>]))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        urn2<span class="op">=</span><span class="fu">Categorical</span>(<span class="fu">simplex</span>([<span class="fl">25</span>,<span class="fl">30</span>]))</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        draw <span class="op">~</span> coin <span class="op">==</span> head ? urn1 <span class="op">:</span> urn2 </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>0.9835294117647059</code></pre>
+<pre><code>urns_and_balls (generic function with 2 methods)</code></pre>
+</div>
+</div>
+</section>
+<section id="mcmc-sampling" class="level4">
+<h4 class="anchored" data-anchor-id="mcmc-sampling">3.2 mcmc sampling</h4>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    model <span class="op">=</span> <span class="fu">urns_and_balls</span>()</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    chns <span class="op">=</span> <span class="fu">sample</span>(model, <span class="fu">IS</span>(), <span class="fl">40_000</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">display</span>(chns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Sampling:   7%|██▉                                      |  ETA: 0:00:01Sampling:  59%|████████████████████████▎                |  ETA: 0:00:01Sampling:  71%|█████████████████████████████▏           |  ETA: 0:00:01Sampling:  78%|███████████████████████████████▊         |  ETA: 0:00:00Sampling:  84%|██████████████████████████████████▌      |  ETA: 0:00:00Sampling:  90%|█████████████████████████████████████▏   |  ETA: 0:00:00Sampling:  97%|███████████████████████████████████████▊ |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:01</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Chains MCMC chain (40000×3×1 Array{Float64, 3}):
+Log evidence      = 0.0
+Iterations        = 1:1:40000
+Number of chains  = 1
+Samples per chain = 40000
+Wall duration     = 4.7 seconds
+Compute duration  = 4.7 seconds
+parameters        = coin, draw
+internals         = lp
+Summary Statistics
+ <span class="ansi-bold"> parameters </span> <span class="ansi-bold">    mean </span> <span class="ansi-bold">     std </span> <span class="ansi-bold"> naive_se </span> <span class="ansi-bold">    mcse </span> <span class="ansi-bold">        ess </span> <span class="ansi-bold">    rhat </span>  ⋯
+ <span class="ansi-bright-black-fg">     Symbol </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg">  Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg">    Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span>  ⋯
+        coin    1.4937    0.5000     0.0025    0.0024   40079.2892    1.0000   ⋯
+        draw    1.4435    0.4968     0.0025    0.0024   39303.0486    1.0000   ⋯
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+Quantiles
+ <span class="ansi-bold"> parameters </span> <span class="ansi-bold">    2.5% </span> <span class="ansi-bold">   25.0% </span> <span class="ansi-bold">   50.0% </span> <span class="ansi-bold">   75.0% </span> <span class="ansi-bold">   97.5% </span>
+ <span class="ansi-bright-black-fg">     Symbol </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span>
+        coin    1.0000    1.0000    1.0000    2.0000    2.0000
+        draw    1.0000    1.0000    1.0000    2.0000    2.0000
+</pre>
+</div>
+</div>
+</div>
+</section>
+<section id="results" class="level4">
+<h4 class="anchored" data-anchor-id="results">3.3 results</h4>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">show_var_dist_pct</span>(chns,<span class="op">:</span>draw,[<span class="st">"blue"</span>,<span class="st">"red"</span>])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">show_var_dist_pct</span>(chns,<span class="op">:</span>coin,[<span class="st">"tail"</span>,<span class="st">"head"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Distributions of variable draw
+blue       =&gt;   22260  (0.556500)
+red        =&gt;   17740  (0.443500)
+Distributions of variable coin
+tail       =&gt;   20250  (0.506250)
+head       =&gt;   19750  (0.493750)</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
