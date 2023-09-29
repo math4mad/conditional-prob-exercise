@@ -77,7 +77,7 @@ pv=p1+p2
 ```{julia}
     model = cookie_problem(1)
     num_chains = 4
-    chns = sample(model, PG(5), 10_000)
+    chns = sample(model, MH(), 10_000)
     display(chns)
 ```
 ### 4.3 香草味("vanilla")-results
@@ -88,7 +88,7 @@ pv=p1+p2
 ### 4.4 取出的是巧克力味("chocolate")
 ```{julia}
     model2 = cookie_problem(2)
-    chns2 = sample(model2, PG(5), 10_000)
+    chns2 = sample(model2, MH(), 10_000)
     display(chns2)
     show_var_dist_pct(chns2, :bowl)
 ```
