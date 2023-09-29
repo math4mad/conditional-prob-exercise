@@ -1,3 +1,7 @@
+---
+title: "2-bag-of-marbles "
+---
+
 ## 1. question 
 
 :::{.callout-note title="Question"}

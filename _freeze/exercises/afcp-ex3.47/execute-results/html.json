@@ -1,9 +1,9 @@
 {
-  "hash": "5d49a47a8cb36b9d8db191a9a6fe7915",
+  "hash": "1328dc697cb8abcf6ac1831a54f308cb",
   "result": {
-    "markdown": "---\ntitle: 1. question\n---\n\n\n> 坛子里有5个白球和10个黑球.若掷一枚均匀的假子，掷出几点就从坛子中取几个球，则取出的球 \n> \n> - 1都是白球的概率是多少?\n> - 2在取出的球都是白球的条件下，掷出的骰 子点数为3的条件概率是多少?\n\n用`cumprod` 方法累乘取出白球的概率\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\npaths=cumprod([5//15,4//14,3//13,2//12,1//11])\ntotal=sum(paths)\nshow(\"全部为白色球的全概率\"=>total)\npath3=paths[3]\n\" 色子点数为 3 的概率为:\"=>path3//total\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\"全部为白色球的全概率\" => 5//11\n```\n:::\n\n::: {.cell-output .cell-output-display execution_count=7}\n```\n\" 色子点数为 3 的概率为:\" => 22//455\n```\n:::\n:::\n\n\n",
+    "markdown": "---\ntitle: \"afcp-ex3.47\"\n---\n\n## 1. question\n> 坛子里有5个白球和10个黑球.若掷一枚均匀的假子，掷出几点就从坛子中取几个球，则取出的球 \n> \n> - 1都是白球的概率是多少?\n> - 2在取出的球都是白球的条件下，掷出的骰 子点数为3的条件概率是多少?\n\n用`cumprod` 方法累乘取出白球的概率\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\npaths=cumprod([5//15,4//14,3//13,2//12,1//11])\ntotal=sum(paths)\nshow(\"全部为白色球的全概率\"=>total)\npath3=paths[3]\n\" 色子点数为 3 的概率为:\"=>path3//total\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n\"全部为白色球的全概率\" => 5//11\n```\n:::\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\n\" 色子点数为 3 的概率为:\" => 22//455\n```\n:::\n:::\n\n\n",
     "supporting": [
-      "afcp-ex3.47_files"
+      "afcp-ex3.47_files/figure-html"
     ],
     "filters": [],
     "includes": {}

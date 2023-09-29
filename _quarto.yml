@@ -5,8 +5,9 @@ project:
 website:
   title: "Conditional-Probability-Exercise"
   sidebar:
+    collapse-level: 1
     background: primary
-    # logo: "images/logo.png"
+    logo: "imgs/logo.png"
     pinned: true
     align: center
     tools:
@@ -14,80 +15,15 @@ website:
         href: https://github.com/math4mad/conditional-prob-exercise
         text: GitHub
     style: docked
+    
     contents:
       - href: index.qmd
         text: Home
       - section: "AFCP"
-        contents:
-        - href: ./exercises/afcp-ex3.1.qmd
-          text: ex3.1
-        - href: ./exercises/afcp-ex3.2.qmd
-          text: ex3.2
-        - href: ./exercises/afcp-ex3.4.qmd
-          text: ex3.4
-        - href: ./exercises/afcp-ex3.7.qmd
-          text: ex3.7
-        - href: ./exercises/afcp-ex3.8.qmd
-          text: ex3.8
-        - href: ./exercises/afcp-ex3.9.qmd
-          text: ex3.9
-        - href: ./exercises/afcp-ex3.10.qmd
-          text: ex3.10
-        - href: ./exercises/afcp-ex3.11.qmd
-          text: ex3.11
-        - href: ./exercises/afcp-ex3.12.qmd
-          text: ex3.12
-        - href: ./exercises/afcp-ex3.14.qmd
-          text: ex3.14
-        - href: ./exercises/afcp-ex3.16.qmd
-          text: ex3.16
-        - href: ./exercises/afcp-ex3.17.qmd
-          text: ex3.17
-        - href: ./exercises/afcp-ex3.19.qmd
-          text: ex3.19
-        - href: ./exercises/afcp-ex3.20.qmd
-          text: ex3.20
-        - href: ./exercises/afcp-ex3.21.qmd
-          text: ex3.21
-        - href: ./exercises/afcp-ex3.22.qmd
-          text: ex3.22
-        - href: ./exercises/afcp-ex3.23.qmd
-          text: ex3.23
-        - href: ./exercises/afcp-ex3.25.qmd
-          text: ex3.25
-        - href: ./exercises/afcp-ex3.26.qmd
-          text: ex3.26
-        - href: ./exercises/afcp-ex3.30.qmd
-          text: ex3.30
-        - href: ./exercises/afcp-ex3.33.qmd
-          text: ex3.33
-        - href: ./exercises/afcp-ex3.37.qmd
-          text: ex3.37
-        - href: ./exercises/afcp-ex3.38.qmd
-          text: ex3.38
-        - href: ./exercises/afcp-ex3.40.qmd
-          text: ex3.40
-        - href: ./exercises/afcp-ex3.42.qmd
-          text: ex3.42
-        - href: ./exercises/afcp-ex3.43.qmd
-          text: ex3.43
-        - href: ./exercises/afcp-ex3.45.qmd
-          text: ex3.45
-        - href: ./exercises/afcp-ex3.47.qmd
-          text: ex3.47
-        - href: ./exercises/afcp-ex3.48.qmd
-          text: ex3.48
-        - href: ./exercises/afcp-ex3.50.qmd
-          text: ex3.50
-      - section : "Turing.jl"
-        contents:
-        - href: ./turing/1-urn-ball.qmd
-          text: 1-urn-ball
-        - href: ./turing/2-bag-of-marbles.qmd
-          text: 2-bag-of-marbles
+        contents: exercises/*
         
-
-
+      - section : "Turing"
+        contents: turing/*
 
 format:
   html:

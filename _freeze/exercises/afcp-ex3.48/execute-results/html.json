@@ -1,9 +1,9 @@
 {
-  "hash": "da8980cc9ca817b4843e2719e621c98b",
+  "hash": "da52ab2655f85b17b36bc9e8398b848f",
   "result": {
-    "markdown": "---\ntitle: 1. question\n---\n\n\n>两个外形一样的橱柜都有2 个抽屉.A 橱柜每个抽屉里有一枚银币，B 橱柜有一 个抽屉里有一枚银 币，另一抽屉有一枚金币.\n>随机挑选 一个橱柜，打开其中 一个抽屉，发现是 一枚银币，求另 一个抽屉里也是银币的概率\n\n## 2. 概率路径图\n根据描述绘出概率路径图\n\n\n```{mermaid}\nflowchart LR\n    A(Cab)==c1:1/2==>B(Cab1)\n    A(Cab)==c2:1/2==>C(Cab2)\n    B(Cab1)==c1d:1==>D(Silver)\n    C(Cab2)==c2d1:1/2==>E(Silver)\n    C(Cab2)==c2d2:1/2==>F(Gold)\n    \n```\n\n## 3. solution\n如果打开一个抽屉发现是银币,有两条路径\n\n1. `c1->c1d`\n2. `c2->c2d1`\n\n如果另一个抽屉也是银币, 就是路径 1 的概率\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\nc1=c2=1//2\nc1d=1\nc2d1=c2d2=1//2\np1=c1*c1d\np2=c2*c2d1\ntotal=p1+p2\n\"选中的柜子为 1 的概率为\"=>p1//total\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\n\"选中的柜子为 1 的概率为\" => 2//3\n```\n:::\n:::\n\n\n",
+    "markdown": "---\ntitle: \"afcp-ex3.48\"\n---\n\n## 1. question\n>两个外形一样的橱柜都有2 个抽屉.A 橱柜每个抽屉里有一枚银币，B 橱柜有一 个抽屉里有一枚银 币，另一抽屉有一枚金币.\n>随机挑选 一个橱柜，打开其中 一个抽屉，发现是 一枚银币，求另 一个抽屉里也是银币的概率\n\n## 2. 概率路径图\n根据描述绘出概率路径图\n\n\n```{mermaid}\nflowchart LR\n    A(Cab)==c1:1/2==>B(Cab1)\n    A(Cab)==c2:1/2==>C(Cab2)\n    B(Cab1)==c1d:1==>D(Silver)\n    C(Cab2)==c2d1:1/2==>E(Silver)\n    C(Cab2)==c2d2:1/2==>F(Gold)\n    \n```\n\n## 3. solution\n如果打开一个抽屉发现是银币,有两条路径\n\n1. `c1->c1d`\n2. `c2->c2d1`\n\n如果另一个抽屉也是银币, 就是路径 1 的概率\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\nc1=c2=1//2\nc1d=1\nc2d1=c2d2=1//2\np1=c1*c1d\np2=c2*c2d1\ntotal=p1+p2\n\"选中的柜子为 1 的概率为\"=>p1//total\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\n\"选中的柜子为 1 的概率为\" => 2//3\n```\n:::\n:::\n\n\n",
     "supporting": [
-      "afcp-ex3.48_files"
+      "afcp-ex3.48_files/figure-html"
     ],
     "filters": [],
     "includes": {}

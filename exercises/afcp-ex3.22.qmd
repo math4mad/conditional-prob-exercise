@@ -1,3 +1,7 @@
+---
+title: "afcp-ex3.22"
+---
+
 ## 1. question 
  >有三个骰子,红,黄,蓝(R,Y,B)
 

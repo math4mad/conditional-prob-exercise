@@ -1,3 +1,7 @@
+---
+title: "afcp-ex3.21"
+---
+
 ## 1. 调查项目
 > 500对夫妇参加收入调查, 双向表如下
 
@@ -40,7 +44,7 @@
 ```{julia}
   husband_morethan25000=sum(matrix[:,2])
   husband_morethan25000_wife_morethan25000=matrix[2,2]
-  husband_morethan25000_wife_morethan25000//husband_morethan2500
+  husband_morethan25000_wife_morethan25000//husband_morethan25000
 ```
 ### 4.3 (c)
    丈夫收入低于 25,000条件 在 4.1 计算

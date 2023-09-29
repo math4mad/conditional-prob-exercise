@@ -1,3 +1,7 @@
+---
+title: "afcp-ex3.7"
+---
+
 ## 1. question 
 
 ::: {.callout-note  collapse="true" title="Question"}

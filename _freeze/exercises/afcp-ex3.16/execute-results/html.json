@@ -1,9 +1,9 @@
 {
-  "hash": "f87d0e99b34192fdb87928a1a1323be8",
+  "hash": "a41080f855b67ad1234fdfaef2a5ecf3",
   "result": {
-    "markdown": "---\ntitle: 1. question\n---\n\n\n>98%的婴儿分娩是安全的.然而有15% 的分娩是剖腹产. 当采用剖腹产时，婴儿的生存概率为 9 6 %. 如 果 随 机 选 择 一 个 采 用 非 剖 腹 产 的 孕妇  ， 那 么 其 婴 儿 的 生 存 概 率 是 多 少?\n\n### 2. 全概率图为  @fig-1\n\n\n```{mermaid}\n%%| fig-width: 6.5\n%%| label: fig-1\n%%| fig-cap: \"A baby success\"\n\n    flowchart LR\n    A(P)==自然分娩==>B(85%)\n    A(P)==剖腹产==>C(15%)\n\n    B(85%)==生存==>D(PA)\n    B(85%)==夭折==>E(1-PA)\n\n    C(15%)==生存==>F(96%)\n    C(15%)==夭折==>G(4%)\n```\n\n\n### 3. 分娩成功全概率表示为:\n\n$$(0.85*PA)+(0.15*0.96)=0.98 \\tag{1.1}$$\n\n  可以变换为:\n\n$$PA=\\frac{0.98-(0.15*0.96)}{0.85} \\tag{1.2}$$\n\n### 4. 计算\n\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\nPA=(0.98-(0.15*0.96))/0.85\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\n0.9835294117647059\n```\n:::\n:::\n\n\n",
+    "markdown": "---\ntitle: \"afcp-ex3.16\"\n---\n\n## 1. question \n>98%的婴儿分娩是安全的.然而有15% 的分娩是剖腹产. 当采用剖腹产时，婴儿的生存概率为 9 6 %. 如 果 随 机 选 择 一 个 采 用 非 剖 腹 产 的 孕妇  ， 那 么 其 婴 儿 的 生 存 概 率 是 多 少?\n\n### 2. 全概率图为  @fig-1\n\n\n```{mermaid}\n%%| fig-width: 6.5\n%%| label: fig-1\n%%| fig-cap: \"A baby success\"\n\n    flowchart LR\n    A(P)==自然分娩==>B(85%)\n    A(P)==剖腹产==>C(15%)\n\n    B(85%)==生存==>D(PA)\n    B(85%)==夭折==>E(1-PA)\n\n    C(15%)==生存==>F(96%)\n    C(15%)==夭折==>G(4%)\n```\n\n\n### 3. 分娩成功全概率表示为:\n\n$$(0.85*PA)+(0.15*0.96)=0.98 \\tag{1.1}$$\n\n  可以变换为:\n\n$$PA=\\frac{0.98-(0.15*0.96)}{0.85} \\tag{1.2}$$\n\n### 4. 计算\n\n::: {.cell execution_count=1}\n``` {.julia .cell-code}\nPA=(0.98-(0.15*0.96))/0.85\n```\n\n::: {.cell-output .cell-output-display execution_count=2}\n```\n0.9835294117647059\n```\n:::\n:::\n\n\n",
     "supporting": [
-      "afcp-ex3.16_files"
+      "afcp-ex3.16_files/figure-html"
     ],
     "filters": [],
     "includes": {}
