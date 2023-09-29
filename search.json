@@ -11,7 +11,7 @@
     "href": "turing/2-bag-of-marbles.html#turing-modeling",
     "title": "1. question",
     "section": "3. turing modeling",
-    "text": "3. turing modeling\n\n3.1 define model\n\nusing Turing\n    include(\"utils.jl\")\n\n    @model function bag_of_marbles(start::Array{Int}=[4,8,6],first::Int=1)\n\n        white = 1\n        blue  = 2\n        red   = 3\n        colors = [white,blue,red]\n\n        draw0 ~ Categorical(simplex([start[white],start[blue],start[red]]))\n        if draw0 == first\n            draw1 ~ Categorical(simplex([start[white]-1,start[blue],start[red]]))\n        elseif draw0==first\n            draw1 ~ Categorical(simplex([start[white],start[blue]-1,start[red]]))\n        else\n            # red\n            draw1 ~ Categorical([start[white],start[blue],start[red]-1]|&gt;simplex);\n        end\n\n        true ~ Dirac(draw0 == first)\n\n    end\n\nbag_of_marbles (generic function with 8 methods)\n\n\n\n\n3.2 MCMC Sampling\n\n    \"white=4,blue=8,red=6\"\n    init=[4,8,6]\n    \"1:第一次取白球, 2:第一次取蓝色球,3, 第一次红色球\"\n    first_pickup=1\n    model = bag_of_marbles(init,first_pickup)\n    num_chns = 4\n    chns = sample(model, MH(), 10_000)\n    display(chns)\n\nSampling:  91%|█████████████████████████████████████▎   |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00\n\n\n\nChains MCMC chain (10000×3×1 Array{Float64, 3}):\nIterations        = 1:1:10000\nNumber of chains  = 1\nSamples per chain = 10000\nWall duration     = 0.41 seconds\nCompute duration  = 0.41 seconds\nparameters        = draw0, draw1\ninternals         = lp\nSummary Statistics\n  parameters      mean       std   naive_se      mcse         ess      rhat    ⋯\n      Symbol   Float64   Float64    Float64   Float64     Float64   Float64    ⋯\n       draw0    1.0011    0.0331     0.0003    0.0011    836.9041    1.0010    ⋯\n       draw1    2.1272    0.7064     0.0071    0.0203   1004.1686    1.0004    ⋯\n                                                                1 column omitted\nQuantiles\n  parameters      2.5%     25.0%     50.0%     75.0%     97.5% \n      Symbol   Float64   Float64   Float64   Float64   Float64 \n       draw0    1.0000    1.0000    1.0000    1.0000    1.0000\n       draw1    1.0000    2.0000    2.0000    3.0000    3.0000\n\n\n\n\n\n\n3.3 results\n\nshow_var_dist_pct(chns,:draw0,[\"white\",\"blue\",\"red\"])\nprintln(\"\\ndraw1: The probability of drawing white is the probability for 1.0\")\nshow_var_dist_pct(chns,:draw1,[\"white\",\"blue\",\"red\"])\n\nDistributions of variable draw0\nwhite      =&gt;    9989  (0.998900)\nblue       =&gt;      11  (0.001100)\n\ndraw1: The probability of drawing white is the probability for 1.0\nDistributions of variable draw1\nblue       =&gt;    4848  (0.484800)\nred        =&gt;    3212  (0.321200)\nwhite      =&gt;    1940  (0.194000)"
+    "text": "3. turing modeling\n\n3.1 define model\n\nusing Turing\n    include(\"utils.jl\")\n\n    @model function bag_of_marbles(start::Array{Int}=[4,8,6],first::Int=1)\n\n        white = 1\n        blue  = 2\n        red   = 3\n        colors = [white,blue,red]\n\n        draw0 ~ Categorical(simplex([start[white],start[blue],start[red]]))\n        if draw0 == first\n            draw1 ~ Categorical(simplex([start[white]-1,start[blue],start[red]]))\n        elseif draw0==first\n            draw1 ~ Categorical(simplex([start[white],start[blue]-1,start[red]]))\n        else\n            # red\n            draw1 ~ Categorical([start[white],start[blue],start[red]-1]|&gt;simplex);\n        end\n\n        true ~ Dirac(draw0 == first)\n\n    end\n\nbag_of_marbles (generic function with 6 methods)\n\n\n\n\n3.2 MCMC Sampling\n\n    \"white=4,blue=8,red=6\"\n    init=[4,8,6]\n    \"1:第一次取白球, 2:第一次取蓝色球,3, 第一次红色球\"\n    first_pickup=1\n    model = bag_of_marbles(init,first_pickup)\n    num_chns = 4\n    chns = sample(model, MH(), 10_000)\n    display(chns)\n\nSampling:  75%|██████████████████████████████▊          |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00\n\n\n\nChains MCMC chain (10000×3×1 Array{Float64, 3}):\nIterations        = 1:1:10000\nNumber of chains  = 1\nSamples per chain = 10000\nWall duration     = 4.23 seconds\nCompute duration  = 4.23 seconds\nparameters        = draw0, draw1\ninternals         = lp\nSummary Statistics\n  parameters      mean       std   naive_se      mcse         ess      rhat    ⋯\n      Symbol   Float64   Float64    Float64   Float64     Float64   Float64    ⋯\n       draw0    1.0006    0.0346     0.0003    0.0006   3133.8451    1.0002    ⋯\n       draw1    2.1591    0.6934     0.0069    0.0227   1179.6618    1.0007    ⋯\n                                                                1 column omitted\nQuantiles\n  parameters      2.5%     25.0%     50.0%     75.0%     97.5% \n      Symbol   Float64   Float64   Float64   Float64   Float64 \n       draw0    1.0000    1.0000    1.0000    1.0000    1.0000\n       draw1    1.0000    2.0000    2.0000    3.0000    3.0000\n\n\n\n\n\n\n3.3 results\n\nshow_var_dist_pct(chns,:draw0,[\"white\",\"blue\",\"red\"])\nprintln(\"\\ndraw1: The probability of drawing white is the probability for 1.0\")\nshow_var_dist_pct(chns,:draw1,[\"white\",\"blue\",\"red\"])\n\nDistributions of variable draw0\nwhite      =&gt;    9997  (0.999700)\nred        =&gt;       3  (0.000300)\n\ndraw1: The probability of drawing white is the probability for 1.0\nDistributions of variable draw1\nblue       =&gt;    4939  (0.493900)\nred        =&gt;    3326  (0.332600)\nwhite      =&gt;    1735  (0.173500)"
   },
   {
     "objectID": "index.html",
@@ -23,273 +23,343 @@
   {
     "objectID": "exercises/afcp-ex3.38.html",
     "href": "exercises/afcp-ex3.38.html",
-    "title": "1. question",
+    "title": "afcp-ex3.38",
+    "section": "",
+    "text": "罐子 A内有5 个白球7 个黑球,罐子 B中有3 个白球和 12 个黑球. 抛一枚均匀硬币,如果正面 就从 A中取一个球, 如果反面就从 B中取一个球 如果取出的球是白球,硬币反面朝上的概率多大?"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.38.html#question",
+    "href": "exercises/afcp-ex3.38.html#question",
+    "title": "afcp-ex3.38",
     "section": "",
     "text": "罐子 A内有5 个白球7 个黑球,罐子 B中有3 个白球和 12 个黑球. 抛一枚均匀硬币,如果正面 就从 A中取一个球, 如果反面就从 B中取一个球 如果取出的球是白球,硬币反面朝上的概率多大?"
   },
   {
     "objectID": "exercises/afcp-ex3.38.html#绘出概率路径图",
     "href": "exercises/afcp-ex3.38.html#绘出概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.38",
     "section": "2. 绘出概率路径图",
     "text": "2. 绘出概率路径图\n根据表述\n\n\n\n\nflowchart LR\n    A(Coin)==head:1/2==&gt;B(A)\n    A(Coin)==tail:1/2==&gt;C(B)\n    B(A)==aw:5/12==&gt;D(whiteball)\n    B(A)==ab:7/12==&gt;F(blackball)\n    C(B)==bw:3/15==&gt;G(whiteball)\n    C(B)==bb:12/15==&gt;H(blackball)\n    style D  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style G  fill: #FF0000, stroke: #333, stroke-width: 2px;\n\n\n\n\n\n\n head=tail=1//2\n aw=5//12;ab=7//12\n bw=3//15;bb=12/15\n\n path1=head*aw\n path2=tail*bw\n p_white=path1+path2 \n \n \"取出的白球来自B的概率为\"=&gt;path2//p_white\n\n\"取出的白球来自B的概率为\" =&gt; 12//37"
   },
   {
     "objectID": "exercises/afcp-ex3.11.html",
     "href": "exercises/afcp-ex3.11.html",
-    "title": "1.从52 张牌抽出2 张的条件概率计算",
+    "title": "afcp-ex3.11",
     "section": "",
-    "text": "2. 全概率路径图 Figure 1\n\n\n\n\n\nflowchart LR\n      A(poker) ==s1:4/52 ==&gt; B(\"A\")\n      A(poker) == f1:48/52 ==&gt;C(\"NotA\")\n      \n      B(\"A\") ==s2:3/51 ==&gt; D(\"A\")\n      B(\"A\") ==f2:48/51 ==&gt; E(\"NotA\")\n      \n      C(\"NotA\") ==s3:4/51 ==&gt; F(\"A\")\n      C(\"NotA\") ==f3:47/51==&gt; G(\"NotA\")\n\n    style B  fill: #9c0312, stroke: #333, stroke-width: 2px;\n    style D  fill: #9c0312, stroke: #333, stroke-width: 2px;\n    style F  fill: #9c0312, stroke: #333, stroke-width: 2px;\n\n\n\nFigure 1: A diagram of pick up two cards\n\n\n\n\n\n\n3. 已知一张为黑桃 A, 两张都是 A 的概率\n\n由于有一张已经知道是 A, 另一张也为 A的概率就是:\\(s2=3/51\\),这里与是否是黑桃无关, 因为这个信息没有参与到概率计算中\n\n\n\n4. 至少抽中一张 A的条件下,两张都是 A 的 概率\n至少有一张 A的全概率为: \\[p_{total}=s_1*s_2+s_1*f_2+f_1*s_3 \\tag{1.1}\\]\n两张都为 A的概率为: \\[p_{doubleA}=s_1*s_2 \\tag{1.2}\\]\n因此概率计算为:\n\ns1=4//52;s2=3//51;s3=4//51\ntotal=s1*s2+s1*(1-s2)+(1-s1)*s3\npda=s1*s2\n\n\"both_A\"=&gt;pda//total\n\n\"both_A\" =&gt; 1//33"
+    "text": "1.从52 张牌抽出2 张的条件概率计算\n\n\n2. 全概率路径图 Figure 1\n\n\n\n\n\nflowchart LR\n      A(poker) ==s1:4/52 ==&gt; B(\"A\")\n      A(poker) == f1:48/52 ==&gt;C(\"NotA\")\n      \n      B(\"A\") ==s2:3/51 ==&gt; D(\"A\")\n      B(\"A\") ==f2:48/51 ==&gt; E(\"NotA\")\n      \n      C(\"NotA\") ==s3:4/51 ==&gt; F(\"A\")\n      C(\"NotA\") ==f3:47/51==&gt; G(\"NotA\")\n\n    style B  fill: #9c0312, stroke: #333, stroke-width: 2px;\n    style D  fill: #9c0312, stroke: #333, stroke-width: 2px;\n    style F  fill: #9c0312, stroke: #333, stroke-width: 2px;\n\n\n\nFigure 1: A diagram of pick up two cards\n\n\n\n\n\n\n3. 已知一张为黑桃 A, 两张都是 A 的概率\n\n由于有一张已经知道是 A, 另一张也为 A的概率就是:\\(s2=3/51\\),这里与是否是黑桃无关, 因为这个信息没有参与到概率计算中\n\n\n\n4. 至少抽中一张 A的条件下,两张都是 A 的 概率\n至少有一张 A的全概率为: \\[p_{total}=s_1*s_2+s_1*f_2+f_1*s_3 \\tag{1.1}\\]\n两张都为 A的概率为: \\[p_{doubleA}=s_1*s_2 \\tag{1.2}\\]\n因此概率计算为:\n\ns1=4//52;s2=3//51;s3=4//51\ntotal=s1*s2+s1*(1-s2)+(1-s1)*s3\npda=s1*s2\n\n\"both_A\"=&gt;pda//total\n\n\"both_A\" =&gt; 1//33"
   },
   {
     "objectID": "exercises/afcp-ex3.9.html",
     "href": "exercises/afcp-ex3.9.html",
-    "title": "1. question",
+    "title": "afcp-ex3.9",
+    "section": "",
+    "text": "ex3.9 假设有3个坛子，坛子A有2个白球和4个红球，坛子B有8个白球和4 个红球，坛子C有1个白 球和3个红球， 如果从每个坛子各取一个球，那么在正好取了两个白球的条件下，从坛子A 里取的 是白球的条件概 率是多大?"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.9.html#question",
+    "href": "exercises/afcp-ex3.9.html#question",
+    "title": "afcp-ex3.9",
     "section": "",
     "text": "ex3.9 假设有3个坛子，坛子A有2个白球和4个红球，坛子B有8个白球和4 个红球，坛子C有1个白 球和3个红球， 如果从每个坛子各取一个球，那么在正好取了两个白球的条件下，从坛子A 里取的 是白球的条件概 率是多大?"
   },
   {
     "objectID": "exercises/afcp-ex3.9.html#概率路径图",
     "href": "exercises/afcp-ex3.9.html#概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.9",
     "section": "2. 概率路径图",
     "text": "2. 概率路径图\n我们先列出一个家庭有两个孩子的全概率图\n\n2.1. 从第一个罐子取出白球的概率为白球数目除以总的球数量,其他相同\n\\[p1,p2,p3 =2//6,8//12,1//4\\]\n\n\n2.2. 三个概率的补集,就是没有取出白球的概率\n\\[p1c,p2c,p3c=1-p1,1-p2,1-p3\\]\n\n\n2.3. 取出两个白球的意思是其中一个球取出的概率是白球取出概率的补集,但是不考虑顺序\n\\[two_{whiteball}=+(p1*p2*p3c,p1c*p2*p3,p1*p2c*p3)\\]\n\n\n\n\nflowchart LR\n      A(V) ==white :1/3 ==&gt; B(white)\n      A(V) == red:2/3 ==&gt;C(red)\n      \n      B(V1) ==white :8/12 ==&gt;D(white)\n      B(V1) == red:4/12==&gt; E(red)\n      \n      C(V1) == white:8/12 ==&gt;F(white)\n      C(V1) == red:4/12==&gt; G(red)\n      \n       D(V2) == white:1/4 ==&gt;I(V3)\n       D(V2) == red:3/4==&gt; J(V3)\n       \n       E(V2) ==white: 1/4 ==&gt;K(V3)\n       E(V2) == red:3/4==&gt; L(V3)\n       \n       F(V2) == white:1/4 ==&gt;M(V3)\n       F(V2) == red:3/4==&gt; N(V3)\n       G(V2) == white:1//4 ==&gt;O(V3)\n       G(V2) == red:3//4==&gt; P(V3)\n\n       style C fill: #FF0000, stroke: #333, stroke-width: 2px;\n       style E fill: #FF0000, stroke: #333, stroke-width: 2px;\n       style G fill: #FF0000, stroke: #333, stroke-width: 2px;\n       style J fill: #FF0000, stroke: #333, stroke-width: 2px;\n       style L fill: #FF0000, stroke: #333, stroke-width: 2px;\n       style N fill: #FF0000, stroke: #333, stroke-width: 2px;\n       style P fill: #FF0000, stroke: #333, stroke-width: 2px;"
   },
   {
     "objectID": "exercises/afcp-ex3.9.html#计算",
     "href": "exercises/afcp-ex3.9.html#计算",
-    "title": "1. question",
+    "title": "afcp-ex3.9",
     "section": "3. 计算",
     "text": "3. 计算\n\n3.1 全概率,根据上面分析全概率为:\n\n  p1,p2,p3 =2//6,8//12,1//4  #从各个罐子抽出白球的概率\n  p1c,p2c,p3c=1-p1,1-p2,1-p3 # 从各个罐子抽出红球的概率,为抽出白球的补集\n  #其中之一不为白球:p3c,p1c,p2c\n  total=+(p1*p2*p3c,p1c*p2*p3,p1*p2c*p3)\n\n11//36\n\n\n\n\n3.2 第一个球为白色的概率\n\n  frist_white=+(p1*p2*p3c,p1*p2c*p3)\n\n7//36\n\n\n\n\n3.3 条件概率计算为:\n\nfrist_white//total\n\n7//11\n\n\n\n\n\n\n\n\n进一步的思考\n\n\n\n这个实验可以看做是三个均一硬币实验的延伸版本 如果把白色=head,红色=tail\n\n第一枚硬币偏向红色 p(head)=2//6\n第二枚硬币偏向白色 p(head)=8//12\n第三枚硬币偏向红色 p(head)=1//3\n\n所以这里的试验和三枚硬币的试验一样, 正反面出现的权重不同"
   },
   {
     "objectID": "exercises/afcp-ex3.10.html",
     "href": "exercises/afcp-ex3.10.html",
-    "title": "1. question",
+    "title": "afcp-ex3.10",
+    "section": "",
+    "text": "#= \n      从一副牌中抽出三张牌 已知条件是第二张和第三张都是黑桃,\n      求第一张是黑桃的概率\n      在实际打牌中, 三张牌可能属于不同的人,那么可以根第二个人和第三个人的牌来推算第一根得到某张牌的概率\n      因而第二张和第三张为黑桃,\n      所以第一张为黑桃的可能性是 11, 总的样本空间为 50\n\n      在条件下,第一张牌是黑桃的概率从 0.25降为 0.22\n\n=#"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.10.html#question",
+    "href": "exercises/afcp-ex3.10.html#question",
+    "title": "afcp-ex3.10",
     "section": "",
     "text": "#= \n      从一副牌中抽出三张牌 已知条件是第二张和第三张都是黑桃,\n      求第一张是黑桃的概率\n      在实际打牌中, 三张牌可能属于不同的人,那么可以根第二个人和第三个人的牌来推算第一根得到某张牌的概率\n      因而第二张和第三张为黑桃,\n      所以第一张为黑桃的可能性是 11, 总的样本空间为 50\n\n      在条件下,第一张牌是黑桃的概率从 0.25降为 0.22\n\n=#"
   },
   {
     "objectID": "exercises/afcp-ex3.10.html#probability-modify",
     "href": "exercises/afcp-ex3.10.html#probability-modify",
-    "title": "1. question",
+    "title": "afcp-ex3.10",
     "section": "2. probability modify",
     "text": "2. probability modify\n\n   (\"unconditional\"=&gt;13/52,\" conditional\"=&gt;11/50)\n\n(\"unconditional\" =&gt; 0.25, \" conditional\" =&gt; 0.22)"
   },
   {
     "objectID": "exercises/afcp-ex3.14.html",
     "href": "exercises/afcp-ex3.14.html",
-    "title": "1. question",
+    "title": "afcp-ex3.14",
+    "section": "",
+    "text": "坛子里最初有5个白球和7个黑球.每次取出一个球，记下它的颜色后放回坛子，同时再放人相同 颜色的2 个球.计算如下概率: (a)前两个球是黑色的，后两个球是白色的 (b)前4个球中恰好有2个是黑色的。"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.14.html#question",
+    "href": "exercises/afcp-ex3.14.html#question",
+    "title": "afcp-ex3.14",
     "section": "",
     "text": "坛子里最初有5个白球和7个黑球.每次取出一个球，记下它的颜色后放回坛子，同时再放人相同 颜色的2 个球.计算如下概率: (a)前两个球是黑色的，后两个球是白色的 (b)前4个球中恰好有2个是黑色的。"
   },
   {
     "objectID": "exercises/afcp-ex3.14.html#a",
     "href": "exercises/afcp-ex3.14.html#a",
-    "title": "1. question",
+    "title": "afcp-ex3.14",
     "section": "2. (a)",
     "text": "2. (a)\n\nw=5 #\nb=7\nt=w+b\nprob=(b//t)*((b+2)//(t+2))*(w//(t+2+2))*((w+2)//(t+2+2+2))\n\n35//768\n\n\n\n\\((b//t)\\) 表示为从总数中抽取第一个黑球的概率\n\\(((b+2)//(t+2))\\) 第二次抽取时黑球要增加 2, 总数也增加 2\n\\((w//(t+2+2))\\) 第三次抽取前,黑球数和总数再增加 2 \\(t+2+2\\)\n\\(((w+2)//(t+2+2+2))\\) 第四次抽取前, 总数和白球数再分别增加 2 乘积就是(a) 描述的条件概率"
   },
   {
     "objectID": "exercises/afcp-ex3.14.html#b",
     "href": "exercises/afcp-ex3.14.html#b",
-    "title": "1. question",
+    "title": "afcp-ex3.14",
     "section": "3. (b)",
     "text": "3. (b)\n\nw=5\nb=7\nt=w+b\n\nbbww=(b//t)*((b+2)//(t+2))*(w//(t+2+2))*((w+2)//(t+2+2+2))\n\nbwbw=(b//t)*((w)//(t+2))*((b+2)//(t+2+2))*((w+2)//(t+2+2+2))  \n\nbwwb=(b//t)*((w)//(t+2))*((w+2)//(t+2+2))*((b+2)//(t+2+2+2))\n\nwwbb=(w//t)*((w+2)//(t+2))*(b//(t+2+2))*((b+2)//(t+2+2+2))\n\nwbwb= (w//t)*((b)//(t+2))*((w+2)//(t+2+2))*((b+2)//(t+2+2+2))\n\nwbbw=(w//t)*((b)//(t+2))*((b+2)//(t+2+2))*((w+2)//(t+2+2+2))\n\nprob=bbww+bwbw+bwwb+wwbb+wbwb+wbbw\n\n35//128\n\n\n总是会取出两个白球和两个黑球 无论那种顺序, 球的总数都是 \\(t+2+2+2\\) 分子也是一样的,"
   },
   {
     "objectID": "exercises/afcp-ex3.26.html",
     "href": "exercises/afcp-ex3.26.html",
-    "title": "1.question",
+    "title": "afcp-ex3.26",
+    "section": "",
+    "text": "假设有5%的男性和0.25%的女性为色盲，并假定男性和女性的数量相等.随机选择一个色盲的 人 ， 他 是 男 性 的 概 率 是 多 大?"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.26.html#question",
+    "href": "exercises/afcp-ex3.26.html#question",
+    "title": "afcp-ex3.26",
     "section": "",
     "text": "假设有5%的男性和0.25%的女性为色盲，并假定男性和女性的数量相等.随机选择一个色盲的 人 ， 他 是 男 性 的 概 率 是 多 大?"
   },
   {
     "objectID": "exercises/afcp-ex3.26.html#build-two-way-table",
     "href": "exercises/afcp-ex3.26.html#build-two-way-table",
-    "title": "1.question",
+    "title": "afcp-ex3.26",
     "section": "2. build two-way-table",
     "text": "2. build two-way-table\n\n\n\n\n\n\nbuild two-way table in this page\n\n\n\nRapidTable\n\n\n计算示例:\n\n第三行数据根据介绍[total,man]=0.50,[total,woman]=0.50\n男性色盲根据介绍, 填充第一列数据[colorblind,man]=0.50*5%=0.025.\n[non colorbind]=0.50-0.025=0.475,第二列同样处理\n利用归一法,填充剩余的项目"
   },
   {
     "objectID": "exercises/afcp-ex3.26.html#build-matrix",
     "href": "exercises/afcp-ex3.26.html#build-matrix",
-    "title": "1.question",
+    "title": "afcp-ex3.26",
     "section": "3. build matrix",
     "text": "3. build matrix\n\nusing PrettyTables\nmatrix=[0.025 0.00125; 0.475 0.49875]\npretty_table(matrix;tf=tf_matrix,show_header = false)\n\n┌                ┐\n│ 0.025  0.00125 │\n│ 0.475  0.49875 │\n└                ┘"
   },
   {
     "objectID": "exercises/afcp-ex3.26.html#计算条件概率",
     "href": "exercises/afcp-ex3.26.html#计算条件概率",
-    "title": "1.question",
+    "title": "afcp-ex3.26",
     "section": "4. 计算条件概率",
     "text": "4. 计算条件概率\n色盲的边缘概率为矩阵的第一行的和, 男性色盲的联合概率分布为第一行,第一列数据\n\npb=matrix[1,:]|&gt;sum\npbm=matrix[1,1]\n\"色盲中男性概率\"=&gt;pbm/pb\n\n\"色盲中男性概率\" =&gt; 0.9523809523809523"
   },
   {
     "objectID": "exercises/afcp-ex3.16.html",
     "href": "exercises/afcp-ex3.16.html",
-    "title": "1. question",
+    "title": "afcp-ex3.16",
     "section": "",
-    "text": "98%的婴儿分娩是安全的.然而有15% 的分娩是剖腹产. 当采用剖腹产时，婴儿的生存概率为 9 6 %. 如 果 随 机 选 择 一 个 采 用 非 剖 腹 产 的 孕妇 ， 那 么 其 婴 儿 的 生 存 概 率 是 多 少?\n\n\n2. 全概率图为 Figure 1\n\n\n\n\n\n    flowchart LR\n    A(P)==自然分娩==&gt;B(85%)\n    A(P)==剖腹产==&gt;C(15%)\n\n    B(85%)==生存==&gt;D(PA)\n    B(85%)==夭折==&gt;E(1-PA)\n\n    C(15%)==生存==&gt;F(96%)\n    C(15%)==夭折==&gt;G(4%)\n\n\nFigure 1: A baby success\n\n\n\n\n\n\n3. 分娩成功全概率表示为:\n\\[(0.85*PA)+(0.15*0.96)=0.98 \\tag{1.1}\\]\n可以变换为:\n\\[PA=\\frac{0.98-(0.15*0.96)}{0.85} \\tag{1.2}\\]\n\n\n4. 计算\n\nPA=(0.98-(0.15*0.96))/0.85\n\n0.9835294117647059"
+    "text": "98%的婴儿分娩是安全的.然而有15% 的分娩是剖腹产. 当采用剖腹产时，婴儿的生存概率为 9 6 %. 如 果 随 机 选 择 一 个 采 用 非 剖 腹 产 的 孕妇 ， 那 么 其 婴 儿 的 生 存 概 率 是 多 少?\n\n\n\n\n\n\n\n\n    flowchart LR\n    A(P)==自然分娩==&gt;B(85%)\n    A(P)==剖腹产==&gt;C(15%)\n\n    B(85%)==生存==&gt;D(PA)\n    B(85%)==夭折==&gt;E(1-PA)\n\n    C(15%)==生存==&gt;F(96%)\n    C(15%)==夭折==&gt;G(4%)\n\n\nFigure 1: A baby success\n\n\n\n\n\n\n\n\\[(0.85*PA)+(0.15*0.96)=0.98 \\tag{1.1}\\]\n可以变换为:\n\\[PA=\\frac{0.98-(0.15*0.96)}{0.85} \\tag{1.2}\\]\n\n\n\n\nPA=(0.98-(0.15*0.96))/0.85\n\n0.9835294117647059"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.16.html#question",
+    "href": "exercises/afcp-ex3.16.html#question",
+    "title": "afcp-ex3.16",
+    "section": "",
+    "text": "98%的婴儿分娩是安全的.然而有15% 的分娩是剖腹产. 当采用剖腹产时，婴儿的生存概率为 9 6 %. 如 果 随 机 选 择 一 个 采 用 非 剖 腹 产 的 孕妇 ， 那 么 其 婴 儿 的 生 存 概 率 是 多 少?\n\n\n\n\n\n\n\n\n    flowchart LR\n    A(P)==自然分娩==&gt;B(85%)\n    A(P)==剖腹产==&gt;C(15%)\n\n    B(85%)==生存==&gt;D(PA)\n    B(85%)==夭折==&gt;E(1-PA)\n\n    C(15%)==生存==&gt;F(96%)\n    C(15%)==夭折==&gt;G(4%)\n\n\nFigure 1: A baby success\n\n\n\n\n\n\n\n\\[(0.85*PA)+(0.15*0.96)=0.98 \\tag{1.1}\\]\n可以变换为:\n\\[PA=\\frac{0.98-(0.15*0.96)}{0.85} \\tag{1.2}\\]\n\n\n\n\nPA=(0.98-(0.15*0.96))/0.85\n\n0.9835294117647059"
   },
   {
     "objectID": "exercises/afcp-ex3.21.html",
     "href": "exercises/afcp-ex3.21.html",
-    "title": "1. 调查项目",
+    "title": "afcp-ex3.21",
+    "section": "",
+    "text": "500对夫妇参加收入调查, 双向表如下"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.21.html#调查项目",
+    "href": "exercises/afcp-ex3.21.html#调查项目",
+    "title": "afcp-ex3.21",
     "section": "",
     "text": "500对夫妇参加收入调查, 双向表如下"
   },
   {
     "objectID": "exercises/afcp-ex3.21.html#调查表格",
     "href": "exercises/afcp-ex3.21.html#调查表格",
-    "title": "1. 调查项目",
+    "title": "afcp-ex3.21",
     "section": "2. 调查表格",
     "text": "2. 调查表格\n\n\n\n\n\n\nbuild two-way table in this page\n\n\n\nRapidTable\n\n\n\n\ntotal 所在的列和行是边缘分布(margin distributions)\n图例:第二行,第二列:36,代表在 500对夫妇中有36 对夫妇妻子收入超过 25,000美元,同时丈夫收入低于25,000美元,这是联合分布\n联合分布的统计量不会改变, 但是在不同的条件下出现在行或者列中,比例可能会不同"
   },
   {
     "objectID": "exercises/afcp-ex3.21.html#question",
     "href": "exercises/afcp-ex3.21.html#question",
-    "title": "1. 调查项目",
+    "title": "afcp-ex3.21",
     "section": "3. question",
     "text": "3. question\n 根据调查表格回答一下问题:\n\n\n丈夫收入低于 25,000美元的概率\n\n\n丈夫收入高于 25,000条件下,妻子收入高于 25,000美元\n\n\n丈夫收入低于 25,000条件下,妻子收入高于 25,000美元"
   },
   {
     "objectID": "exercises/afcp-ex3.21.html#解答",
     "href": "exercises/afcp-ex3.21.html#解答",
-    "title": "1. 调查项目",
+    "title": "afcp-ex3.21",
     "section": "4. 解答",
-    "text": "4. 解答\n\n     using PrettyTables\n     matrix=[212 198;36 54]\n     pretty_table(matrix;tf=tf_matrix,show_header = false)\n\n┌          ┐\n│ 212  198 │\n│  36   54 │\n└          ┘\n\n\n\n4.1 (a)\n第一列边缘分布就是丈夫收入低于25,000 的总数\n\n   total=sum(matrix)\n   husband_less25000=sum(matrix[:,1])\n   husband_less25000//total\n\n62//125\n\n\n\n\n4.2 (b)\n第二列边缘分布就是丈夫收入高于25,000 的总数\n丈夫收入高于 25,000条件下,妻子收入高于 25,000美元的联合分布为第二行 第二列\n\n  husband_morethan25000=sum(matrix[:,2])\n  husband_morethan25000_wife_morethan25000=matrix[2,2]\n  husband_morethan25000_wife_morethan25000//husband_morethan2500\n\n3//14\n\n\n\n\n4.3 (c)\n丈夫收入低于 25,000条件 在 4.1 计算\n丈夫收入低于 25,000条件下,妻子收入高于 25,000美元的边缘分布为第二行 第一列\n\n   husband_less25000_wife_morethan25000=matrix[2,1]\n   husband_less25000_wife_morethan25000//husband_less25000\n\n9//62"
+    "text": "4. 解答\n\n     using PrettyTables\n     matrix=[212 198;36 54]\n     pretty_table(matrix;tf=tf_matrix,show_header = false)\n\n┌          ┐\n│ 212  198 │\n│  36   54 │\n└          ┘\n\n\n\n4.1 (a)\n第一列边缘分布就是丈夫收入低于25,000 的总数\n\n   total=sum(matrix)\n   husband_less25000=sum(matrix[:,1])\n   husband_less25000//total\n\n62//125\n\n\n\n\n4.2 (b)\n第二列边缘分布就是丈夫收入高于25,000 的总数\n丈夫收入高于 25,000条件下,妻子收入高于 25,000美元的联合分布为第二行 第二列\n\n  husband_morethan25000=sum(matrix[:,2])\n  husband_morethan25000_wife_morethan25000=matrix[2,2]\n  husband_morethan25000_wife_morethan25000//husband_morethan25000\n\n3//14\n\n\n\n\n4.3 (c)\n丈夫收入低于 25,000条件 在 4.1 计算\n丈夫收入低于 25,000条件下,妻子收入高于 25,000美元的边缘分布为第二行 第一列\n\n   husband_less25000_wife_morethan25000=matrix[2,1]\n   husband_less25000_wife_morethan25000//husband_less25000\n\n9//62"
   },
   {
     "objectID": "exercises/afcp-ex3.48.html",
     "href": "exercises/afcp-ex3.48.html",
-    "title": "1. question",
+    "title": "afcp-ex3.48",
+    "section": "",
+    "text": "两个外形一样的橱柜都有2 个抽屉.A 橱柜每个抽屉里有一枚银币，B 橱柜有一 个抽屉里有一枚银 币，另一抽屉有一枚金币. 随机挑选 一个橱柜，打开其中 一个抽屉，发现是 一枚银币，求另 一个抽屉里也是银币的概率"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.48.html#question",
+    "href": "exercises/afcp-ex3.48.html#question",
+    "title": "afcp-ex3.48",
     "section": "",
     "text": "两个外形一样的橱柜都有2 个抽屉.A 橱柜每个抽屉里有一枚银币，B 橱柜有一 个抽屉里有一枚银 币，另一抽屉有一枚金币. 随机挑选 一个橱柜，打开其中 一个抽屉，发现是 一枚银币，求另 一个抽屉里也是银币的概率"
   },
   {
     "objectID": "exercises/afcp-ex3.48.html#概率路径图",
     "href": "exercises/afcp-ex3.48.html#概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.48",
     "section": "2. 概率路径图",
     "text": "2. 概率路径图\n根据描述绘出概率路径图\n\n\n\n\nflowchart LR\n    A(Cab)==c1:1/2==&gt;B(Cab1)\n    A(Cab)==c2:1/2==&gt;C(Cab2)\n    B(Cab1)==c1d:1==&gt;D(Silver)\n    C(Cab2)==c2d1:1/2==&gt;E(Silver)\n    C(Cab2)==c2d2:1/2==&gt;F(Gold)"
   },
   {
     "objectID": "exercises/afcp-ex3.48.html#solution",
     "href": "exercises/afcp-ex3.48.html#solution",
-    "title": "1. question",
+    "title": "afcp-ex3.48",
     "section": "3. solution",
     "text": "3. solution\n如果打开一个抽屉发现是银币,有两条路径\n\nc1-&gt;c1d\nc2-&gt;c2d1\n\n如果另一个抽屉也是银币, 就是路径 1 的概率\n\nc1=c2=1//2\nc1d=1\nc2d1=c2d2=1//2\np1=c1*c1d\np2=c2*c2d1\ntotal=p1+p2\n\"选中的柜子为 1 的概率为\"=&gt;p1//total\n\n\"选中的柜子为 1 的概率为\" =&gt; 2//3"
   },
   {
     "objectID": "exercises/afcp-ex3.17.html",
     "href": "exercises/afcp-ex3.17.html",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.7",
     "section": "",
     "text": "Question\n\n\n\n\n\n某个社区，36%的家庭有一条狗，22%的家庭既有一条狗，又有一只猫，另外，30%的家庭有一 只猫.\n(a) 随机 选 择 一 个 家 庭 ， 为 既 有 猫 又 有 狗 的 概 率 是 多 少\n\n(b)随机选择一 个家庭，已知该家庭有猫的条件下，还有一 条狗的条件概率是多少?"
   },
   {
     "objectID": "exercises/afcp-ex3.17.html#question",
     "href": "exercises/afcp-ex3.17.html#question",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.7",
     "section": "",
     "text": "Question\n\n\n\n\n\n某个社区，36%的家庭有一条狗，22%的家庭既有一条狗，又有一只猫，另外，30%的家庭有一 只猫.\n(a) 随机 选 择 一 个 家 庭 ， 为 既 有 猫 又 有 狗 的 概 率 是 多 少\n\n(b)随机选择一 个家庭，已知该家庭有猫的条件下，还有一 条狗的条件概率是多少?"
   },
   {
     "objectID": "exercises/afcp-ex3.17.html#路径图",
     "href": "exercises/afcp-ex3.17.html#路径图",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.7",
     "section": "2. 路径图",
     "text": "2. 路径图\n\n\n\n\n    flowchart LR\n    A(Community)==36%==&gt;B(has dog)\n    A(Community)==64%==&gt;C(no dog)\n\n    B(has dog)==22%==&gt;G(has cat:36%*22%=0.0792)\n    B(has dog)==78%==&gt;H(no cat:36%*78%=0.2808)\n    D(Community)==30%==&gt;E(has cat)\n    D(Community)==70%==&gt;F(no cat)\n\n    E(has cat)==?%==&gt;I(has dog:0.0792)\n    E(has cat)==?%==&gt;J(no dog)\n\n\n\n\n\n\n\n3. 双向列联表\n\n\n\n\n\n\nbuild two-way table in this page\n\n\n\nRapidTable\n\n\n根据描述构建列联表, 通过边缘概率将缺项补充上,具体流程是\n\n首先填充边缘分布, 有狗的为\\(36 \\%\\),则没有狗的家庭为:\\(1-36 \\%=64 \\%\\) 有猫的家庭占\\(30 \\%\\),则没有猫的家庭占比为:\\(1-30 \\%=70 \\%\\)\n根据条件概率描述填充数据, 22%的家庭既有一条狗，又有一只猫 要表明的意思是: 在拥有狗的家庭中,还有\\(22 /%\\) 的家庭养了猫. 于是同时有猫和狗的家庭占比为 :\\(36 \\%*22 \\%=0.0792\\)\n有了 第 2 步的概率和边缘概率分布, 可以利用归一化的方法把其他几个位置填满\n接着就可以回答问题了 (a) 已经解出, 为36%*22%=0.0792. (b) 这一问和(a)的比例不同, 因为是在不同的样本空间中考虑的问题. 因为养猫的有\\(30\\%\\),所以在养了猫的家庭中还养狗的比例为: \\(0.0792/0.300=0.264\\)\n\n\n\n\ntwo way table\n\n\n\n\n\n\n\n\n双向表的核心问题\n\n\n\n\\(P(hasdog,hascat)=P(hascat,hasdog)\\)\n猫狗在社区家庭中比例不同,但是它们的联合分布是同一个值.这是条件概率解决问题的依据"
   },
   {
     "objectID": "exercises/afcp-ex3.33.html",
     "href": "exercises/afcp-ex3.33.html",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.33",
     "section": "",
     "text": "在雨天的时候，乔伊有0.3的概率迟到;平时，他有0. 1的概率迟到.而明天下爾的几率是0.7.\n\n\n求出乔伊明天不迟到的概率。\n\n\n在 乔 伊 没 有 迟 到 的 条 件 下， 下雨 的 条 件 概 率 是 多 少?"
   },
   {
     "objectID": "exercises/afcp-ex3.33.html#quesiton",
     "href": "exercises/afcp-ex3.33.html#quesiton",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.33",
     "section": "",
     "text": "在雨天的时候，乔伊有0.3的概率迟到;平时，他有0. 1的概率迟到.而明天下爾的几率是0.7.\n\n\n求出乔伊明天不迟到的概率。\n\n\n在 乔 伊 没 有 迟 到 的 条 件 下， 下雨 的 条 件 概 率 是 多 少?"
   },
   {
     "objectID": "exercises/afcp-ex3.33.html#two-table",
     "href": "exercises/afcp-ex3.33.html#two-table",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.33",
     "section": "2. two-table",
     "text": "2. two-table\n\n\n\n\n\n\nbuild two-way table in this page\n\n\n\nRapidTable\n\n\n\n明天下雨的概率为\\(p(rain)=0.7\\),\\(p(notrain)=0.3\\)\n如果下雨,\\(p(late|rain)=0.3\\), \\(p(rain,late)=p(late|rain)*p(rain)=0.3*0.7=0.21\\)\n如果不下雨,\\(p(late|notrain)=0.1\\),\\(p(notrain,lage)=p(late|notrain)*p(notrain)=0.1*0.3=0.03\\)\n根据归一法, 填充其他项"
   },
   {
     "objectID": "exercises/afcp-ex3.33.html#solution",
     "href": "exercises/afcp-ex3.33.html#solution",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.33",
     "section": "3. solution",
     "text": "3. solution\n\n3.1 (a)\n明天不迟到的全概率为 第二行的边缘分布,即\\(p(notlate)=0.76\\)\n\n\n3.2 (b)\n下雨,但是没有迟到的联合分布为第二行,第一列 \\(p(notlate,rain)=0.49\\) 所以 \\[p(rain|notlate)=\\frac{p(notlate,rain)}{p(notlate)}\\] \\[p(rain|notlate)=\\frac{0.49}{0.76}\\]"
   },
   {
     "objectID": "exercises/afcp-ex3.25.html",
     "href": "exercises/afcp-ex3.25.html",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.25",
     "section": "",
     "text": "以下方法用于估计10000 人的城镇里的50 岁以上的人又的数量:“ 当你在街上做步时， 数一数你 碰到的50 岁以上的人数，再算出它们占你遇到的人的百分数，这样做几天后， 用10 0000 去乘得 到的百分数就是所求的估值• “ 对这个方法作出你的评价"
   },
   {
     "objectID": "exercises/afcp-ex3.25.html#question",
     "href": "exercises/afcp-ex3.25.html#question",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.25",
     "section": "",
     "text": "以下方法用于估计10000 人的城镇里的50 岁以上的人又的数量:“ 当你在街上做步时， 数一数你 碰到的50 岁以上的人数，再算出它们占你遇到的人的百分数，这样做几天后， 用10 0000 去乘得 到的百分数就是所求的估值• “ 对这个方法作出你的评价"
   },
   {
     "objectID": "exercises/afcp-ex3.25.html#分析",
     "href": "exercises/afcp-ex3.25.html#分析",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.25",
     "section": "2. 分析",
     "text": "2. 分析\n这个方法在抽样理论是叫做capture-recapture method\n在研究某个野生动物的种群数量是, 先捕获一批动物,做标记后放回, 然后在捕获动物(无论打过标记与否), 可以依据一下公式计算出种群数量参见capture-recapture method\n\\[\\frac{tagged \\; in \\; total \\; population}{Total \\; population}=\\frac{tagged \\; in \\; recapture \\; sample }{Total \\; in \\; recapture \\; sample}\\]\n原理和计算溶液体积一样, 假设我们想知道一个桶里的溶液体积,可以混合 1kg 氯化钠, 混合均匀后 从溶液中抽出 1 升溶液, 测出氯化钠的量, 就可以计算出溶液体积,不变量是氯化钠溶液的浓度, 无论是总体还是样本,溶液浓度是均匀的\n\\[\\frac{1kgNaCl}{未知溶液体积(升)}=\\frac{1升溶液里NaCl量}{1 升NaCl溶液}\\]"
   },
   {
     "objectID": "exercises/afcp-ex3.25.html#类比",
     "href": "exercises/afcp-ex3.25.html#类比",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.25",
     "section": "3. 类比",
     "text": "3. 类比\n在本例中, 50岁以上的人口密度是不变量,如果分布均匀, 在街头采样的密度就是人群中的密度.\n\\[1000 人中50 岁以上人数=\\frac{街头遇到的 50 岁以上人数}{街头遇到的总人数}*1000\\]"
   },
   {
     "objectID": "exercises/afcp-ex3.1.html",
     "href": "exercises/afcp-ex3.1.html",
-    "title": "1. question",
+    "title": "afcp-ex3.1",
     "section": "",
-    "text": "ex3.1 掷两枚均匀的骰子，求已知两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率。\n\n-  1. 首先构建出总的概率空间: 扔两枚骰子的组合\n-  2. 筛选出点数不同的组合作为子空间\n-  3. 在2子空间下筛选出至少有一个骰子为6 的组合\n-  4. 根据 2,3 计算条件概率\n\n2. total probablity space\n\n  ma=[[x,y] for x in 1:6, y in 1:6]|&gt;d-&gt;reshape(d,(1,36))\n\n1×36 Matrix{Vector{Int64}}:\n [1, 1]  [2, 1]  [3, 1]  [4, 1]  [5, 1]  …  [3, 6]  [4, 6]  [5, 6]  [6, 6]\n\n\n\n\n3. according to condition to get sub probability space\n#数组两个数不同\ncondition(x::Array)=x[1] !=x[2] \n\n      condition(x::Array)=x[1] !=x[2]\n      pA=filter(x-&gt;condition(x),vec(ma))\n      show(pA)\n\n[[2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [1, 2], [3, 2], [4, 2], [5, 2], [6, 2], [1, 3], [2, 3], [4, 3], [5, 3], [6, 3], [1, 4], [2, 4], [3, 4], [5, 4], [6, 4], [1, 5], [2, 5], [3, 5], [4, 5], [6, 5], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6]]\n\n\n   #数组中两个数有至少有一个等于 6\n   x-&gt;x[1]==6||x[2]==6\n\n\n4. conditional probablity\n\n    pB=filter(x-&gt;x[1]==6||x[2]==6,pA)\n    \"两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率\"=&gt;length(pB)//length(pA)      #1//3\n\n\"两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率\" =&gt; 1//3"
+    "text": "1. question\nex3.1 掷两枚均匀的骰子，求已知两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率。\n\n-  1. 首先构建出总的概率空间: 扔两枚骰子的组合\n-  2. 筛选出点数不同的组合作为子空间\n-  3. 在2子空间下筛选出至少有一个骰子为6 的组合\n-  4. 根据 2,3 计算条件概率\n\n\n2. total probablity space\n\n  ma=[[x,y] for x in 1:6, y in 1:6]|&gt;d-&gt;reshape(d,(1,36))\n\n1×36 Matrix{Vector{Int64}}:\n [1, 1]  [2, 1]  [3, 1]  [4, 1]  [5, 1]  …  [3, 6]  [4, 6]  [5, 6]  [6, 6]\n\n\n\n\n3. according to condition to get sub probability space\n#数组两个数不同\ncondition(x::Array)=x[1] !=x[2] \n\n      condition(x::Array)=x[1] !=x[2]\n      pA=filter(x-&gt;condition(x),vec(ma))\n      show(pA)\n\n[[2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [1, 2], [3, 2], [4, 2], [5, 2], [6, 2], [1, 3], [2, 3], [4, 3], [5, 3], [6, 3], [1, 4], [2, 4], [3, 4], [5, 4], [6, 4], [1, 5], [2, 5], [3, 5], [4, 5], [6, 5], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6]]\n\n\n   #数组中两个数有至少有一个等于 6\n   x-&gt;x[1]==6||x[2]==6\n\n\n4. conditional probablity\n\n    pB=filter(x-&gt;x[1]==6||x[2]==6,pA)\n    \"两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率\"=&gt;length(pB)//length(pA)      #1//3\n\n\"两枚骰子点数不同的条件下，至少有一枚点数为6 的条件概率\" =&gt; 1//3"
   },
   {
     "objectID": "exercises/afcp-ex3.22.html",
     "href": "exercises/afcp-ex3.22.html",
-    "title": "1. question",
+    "title": "afcp-ex3.22",
     "section": "",
-    "text": "有三个骰子,红,黄,蓝(R,Y,B)"
+    "text": "有三个骰子,红,黄,蓝(R,Y,B)\n\n\n\n三个骰子点数都不同的概率\n\n\n在(a) 的条件下,B&lt;Y&lt;R 的 概率\n\n\nP(B&lt;Y&lt;R)"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.22.html#question",
+    "href": "exercises/afcp-ex3.22.html#question",
+    "title": "afcp-ex3.22",
+    "section": "",
+    "text": "有三个骰子,红,黄,蓝(R,Y,B)\n\n\n\n三个骰子点数都不同的概率\n\n\n在(a) 的条件下,B&lt;Y&lt;R 的 概率\n\n\nP(B&lt;Y&lt;R)"
   },
   {
     "objectID": "exercises/afcp-ex3.22.html#workflow",
     "href": "exercises/afcp-ex3.22.html#workflow",
-    "title": "1. question",
+    "title": "afcp-ex3.22",
     "section": "2. workflow",
     "text": "2. workflow\n\n\n\n\n\n\nNote\n\n\n\n构建全概率空间,然后根据条件筛选(过滤)出符合条件的项,概率就是容量的比值,计算式中分母表示 条件的概率空间,分子表示在条件概率空间下筛选出的更小的概率空间. 不失一般性, 全概率空间也可以 出现在分母中\n\n\n\n2.1 构建全概率空间,并计算 size\n\ntotal_space=[[blue,yellow,red] for blue in 1:6, yellow in 1:6,red in 1:6]\ntotal_size=length(total_space)\n\"全样本容量\"=&gt;total_size\n\n\"全样本容量\" =&gt; 216\n\n\n\n\n2.2 计算三枚骰子点数都不同的概率\n\n  cond(arr::Array)::Bool=(arr[1]!=arr[2])&&(arr[1]!=arr[3])&&(arr[2]!=arr[3])\n  diff=filter(cond,vec(total_space))\n  \n  \"三枚骰子点数都不同的概率\"=&gt;length(diff)//total_size\n\n\"三枚骰子点数都不同的概率\" =&gt; 5//9\n\n\n\n\n2.3 在 2.2条件下计算B&lt;Y&lt;R 的 概率\n\ncond2(arr::Array)::Bool=arr[1]&lt;arr[2]&lt;arr[3]\ndiff2=filter(cond2,diff)\n\"三枚骰子点数都不同的条件下,点数Y&lt;B&lt;R的概率\"=&gt;length(diff2)//length(diff)\n\n\"三枚骰子点数都不同的条件下,点数Y&lt;B&lt;R的概率\" =&gt; 1//6\n\n\n\n\n2.4 在全概率空间下计算B&lt;Y&lt;R 的 概率\n筛选条件不变,但空间是全概率空间\n\ndiff3=filter(cond2,vec(total_space))\n\"点数Y&lt;B&lt;R的概率\"=&gt;length(diff3)//total_size\n\n\"点数Y&lt;B&lt;R的概率\" =&gt; 5//54\n\n\n\n\ntotal space\n\ndisplay(total_space)\n\n6×6×6 Array{Vector{Int64}, 3}:\n[:, :, 1] =\n [1, 1, 1]  [1, 2, 1]  [1, 3, 1]  [1, 4, 1]  [1, 5, 1]  [1, 6, 1]\n [2, 1, 1]  [2, 2, 1]  [2, 3, 1]  [2, 4, 1]  [2, 5, 1]  [2, 6, 1]\n [3, 1, 1]  [3, 2, 1]  [3, 3, 1]  [3, 4, 1]  [3, 5, 1]  [3, 6, 1]\n [4, 1, 1]  [4, 2, 1]  [4, 3, 1]  [4, 4, 1]  [4, 5, 1]  [4, 6, 1]\n [5, 1, 1]  [5, 2, 1]  [5, 3, 1]  [5, 4, 1]  [5, 5, 1]  [5, 6, 1]\n [6, 1, 1]  [6, 2, 1]  [6, 3, 1]  [6, 4, 1]  [6, 5, 1]  [6, 6, 1]\n\n[:, :, 2] =\n [1, 1, 2]  [1, 2, 2]  [1, 3, 2]  [1, 4, 2]  [1, 5, 2]  [1, 6, 2]\n [2, 1, 2]  [2, 2, 2]  [2, 3, 2]  [2, 4, 2]  [2, 5, 2]  [2, 6, 2]\n [3, 1, 2]  [3, 2, 2]  [3, 3, 2]  [3, 4, 2]  [3, 5, 2]  [3, 6, 2]\n [4, 1, 2]  [4, 2, 2]  [4, 3, 2]  [4, 4, 2]  [4, 5, 2]  [4, 6, 2]\n [5, 1, 2]  [5, 2, 2]  [5, 3, 2]  [5, 4, 2]  [5, 5, 2]  [5, 6, 2]\n [6, 1, 2]  [6, 2, 2]  [6, 3, 2]  [6, 4, 2]  [6, 5, 2]  [6, 6, 2]\n\n[:, :, 3] =\n [1, 1, 3]  [1, 2, 3]  [1, 3, 3]  [1, 4, 3]  [1, 5, 3]  [1, 6, 3]\n [2, 1, 3]  [2, 2, 3]  [2, 3, 3]  [2, 4, 3]  [2, 5, 3]  [2, 6, 3]\n [3, 1, 3]  [3, 2, 3]  [3, 3, 3]  [3, 4, 3]  [3, 5, 3]  [3, 6, 3]\n [4, 1, 3]  [4, 2, 3]  [4, 3, 3]  [4, 4, 3]  [4, 5, 3]  [4, 6, 3]\n [5, 1, 3]  [5, 2, 3]  [5, 3, 3]  [5, 4, 3]  [5, 5, 3]  [5, 6, 3]\n [6, 1, 3]  [6, 2, 3]  [6, 3, 3]  [6, 4, 3]  [6, 5, 3]  [6, 6, 3]\n\n[:, :, 4] =\n [1, 1, 4]  [1, 2, 4]  [1, 3, 4]  [1, 4, 4]  [1, 5, 4]  [1, 6, 4]\n [2, 1, 4]  [2, 2, 4]  [2, 3, 4]  [2, 4, 4]  [2, 5, 4]  [2, 6, 4]\n [3, 1, 4]  [3, 2, 4]  [3, 3, 4]  [3, 4, 4]  [3, 5, 4]  [3, 6, 4]\n [4, 1, 4]  [4, 2, 4]  [4, 3, 4]  [4, 4, 4]  [4, 5, 4]  [4, 6, 4]\n [5, 1, 4]  [5, 2, 4]  [5, 3, 4]  [5, 4, 4]  [5, 5, 4]  [5, 6, 4]\n [6, 1, 4]  [6, 2, 4]  [6, 3, 4]  [6, 4, 4]  [6, 5, 4]  [6, 6, 4]\n\n[:, :, 5] =\n [1, 1, 5]  [1, 2, 5]  [1, 3, 5]  [1, 4, 5]  [1, 5, 5]  [1, 6, 5]\n [2, 1, 5]  [2, 2, 5]  [2, 3, 5]  [2, 4, 5]  [2, 5, 5]  [2, 6, 5]\n [3, 1, 5]  [3, 2, 5]  [3, 3, 5]  [3, 4, 5]  [3, 5, 5]  [3, 6, 5]\n [4, 1, 5]  [4, 2, 5]  [4, 3, 5]  [4, 4, 5]  [4, 5, 5]  [4, 6, 5]\n [5, 1, 5]  [5, 2, 5]  [5, 3, 5]  [5, 4, 5]  [5, 5, 5]  [5, 6, 5]\n [6, 1, 5]  [6, 2, 5]  [6, 3, 5]  [6, 4, 5]  [6, 5, 5]  [6, 6, 5]\n\n[:, :, 6] =\n [1, 1, 6]  [1, 2, 6]  [1, 3, 6]  [1, 4, 6]  [1, 5, 6]  [1, 6, 6]\n [2, 1, 6]  [2, 2, 6]  [2, 3, 6]  [2, 4, 6]  [2, 5, 6]  [2, 6, 6]\n [3, 1, 6]  [3, 2, 6]  [3, 3, 6]  [3, 4, 6]  [3, 5, 6]  [3, 6, 6]\n [4, 1, 6]  [4, 2, 6]  [4, 3, 6]  [4, 4, 6]  [4, 5, 6]  [4, 6, 6]\n [5, 1, 6]  [5, 2, 6]  [5, 3, 6]  [5, 4, 6]  [5, 5, 6]  [5, 6, 6]\n [6, 1, 6]  [6, 2, 6]  [6, 3, 6]  [6, 4, 6]  [6, 5, 6]  [6, 6, 6]"
   },
   {
     "objectID": "exercises/afcp-ex3.4.html",
     "href": "exercises/afcp-ex3.4.html",
-    "title": "1. qustion",
+    "title": "afcp-ex3.04",
+    "section": "",
+    "text": "ex3.4 掷 两 枚 均 匀 骰 子 ， 求 给 定 两 枚 骰 子 点 数 之 和 为i 的 条 件 下 ， 至少有一枚是 6 的条件概率"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.4.html#qustion",
+    "href": "exercises/afcp-ex3.4.html#qustion",
+    "title": "afcp-ex3.04",
     "section": "",
     "text": "ex3.4 掷 两 枚 均 匀 骰 子 ， 求 给 定 两 枚 骰 子 点 数 之 和 为i 的 条 件 下 ， 至少有一枚是 6 的条件概率"
   },
   {
     "objectID": "exercises/afcp-ex3.4.html#workflow",
     "href": "exercises/afcp-ex3.4.html#workflow",
-    "title": "1. qustion",
+    "title": "afcp-ex3.04",
     "section": "2. workflow",
     "text": "2. workflow\n\n\n构建全概率空间\n\n\n根据限制条件筛选出子空间\n\n\n计算条件概率\n\n\n\n2.1 构建全概率空间\n\nma=[[x,y] for x in 1:6, y in 1:6]|&gt;d-&gt;reshape(d,(1,36))|&gt;vec\nspan=2:12\n\n2:12\n\n\n\n\n2.2 筛选子空间\n\npA=[filter(x-&gt;sum(x)==i,ma) for i in span]\n\n11-element Vector{Vector{Vector{Int64}}}:\n [[1, 1]]\n [[2, 1], [1, 2]]\n [[3, 1], [2, 2], [1, 3]]\n [[4, 1], [3, 2], [2, 3], [1, 4]]\n [[5, 1], [4, 2], [3, 3], [2, 4], [1, 5]]\n [[6, 1], [5, 2], [4, 3], [3, 4], [2, 5], [1, 6]]\n [[6, 2], [5, 3], [4, 4], [3, 5], [2, 6]]\n [[6, 3], [5, 4], [4, 5], [3, 6]]\n [[6, 4], [5, 5], [4, 6]]\n [[6, 5], [5, 6]]\n [[6, 6]]\n\n\n\n\n2.3 计算条件概率\n筛选的条件表达式为\n  # 至少有一个骰子点数为 6\n  condition(x::Array)::Bool=x[1]==6||x[2]==6\n\n    condition(x::Array)::Bool=x[1]==6||x[2]==6\n    for (idx,arr) in zip(span,pA)\n        local pB=filter(x-&gt;condition(x),arr)\n        @info \"i=$(idx)\"=&gt;length(pB)//length(arr)\n\n    end\n\n[ Info: \"i=2\" =&gt; 0//1\n[ Info: \"i=3\" =&gt; 0//1\n[ Info: \"i=4\" =&gt; 0//1\n[ Info: \"i=5\" =&gt; 0//1\n[ Info: \"i=6\" =&gt; 0//1\n[ Info: \"i=7\" =&gt; 1//3\n[ Info: \"i=8\" =&gt; 2//5\n[ Info: \"i=9\" =&gt; 1//2\n[ Info: \"i=10\" =&gt; 2//3\n[ Info: \"i=11\" =&gt; 1//1\n[ Info: \"i=12\" =&gt; 1//1"
   },
@@ -310,7 +380,7 @@
   {
     "objectID": "exercises/afcp-ex3.19.html",
     "href": "exercises/afcp-ex3.19.html",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.19",
     "section": "",
     "text": "1. question\n\n\n\n\n\n\nQuestion\n\n\n\n参加过某个“ 戒烟班”的人，有48 %的女性和37%的男性在结束后一年内坚持没有吸烟，这些人参 加了年末的庆功会.如果 一开始，班里有62%的男性，问:\n\n(a)参加庆功会的 女性所占百分比是名少 ?\n(b)参加庆功会的人数占全班的百分比是多少\n\n\n\n\n\n2. 构建双向表\n\n\\[p(woman)=1-p(man)=1-0.62=0.38\\]\n\\[p(not again|woman)=0.48\\]\n\\[p(not again, woman)=p(not again|woman)*p(woman)\\approx 0.18\\]\n同理得: \\[p(not again, man)=0.23\\]\n\\[p(notagain)=p(not again, man)+p(not again, woman)=0.23+0.18=0.41\\]\n这就是(b) 的答案:0.41,假设参加戒烟训练班的有 100人, 41 人没有再碰过烟\n\n的答案:\n\n\\[p(woman|not again)=\\frac{p(not again, woman)}{p(not again)}=\\frac{0.18}{0.41}\\approx 0.439\\]\n注:在不同样本空间下的比例不要直接放在一起比较, 如果需要比较,需要标准化, 统一样本空间的大小\n\n\n\n\n\n\n总结\n\n\n\n问题稍显绕口\n\n\n问的是 戒烟成功的女性在所有戒烟成功人里占多少, 样本空间是总的戒烟成功人数\n\n\n问的是 成功戒烟的人占参见戒烟训练班的总人数比例, 样本空间是参见训练班的所有人数"
   },
@@ -331,219 +401,275 @@
   {
     "objectID": "exercises/afcp-ex3.45.html",
     "href": "exercises/afcp-ex3.45.html",
-    "title": "1. question",
+    "title": "afcp-ex3.45",
+    "section": "",
+    "text": "假定有10 枚硬币，挪第i 枚硬币正面朝上的概率为i/ 10，i= 1，2，…，10.如果先随机选择一枚硬币来掷，结果为正面， 那么它是第5 枚硬币的概率是多少?"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.45.html#question",
+    "href": "exercises/afcp-ex3.45.html#question",
+    "title": "afcp-ex3.45",
     "section": "",
     "text": "假定有10 枚硬币，挪第i 枚硬币正面朝上的概率为i/ 10，i= 1，2，…，10.如果先随机选择一枚硬币来掷，结果为正面， 那么它是第5 枚硬币的概率是多少?"
   },
   {
     "objectID": "exercises/afcp-ex3.45.html#计算",
     "href": "exercises/afcp-ex3.45.html#计算",
-    "title": "1. question",
+    "title": "afcp-ex3.45",
     "section": "2. 计算",
     "text": "2. 计算\n概率路径图原理与 ex3.43 一样, 这里直接计算路径全概率和第五枚硬币抛出正面的概率 然后计算比值 \\[path_i=\\frac{1}{10}*\\frac{i}{10} \\tag{1.1}\\] \\[total=\\sum_{1}^{10}path_i \\tag{1.2}\\]\n\npaths=[1//10*(i//10) for i in 1:10]\nshow(\"正面的全路径概率集合\"=&gt;paths)\npath5=paths[5];total=sum(paths)\n\n\"若抛出正面, 来自第五枚硬币的概率为\"=&gt;path5//total\n\n\"正面的全路径概率集合\" =&gt; Rational{Int64}[1//100, 1//50, 3//100, 1//25, 1//20, 3//50, 7//100, 2//25, 9//100, 1//10]\n\n\n\"若抛出正面, 来自第五枚硬币的概率为\" =&gt; 1//11"
   },
   {
     "objectID": "exercises/afcp-ex3.23.html",
     "href": "exercises/afcp-ex3.23.html",
-    "title": "1. question",
+    "title": "afcp-ex3.23",
+    "section": "",
+    "text": "罐子I中有\\(2\\)个白球,\\(4\\)个红球, 罐子II中有\\(1\\)个白球,\\(1\\)个红球 随机从I 中取出一个球放入II,再从II中取出一个球\n\n\n取出白球的概率\n\n\n如果取出的是白球,该球是从I 中来的条件概率有多大"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.23.html#question",
+    "href": "exercises/afcp-ex3.23.html#question",
+    "title": "afcp-ex3.23",
     "section": "",
     "text": "罐子I中有\\(2\\)个白球,\\(4\\)个红球, 罐子II中有\\(1\\)个白球,\\(1\\)个红球 随机从I 中取出一个球放入II,再从II中取出一个球\n\n\n取出白球的概率\n\n\n如果取出的是白球,该球是从I 中来的条件概率有多大"
   },
   {
     "objectID": "exercises/afcp-ex3.23.html#分析",
     "href": "exercises/afcp-ex3.23.html#分析",
-    "title": "1. question",
+    "title": "afcp-ex3.23",
     "section": "2. 分析",
     "text": "2. 分析\n如果没有I,从罐子II中取出红球和白球的概率为\\(p(red)=p(white)=\\frac{1}{2}\\) I 中取出的球会改变罐子II球的比例.\n\n如果从I 中取出白球, II 中球总数为 3,白球为 2,红球为 1\n如果从I 中取出红球, II 中球总数为 3,白球为 1,红球为 2\n\n依此可以画出概率路径图"
   },
   {
     "objectID": "exercises/afcp-ex3.23.html#概率路径图",
     "href": "exercises/afcp-ex3.23.html#概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.23",
     "section": "3. 概率路径图",
     "text": "3. 概率路径图\n\n\n\n\n    flowchart LR\n    A(V)==1//3==&gt;B(w)\n    A(V)==2//3==&gt;C(r)\n\n    B(w)==2//3==&gt;G(w)\n    B(w)==1//3==&gt;H(r)\n    C(w)==1//3==&gt;E(w)\n    C(r)==2//3==&gt;F(r)\n\n    style C fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style H fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style F fill: #FF0000, stroke: #333, stroke-width: 2px;"
   },
   {
     "objectID": "exercises/afcp-ex3.23.html#计算",
     "href": "exercises/afcp-ex3.23.html#计算",
-    "title": "1. question",
+    "title": "afcp-ex3.23",
     "section": "4. 计算",
     "text": "4. 计算\n\n4.1 取出白球的概率\n沿着路径最终到达白球\n根据I中取出球的概率, 从II取出白球有两条路径, 取出白球的概率是这两条路径的总和\n\npath1=1//3*2//3\npath2=2//3*1//3\npw=path1+path2\n\"取出白球的概率\"=&gt;pw\n\n\"取出白球的概率\" =&gt; 4//9\n\n\n\n\n4.2 如果取出白球,来自I的概率\n如果白球来自I,概率路径是最上面一条,这条路径的概率比上取出白球的 概率就是来自I的条件概率\n\n\"取出白球,来自`I`的概率\"=&gt;path1//pw\n\n\"取出白球,来自`I`的概率\" =&gt; 1//2"
   },
   {
     "objectID": "exercises/afcp-ex3.30.html",
     "href": "exercises/afcp-ex3.30.html",
-    "title": "1. question",
+    "title": "afcp-ex3.30",
+    "section": "",
+    "text": "两个盒子，一个里面有黑白弹子各一个，另一个有2 个黑弹子和1个白弹子。随机挑选一个盒子， 再随机从中取出一 个弹子\n\n\n取出黑弹子的概率\n\n\n如果取出是白色弹子, 来自第一个盒子的概率"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.30.html#question",
+    "href": "exercises/afcp-ex3.30.html#question",
+    "title": "afcp-ex3.30",
     "section": "",
     "text": "两个盒子，一个里面有黑白弹子各一个，另一个有2 个黑弹子和1个白弹子。随机挑选一个盒子， 再随机从中取出一 个弹子\n\n\n取出黑弹子的概率\n\n\n如果取出是白色弹子, 来自第一个盒子的概率"
   },
   {
     "objectID": "exercises/afcp-ex3.30.html#绘出概率路径图",
     "href": "exercises/afcp-ex3.30.html#绘出概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.30",
     "section": "2. 绘出概率路径图",
-    "text": "2. 绘出概率路径图\n根据描述,绘出概率路径图\n\n有两个盒子,所以随机选取一个盒子的 概率都为\\(\\frac{1}{2}\\)\n如果挑选的是第一个盒子, 有一个黑色弹子,一个白色弹子, 所以\\(p(b|box1)=p(w|box1)=\\frac{1}{2}\\)\n如果挑选的是第二个盒子, 有2个黑色弹子,1个白色弹子, 所以\\(p(b|box2)=\\frac{2}{3}\\),\\(p(w|box2)=\\frac{1}{3}\\)\n\n\n\n\n\nflowchart LR\n    A(Box)==1/2==&gt;B(box1)\n    A(Box)==1/2==&gt;C(box2)\n    B(box1)==1/2==&gt;D(b)\n    B(box1)==1/2==&gt;E(w)\n    C(box2)==2/3==&gt;F(b)\n    C(box2)==1/3==&gt;G(w)"
+    "text": "2. 绘出概率路径图\n根据描述,绘出概率路径图\n\n有两个盒子,所以随机选取一个盒子的 概率都为\\(\\frac{1}{2}\\)\n如果挑选的是第一个盒子, 有一个黑色弹子,一个白色弹子, 所以\\(p(b|box1)=p(w|box1)=\\frac{1}{2}\\)\n如果挑选的是第二个盒子, 有2个黑色弹子,1个白色弹子, 所以\\(p(b|box2)=\\frac{2}{3}\\),\\(p(w|box2)=\\frac{1}{3}\\)\n\n\n\n\n\nflowchart LR\n    \n    A(Box)==b1:1/2==&gt;box1[(\"⚫️\\n⚪️\")]\n    A(Box)==b2:1/2==&gt;box2[(\"⚫️⚫️\\n⚪️\")]\n    subgraph Box1\n     box1\n    end\n    subgraph Box2\n     box2\n    end\n    box1==b1b2:1/2==&gt;D(\"⚫️\")\n    box1==b1w2:1/2==&gt;E(\"⚪️\")\n    box2==b2b2:2/3==&gt;F(\"⚫️\")\n    box2==b2w2:1/3==&gt;G(\"⚪️\")"
   },
   {
     "objectID": "exercises/afcp-ex3.30.html#solution",
     "href": "exercises/afcp-ex3.30.html#solution",
-    "title": "1. question",
+    "title": "afcp-ex3.30",
     "section": "3.solution",
-    "text": "3.solution\n\n3.1 取出黑色弹子的概率\n在上图中有两条概率路径可以抽出黑色弹子\n\npath1=1//2*1//2\npath2=1//2*2//3\npb=path1+path2\n\"取出黑色弹子的概率\"=&gt;pb\n\n\"取出黑色弹子的概率\" =&gt; 7//12\n\n\n\n\n3.2 在取出弹子是白色的条件下, 该弹子来自第一个盒子的概率\n首先计算出取出白色弹子的全概率,然后找到从第一个盒子取出白色弹子路径的 概率, 求其两者比值\n\n path3=1//2*1//2  #从第一个盒子取出白球的概率\n path4=1//2*1//3  #从第二个盒子取出白球的概率\n pw=path3+path4\n \"取出的弹子是白色的,来自第一个盒子的概率\"=&gt;path3//pw\n\n\"取出的弹子是白色的,来自第一个盒子的概率\" =&gt; 3//5"
+    "text": "3.solution\n\n3.1 取出黑色弹子的概率\n在上图中有两条概率路径可以抽出黑色弹子\n\nb1=1//2;b1b2=1//2;b1w2=1//2\nb2=1//2;b2b2=2//3;b2w2=1//3\npath1=b1*b1b2\npath2=b2*b2b2\npb=path1+path2\n\"取出黑色弹子的概率\"=&gt;pb\n\n\"取出黑色弹子的概率\" =&gt; 7//12\n\n\n\n\n3.2 在取出弹子是白色的条件下, 该弹子来自第一个盒子的概率\n首先计算出取出白色弹子的全概率,然后找到从第一个盒子取出白色弹子路径的 概率, 求其两者比值\n\n path3=b1*b1w2  #从第一个盒子取出白球的概率\n path4=b2*b2w2  #从第二个盒子取出白球的概率\n pw=path3+path4\n \"取出的弹子是白色的,来自第一个盒子的概率\"=&gt;path3//pw\n\n\"取出的弹子是白色的,来自第一个盒子的概率\" =&gt; 3//5"
   },
   {
     "objectID": "exercises/afcp-ex3.50.html",
     "href": "exercises/afcp-ex3.50.html",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.50",
     "section": "",
     "text": "假设某保险公司把被保險人分成如下三类:“ 低风險的”、“ 一般的”、“ 高风险的”.该保險 公司的 资料表明， 对于上述三种人而言，在一年期内卷人一次事放的概率依次为0.05，0.15 和0.30. 如果“低风险的“被保险人占人又的 20%，“一般的”占50%，“高风险的”占 30%.\n\n在固定的一年中出事故的人口占多大比例\n如果保险人在2012年没出事故，他是“低风險的”概率是多大?\n是“一般的“ 概率是多大?"
   },
   {
     "objectID": "exercises/afcp-ex3.50.html#question",
     "href": "exercises/afcp-ex3.50.html#question",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.50",
     "section": "",
     "text": "假设某保险公司把被保險人分成如下三类:“ 低风險的”、“ 一般的”、“ 高风险的”.该保險 公司的 资料表明， 对于上述三种人而言，在一年期内卷人一次事放的概率依次为0.05，0.15 和0.30. 如果“低风险的“被保险人占人又的 20%，“一般的”占50%，“高风险的”占 30%.\n\n在固定的一年中出事故的人口占多大比例\n如果保险人在2012年没出事故，他是“低风險的”概率是多大?\n是“一般的“ 概率是多大?"
   },
   {
     "objectID": "exercises/afcp-ex3.50.html#two-way-table",
     "href": "exercises/afcp-ex3.50.html#two-way-table",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.50",
     "section": "2. two-way table",
     "text": "2. two-way table\n根据描述列出双向表\n\n\n\n\n\n\nbuild two-way table in this page\n\n\n\nRapidTable"
   },
   {
     "objectID": "exercises/afcp-ex3.50.html#solution",
     "href": "exercises/afcp-ex3.50.html#solution",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.50",
     "section": "3. solution",
     "text": "3. solution\n\n3.1 一年内出事故的概率\n就是第一行的边缘概率即 \\(0.175\\)\n\n\n3.2 没有出事故,属于”低风险”的概率\n没有出事故的边缘概率为 \\(0.825\\) ,没有出事故的低风险人数为第二行,第一列的联合分布:\\(0.19\\) 所以条件概率为 \\(\\frac{0.19}{0.825}=0.23\\)\n\n\n3.3 没有出事故,属于”中等风险”的概率\n没有出事故的边缘概率为 \\(0.825\\) ,没有出事故的中风险人数为第二行,第二列的联合分布:\\(0.425\\) 所以条件概率为 \\(\\frac{0.425}{0.825}=0.515\\)"
   },
   {
     "objectID": "exercises/afcp-ex3.40.html",
     "href": "exercises/afcp-ex3.40.html",
-    "title": "1. question",
+    "title": "afcp-ex3.40",
+    "section": "",
+    "text": "坛子里有5 个白球和7 个红球.考應按如下方式取出3 个球:每一次取出一个，并记下其颜色，然 后把它放回坛子，同时再放进 一个相同颜色的球。求取出的3 个球满足下列条件的概率:\n\n(a)没有白球;\n(b)只有1 个白球;\n(c)全部是白球;\n(d)刚好有2 个白球。"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.40.html#question",
+    "href": "exercises/afcp-ex3.40.html#question",
+    "title": "afcp-ex3.40",
     "section": "",
     "text": "坛子里有5 个白球和7 个红球.考應按如下方式取出3 个球:每一次取出一个，并记下其颜色，然 后把它放回坛子，同时再放进 一个相同颜色的球。求取出的3 个球满足下列条件的概率:\n\n(a)没有白球;\n(b)只有1 个白球;\n(c)全部是白球;\n(d)刚好有2 个白球。"
   },
   {
     "objectID": "exercises/afcp-ex3.40.html#概率路径图",
     "href": "exercises/afcp-ex3.40.html#概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.40",
     "section": "2. 概率路径图",
     "text": "2. 概率路径图\n根据描述绘出概率路径图\n\n\n\n\nflowchart LR\n    A[(\"⚪️⚪️⚪️⚪️⚪️\\n🔴🔴🔴🔴🔴🔴🔴\")]==w1:5/12==&gt;B[(\"⚪️⚪️⚪️⚪️⚪️⚪️\\n🔴🔴🔴🔴🔴🔴🔴\")]\n    A[(\"⚪️⚪️⚪️⚪️⚪️\\n🔴🔴🔴🔴🔴🔴🔴\")]==r1:7/12==&gt;C[(\"⚪️⚪️⚪️⚪️⚪️⚪️\\n🔴🔴🔴🔴🔴🔴🔴🔴\")]\n    \n    B==ww2:6/13==&gt;D[(\"⚪️⚪️⚪️⚪️⚪️⚪️⚪️\\n🔴🔴🔴🔴🔴🔴🔴\")]\n    B==wr2:7/13==&gt;F[(\"⚪️⚪️⚪️⚪️⚪️⚪️\\n🔴🔴🔴🔴🔴🔴🔴🔴\")]\n    C==rw2:5/13==&gt;G[(\"⚪️⚪️⚪️⚪️⚪️⚪️⚪️\\n🔴🔴🔴🔴🔴🔴🔴🔴\")]\n    C==rr2:8/13==&gt;H[(\"⚪️⚪️⚪️⚪️⚪️⚪️\\n🔴🔴🔴🔴🔴🔴🔴🔴🔴\")]\n    \n    D==www3:7/14==&gt;I(\"⚪️\")\n    D==wwr3:7/14==&gt;J(\"🔴\")\n    F==wrw3:6/14==&gt;L(\"⚪️\")\n    F==wrr3:8/14==&gt;M(\"🔴\")\n    \n    G==rww3:6/14==&gt;N(\"⚪️\")\n    G==rwr3:8/14==&gt;O(\"🔴\")\n\n    H==rrw3:5/14==&gt;P(\"⚪️\")\n    H==rrr3:9/14==&gt;Q(\"🔴\")\n\n\n\n\n\n我们沿着Vase-&gt;w1-&gt;⚪️-&gt;ww2-&gt;⚪️-&gt;www3-&gt;⚪️ 的路径(最上面一条路径),解释一下如何标注概率值\n\nstep1 罐子中有 \\(5\\) 个白球,\\(7\\) 个红球,合计 \\(12\\) 个球, 从中取出白球的概率为\\(w_1=\\frac{5}{12}\\), 从中取出红球的概率为\\(r_1=\\frac{7}{12}\\)\nstep2 根据介绍, 以\\(w_1\\)的概率取出白球后, 需要放回去, 并且再多放一个白球, 因此总数变为\\(13\\),白球为\\(6\\), 红球数不变,仍为\\(7\\), 因此沿着 Vase-&gt;w1, 在第二步取出白球概率\\(ww_2=\\frac{6}{13}\\),取出红球概率为: \\(wb_2=\\frac{7}{13}\\)\nstep3 由于第二步取出的是白球,所以要再放入一个白球,合计\\(14\\), 白球为\\(7\\),红球为\\(7\\), \\(www_3=\\frac{7}{14}\\),\\(wwr_3=\\frac{7}{14}\\)"
   },
   {
     "objectID": "exercises/afcp-ex3.40.html#solution",
     "href": "exercises/afcp-ex3.40.html#solution",
-    "title": "1. question",
+    "title": "afcp-ex3.40",
     "section": "3. solution",
     "text": "3. solution\n\n3.1 取出的全部是红色球\n最下面的一条概率路径r1-&gt;🔴-&gt;rr2-&gt;🔴-&gt;rrr3-&gt;🔴,概率乘积就是全部红色球的概率\n\nr1=7//12;rr2=8//13;rrr3=9//14\nall_3_red=r1*rr2*rrr3\n\"取出三个都是红球的概率\"=&gt;all_3_red\n\n\"取出三个都是红球的概率\" =&gt; 3//13\n\n\n\n\n3.2 只有一个白球\n只有一个白球有三条路径:\n\nw1-&gt;⚪️-&gt;wr2-&gt;🔴-&gt;wrr3-&gt;🔴\nr1-&gt;🔴-&gt;rw2-&gt;⚪️-&gt;rwr3-&gt;🔴\nr1-&gt;🔴-&gt;rr2-&gt;🔴-&gt;rrw3-&gt;⚪️\n\n\nw1=5//12;wr2=7//13;wrr3=8//14\nr1=7//12;rw2=5//13;rwr3=8//14\nr1=7//12;rr2=8//13;rrw3=5//14\np1=w1*wr2*wrr3\np2=r1*rw2*rwr3\np3=r1*rr2*rrw3\nonly_1_white=p1+p2+p3\n\"只取出一个白球的概率\"=&gt;only_1_white\n\n\"只取出一个白球的概率\" =&gt; 5//13\n\n\n\n\n3.3 三个全部是白球\nVase-&gt;w1-&gt;⚪️-&gt;ww2-&gt;⚪️-&gt;www3-&gt;⚪️\n\nw1=5//12;ww2=6//13;www3=7//14\nall_3_white=w1*ww2*www3\n\"三个全部是白球概率\"=&gt;all_3_white\n\n\"三个全部是白球概率\" =&gt; 5//52\n\n\n\n\n3.4 刚好有两个白球\n有三条路径\n\nw1-&gt;ww2-&gt;wwr3\nw1-&gt;wr2-&gt;wrw3\nr1-&gt;rw2-&gt;rww3\n\n\nw1=5//12;ww2=6//13;wwr3=7//14\nw1=5//12;wr2=7//13;wrw3=6//14\nr1=7//12;rw2=5//13;rww3=6//14\np1=w1*ww2*wwr3\np2=w1*wr2*wrw3\np3=r1*rw2*rww3\n\neither_2_white=p1+p2+p3\n\"取出三个球有两个是白色的概率\"=&gt;either_2_white\n\n\"取出三个球有两个是白色的概率\" =&gt; 15//52"
   },
   {
     "objectID": "exercises/afcp-ex3.37.html",
     "href": "exercises/afcp-ex3.37.html",
-    "title": "1. question",
+    "title": "afcp-ex3.37",
+    "section": "",
+    "text": "赌徒口袋中有一枚均匀的硬币, 还有一枚两面都是正面的硬币,他随机拿出一枚硬币\n\n\n抛出来是正面, 是均匀硬币的概率\n\n\n再抛一次,仍是正面, 是均匀硬币的概率\n\n\n第三次抛,发现是反面,是均匀硬币的概率"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.37.html#question",
+    "href": "exercises/afcp-ex3.37.html#question",
+    "title": "afcp-ex3.37",
     "section": "",
     "text": "赌徒口袋中有一枚均匀的硬币, 还有一枚两面都是正面的硬币,他随机拿出一枚硬币\n\n\n抛出来是正面, 是均匀硬币的概率\n\n\n再抛一次,仍是正面, 是均匀硬币的概率\n\n\n第三次抛,发现是反面,是均匀硬币的概率"
   },
   {
     "objectID": "exercises/afcp-ex3.37.html#a-的概率路径图",
     "href": "exercises/afcp-ex3.37.html#a-的概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.37",
     "section": "2. (a) 的概率路径图",
     "text": "2. (a) 的概率路径图\n\n\n\n\nflowchart LR\n    A(Coin)==fc:1/2==&gt;B(faircoin)\n    A(Coin)==nfc:1/2==&gt;C(notfaircoin)\n    B(faircoin)==fc1h:1/2==&gt;D(head)\n    B(faircoin)-.fc1t:1/2.-&gt;E(tail)\n    C(notfaircoin)==nfc1h:1==&gt;F(head)\n    style D  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style F  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    \n\n\n\n\n\n第一次抛出正面的概率有两个路径,均匀硬币是第一条路径\n\nfc=nfc=1//2\nfc1h=fc1t=1//2\nnfc1h=1;nfc1t=0\npath1=fc*fc1h\npath2=nfc*nfc1h\np1head=path1+path2\n\n\"第一次抛出正面条件下,为均匀硬币的概率\"=&gt;path1//p1head\n\n\"第一次抛出正面条件下,为均匀硬币的概率\" =&gt; 1//3"
   },
   {
     "objectID": "exercises/afcp-ex3.37.html#b-的概率路径图",
     "href": "exercises/afcp-ex3.37.html#b-的概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.37",
     "section": "3. (b) 的概率路径图",
     "text": "3. (b) 的概率路径图\n\n\n\n\nflowchart LR\n    A(Coin)==fc:1/2==&gt;B(faircoin)\n    A(Coin)==nfc:1/2==&gt;C(notfaircoin)\n    B(faircoin)==fc1h:1/2==&gt;D(head)\n    B(faircoin)==fc1t:1/2==&gt;E(tail)\n    C(notfaircoin)==nfc1h:1==&gt;F(head)\n    \n    D(head)==fc2h:1/2==&gt;I(head)\n    D(head)==fc2t:1/2==&gt;J(tail)\n    E(tail)==fc2h:1/2==&gt;K(head)\n    E(tail)==fc2t:1/2==&gt;L(tail)\n    F(head)==nfc2h:1==&gt;M(head)\n\n    style D  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style F  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style I  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style M  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    \n\n\n\n\n\n第一次抛是正面, 第二次仍是正面仍是两条路径,但是概率发生变化\n\n    fc2h=fc2t=1//2\n    nfc2h=1\n    path3=fc*fc1h*fc2h\n    path4=nfc*nfc1h*nfc2h\n    p2head=path3+path4\n    \"第一次抛是正面, 第二次仍是正面的硬币是均匀硬币的概率\"=&gt;path3//p2head\n\n\"第一次抛是正面, 第二次仍是正面的硬币是均匀硬币的概率\" =&gt; 1//5"
   },
   {
     "objectID": "exercises/afcp-ex3.37.html#c-的概率路径图",
     "href": "exercises/afcp-ex3.37.html#c-的概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.37",
     "section": "4. (c) 的概率路径图",
     "text": "4. (c) 的概率路径图\n实际因为两面都是人头的硬币不可能出现反面, 一旦出现反面, 整个路径就不存在. 这就是著名的黑天鹅理论. 对于硬币试验, 如果从开始连续抛硬币都是正面,不能因为没有观察 到反面的现象,就匆忙下结论:硬币两面都是正面, 这个结论是经不起试验验证的.\n因为即使观察到连续100次正面,一旦观察到一次反面,整个对模型的结论就完全失去作用了.\n我们看到 100 次白天鹅,不能下结论:所有天鹅都是白色的, 因为只要观察到一只黑天鹅, 这个结论 就是错误的.\n\n\n\n\nflowchart LR\n    A(Coin)==fc:1/2==&gt;B(faircoin)\n    A(Coin)==nfc:1/2==&gt;C(notfaircoin)\n    B(faircoin)==fc1h:1/2==&gt;D(head)\n    B(faircoin)==fc1t:1/2==&gt;E(tail)\n    C(notfaircoin)==nfc1h:1==&gt;F(head)\n    \n    D(head)==fc2h:1/2==&gt;I(head)\n    D(head)==fc2t:1/2==&gt;J(tail)\n    E(tail)==fc2h:1/2==&gt;K(head)\n    E(tail)==fc2t:1/2==&gt;L(tail)\n    F(head)==nfc2h:1==&gt;M(head)\n    I(head)==fc3h:1/2==&gt;N(head)\n    I(head)==fc3t:1/2==&gt;O(tail)\n\n    style D  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style I  fill: #FF0000, stroke: #333, stroke-width: 2px;\n    style O  fill: #FF0000, stroke: #333, stroke-width: 2px;\n\n\n\n\n\nhead-&gt;head-&gt;tail 的路径只有一条,所以如果第三次抛出反面,肯定这枚硬币是均匀的硬币"
   },
   {
     "objectID": "exercises/afcp-ex3.42.html",
     "href": "exercises/afcp-ex3.42.html",
-    "title": "1. question",
+    "title": "afcp-ex3.42",
+    "section": "",
+    "text": "全美有12%的家庭在加州.全美总共有1.3%的家庭总收人超过250000 美元每年，而全加州有 3. 3%的 家庭年总收人超过250000 美元•\n\n(a)求非加州地区家庭中年收人超过25000 美元的家庭比例。\n(b)假设随机地抽取年收人超过25000 美元的一个美国家庭，请问该家庭是加州地区的機率是多少?"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.42.html#question",
+    "href": "exercises/afcp-ex3.42.html#question",
+    "title": "afcp-ex3.42",
     "section": "",
     "text": "全美有12%的家庭在加州.全美总共有1.3%的家庭总收人超过250000 美元每年，而全加州有 3. 3%的 家庭年总收人超过250000 美元•\n\n(a)求非加州地区家庭中年收人超过25000 美元的家庭比例。\n(b)假设随机地抽取年收人超过25000 美元的一个美国家庭，请问该家庭是加州地区的機率是多少?"
   },
   {
     "objectID": "exercises/afcp-ex3.42.html#two-way-table",
     "href": "exercises/afcp-ex3.42.html#two-way-table",
-    "title": "1. question",
+    "title": "afcp-ex3.42",
     "section": "2. two-way-table",
     "text": "2. two-way-table\n构建 two-way-table\n\n\n\n\n\n\nbuild two-way table in this page\n\n\n\nRapidTable\n\n\n\nCA=0.12,所以 NCA=1-CA\n加州有 3.3% 家庭收入&gt;250,000, 所以在第一行,第一列为\\(0.033*0.12=0.00396\\)\n第一行&gt;250,000 的边缘分布为\\(1.3%\\)\n根据归一化填充其他项"
   },
   {
     "objectID": "exercises/afcp-ex3.42.html#计算",
     "href": "exercises/afcp-ex3.42.html#计算",
-    "title": "1. question",
+    "title": "afcp-ex3.42",
     "section": "3. 计算",
     "text": "3. 计算\n构建数据矩阵\n\nusing PrettyTables\nmatrix=[0.00396 0.00904 0.013;\n        0.11604 0.87096 0.987;\n        0.12    0.88    1.00\n       ]\npretty_table(matrix;tf=tf_matrix,show_header = false)\n\n┌                         ┐\n│ 0.00396  0.00904  0.013 │\n│ 0.11604  0.87096  0.987 │\n│    0.12     0.88    1.0 │\n└                         ┘\n\n\n\n3.1 (a) 非加州地区&gt;250,000的比例\n第二列为条件, &gt;250,000的比例\n\n\"非加州地区&gt;250,000的比例\"=&gt;matrix[1,2]/matrix[3,2]\n\n\"非加州地区&gt;250,000的比例\" =&gt; 0.010272727272727272\n\n\n\n\n3.2 (b) 随机抽取一个&gt;250,000的家庭,是加州家庭的概率\n第一行作为条, 第一行,第一列是联合分布\n\n\"随机抽取一个&gt;250,000的家庭,是加州家庭的概率\"=&gt;matrix[1,1]/matrix[1,3]\n\n\"随机抽取一个&gt;250,000的家庭,是加州家庭的概率\" =&gt; 0.3046153846153846"
   },
   {
     "objectID": "exercises/afcp-ex3.47.html",
     "href": "exercises/afcp-ex3.47.html",
-    "title": "1. question",
+    "title": "afcp-ex3.47",
+    "section": "",
+    "text": "坛子里有5个白球和10个黑球.若掷一枚均匀的假子，掷出几点就从坛子中取几个球，则取出的球\n\n1都是白球的概率是多少?\n2在取出的球都是白球的条件下，掷出的骰 子点数为3的条件概率是多少?\n\n\n用cumprod 方法累乘取出白球的概率\n\npaths=cumprod([5//15,4//14,3//13,2//12,1//11])\ntotal=sum(paths)\nshow(\"全部为白色球的全概率\"=&gt;total)\npath3=paths[3]\n\" 色子点数为 3 的概率为:\"=&gt;path3//total\n\n\"全部为白色球的全概率\" =&gt; 5//11\n\n\n\" 色子点数为 3 的概率为:\" =&gt; 22//455"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.47.html#question",
+    "href": "exercises/afcp-ex3.47.html#question",
+    "title": "afcp-ex3.47",
     "section": "",
     "text": "坛子里有5个白球和10个黑球.若掷一枚均匀的假子，掷出几点就从坛子中取几个球，则取出的球\n\n1都是白球的概率是多少?\n2在取出的球都是白球的条件下，掷出的骰 子点数为3的条件概率是多少?\n\n\n用cumprod 方法累乘取出白球的概率\n\npaths=cumprod([5//15,4//14,3//13,2//12,1//11])\ntotal=sum(paths)\nshow(\"全部为白色球的全概率\"=&gt;total)\npath3=paths[3]\n\" 色子点数为 3 的概率为:\"=&gt;path3//total\n\n\"全部为白色球的全概率\" =&gt; 5//11\n\n\n\" 色子点数为 3 的概率为:\" =&gt; 22//455"
   },
   {
     "objectID": "exercises/afcp-ex3.43.html",
     "href": "exercises/afcp-ex3.43.html",
-    "title": "1. question",
+    "title": "afcp-ex3.43",
+    "section": "",
+    "text": "盒子里有 3枚硬币，第一枚两面都为正面，第二枚为均匀的硬币，第三枚是不均匀的，它出现正面朝上的概率为75%. 如果从中随机挑 一枚硬币来掷发现是正面朝上，那么它是两面都为正面的 概率是多少?"
+  },
+  {
+    "objectID": "exercises/afcp-ex3.43.html#question",
+    "href": "exercises/afcp-ex3.43.html#question",
+    "title": "afcp-ex3.43",
     "section": "",
     "text": "盒子里有 3枚硬币，第一枚两面都为正面，第二枚为均匀的硬币，第三枚是不均匀的，它出现正面朝上的概率为75%. 如果从中随机挑 一枚硬币来掷发现是正面朝上，那么它是两面都为正面的 概率是多少?"
   },
   {
     "objectID": "exercises/afcp-ex3.43.html#概率路径图",
     "href": "exercises/afcp-ex3.43.html#概率路径图",
-    "title": "1. question",
+    "title": "afcp-ex3.43",
     "section": "2.概率路径图",
     "text": "2.概率路径图\n根据表述列出概率路径图\n\n\n\n\nflowchart LR\n    A(Coin)==c1:1/3==&gt;B(C1)\n    A(Coin)==c2:1/3==&gt;C(C2)\n    A(Coin)==c3:1/3==&gt;D(C3)\n    B(C1)==c1h:1==&gt;E(head)\n    C(C2)==c2h:1/2==&gt;F(head)\n    C(C2)==c2t:1/2==&gt;G(tail)\n    D(C3)==c3h:3/4==&gt;H(head)\n    D(C3)==c3t:1/4==&gt;I(tail)"
   },
   {
     "objectID": "exercises/afcp-ex3.43.html#solution",
     "href": "exercises/afcp-ex3.43.html#solution",
-    "title": "1. question",
+    "title": "afcp-ex3.43",
     "section": "3. solution",
     "text": "3. solution\n正面朝上有三条路径\n\np1:coin-&gt;c1-&gt;c1h\np2:coin-&gt;c2-&gt;c2h\np3:coin-&gt;c3-&gt;c3h 这枚硬币两面都是正面的概率是 \\(p1\\)\n\n\nc1=c2=c3=1//3\nc1h=1;c2h=1//2;c3h=3//4\np1=c1*c1h;p2=c2*c2h;p3=c3*c3h \nphead=p1+p2+p3\n\"抛出正面的硬币属于两面都是正面的概率为\"=&gt;p1//phead\n\n\"抛出正面的硬币属于两面都是正面的概率为\" =&gt; 4//9"
   },
   {
     "objectID": "exercises/afcp-ex3.20.html",
     "href": "exercises/afcp-ex3.20.html",
-    "title": "1. question",
+    "title": "afcp-ex3.20",
     "section": "",
-    "text": "Question\n\n\n\n大学里，52%的学生为女生，5%的学生为计算机科学专业，2%的学生为计算机科学专业的女生 如果随机挑选一 名学生，求以 下条件概 率:\n\n\n在 已 知 该 学 生 主 修 计 算 机 科 学 的 条 件 下 ， 该 生 为 女 生 的 条 件 概 率 ;\n\n\n已知该生为女生的条件 下，该生 主修计算机科学的条件几率\n\n\n\n\n\n2. 双向表\n根据描述,填充双向表\n\n\n\n\n\n\nbuild two-way table in this page\n\n\n\nRapidTable\n\n\n\n\n\n3. (a)\n在上表中,第一列的数据就是主修计算机的所有学生,女生为\\(0.02\\),因此条件概率为:\n\n0.02/0.05\n\n0.39999999999999997\n\n\n\n\n4. (b)\n上表中,第一行就是所有女生的数据, 主修计算机的为\\(0.02\\),条件概率为:\n\n0.02/0.52\n\n0.038461538461538464\n\n\n\n\n5. 总结\n上面两个问题的 联合分布是一样的, 在不同的条件下在不同的概率空间下的比例不同"
+    "text": "1. question\n\n\n\n\n\n\nQuestion\n\n\n\n大学里，52%的学生为女生，5%的学生为计算机科学专业，2%的学生为计算机科学专业的女生 如果随机挑选一 名学生，求以 下条件概 率:\n\n\n在 已 知 该 学 生 主 修 计 算 机 科 学 的 条 件 下 ， 该 生 为 女 生 的 条 件 概 率 ;\n\n\n已知该生为女生的条件 下，该生 主修计算机科学的条件几率\n\n\n\n\n\n\n2. 双向表\n根据描述,填充双向表\n\n\n\n\n\n\nbuild two-way table in this page\n\n\n\nRapidTable\n\n\n\n\n\n3. (a)\n在上表中,第一列的数据就是主修计算机的所有学生,女生为\\(0.02\\),因此条件概率为:\n\n0.02/0.05\n\n0.39999999999999997\n\n\n\n\n4. (b)\n上表中,第一行就是所有女生的数据, 主修计算机的为\\(0.02\\),条件概率为:\n\n0.02/0.52\n\n0.038461538461538464\n\n\n\n\n5. 总结\n上面两个问题的 联合分布是一样的, 在不同的条件下在不同的概率空间下的比例不同"
   },
   {
     "objectID": "exercises/afcp-ex3.7.html",
     "href": "exercises/afcp-ex3.7.html",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.7",
     "section": "",
     "text": "1. question\n\nex3.7 如果国王来自有两个孩子的家庭，那么另一个孩子是他姐妹的概率是多大?\n\n\n\n2. 概率路径图\n我们先列出一个家庭有两个孩子的全概率图\n\n\n\n\nflowchart LR\n      \n        Y--&gt;A(boy)\n        Y--&gt;B(girl)\n        A--&gt;C(boy)\n        A--&gt;D(girl)\n        B--&gt;E(boy)\n        B--&gt;F(girl)\n\n\n\n\n\n\n\n3. 计算\n根据介绍, 国王肯定是男性, 所以子概率空间为 3, 除开最下面一条路径\n如果国王有姐姐或者妹妹, 那么是其中两条路径,因此条件概率为: \\[\\frac{2}{3}\\]"
   },
   {
     "objectID": "exercises/afcp-ex3.8.html",
     "href": "exercises/afcp-ex3.8.html",
-    "title": "Conditional-Probability-Exercise",
+    "title": "afcp-ex3.8",
     "section": "",
     "text": "1. question\n\nex3.8 某 夫 妇 有 两 个 孩 子， 已 知 老 大 是 女 孩 的 条 件 下 两 个 孩 子都 是 女 孩 的 条 件 概 率 是 多 大?\n\n\n\n2. 概率路径图\n我们先列出一个家庭有两个孩子的全概率图\n\n\n\n\nflowchart LR\n    Y--&gt;A(boy)\n    Y--&gt;B(girl)\n    A--&gt;C(boy)\n    A--&gt;D(girl)\n    B--&gt;E(boy)\n    B--&gt;F(girl)\n    style B fill: #f9f, stroke: #333, stroke-width: 2px;\n    style F fill: #f9f, stroke: #333, stroke-width: 2px;\n\n\n\n\n\n\n\n3. 计算\n如果第一个孩子是女孩, 那么路径图就只有下半部分符合描述, 如果两个孩子都是女孩 那么只有其中之一所以 条件概略为:\\(\\frac{1}{2}\\)"
   },
   {
     "objectID": "exercises/afcp-ex3.12.html",
     "href": "exercises/afcp-ex3.12.html",
-    "title": "精算师考试",
+    "title": "afcp-ex3.12",
     "section": "",
-    "text": "获得精算师证书,需要连续通过三次考试\n\n\n考试的分层概率图\n根据描述, 绘出三次考试的分层概率图 Figure 1\n\n\n\n\n\nflowchart LR\n      A(exame) ==s1:0.9 ==&gt; B(success)\n      A(exame) == f1:0.1 ==&gt;C(failure)\n      \n      B(success) ==s2:0.8 ==&gt; D(success)\n      B(success) ==f2:0.2 ==&gt; E(failure)\n      \n      D(success) ==s3:0.7 ==&gt; F(success)\n      D(success) ==f3:0.3==&gt; G(failure)\n      \n    style B  fill: #00FF00, stroke: #333, stroke-width: 4px;\n    style D  fill: #00FF00, stroke: #333, stroke-width: 4px;\n    style F  fill: #00FF00, stroke: #333, stroke-width: 4px;\n\n\nFigure 1: A diagram of exam\n\n\n\n\n\n\n通过三次考试,获得精算师证书的概率\n在 Figure 1 中,沿着绿色的路径就是三次考试成功的路径, 成功获得证书就是三次成功概率的乘积 \\[p_{succsss}=s1*s2*s3  \\tag{1.1}\\]\n\n   s1=0.9;s2=0.8;s3=0.7\n   \"p_success\"=&gt;s1*s2*s3\n\n\"p_success\" =&gt; 0.504\n\n\n\n\n在第二次考试中失败的概率\n如果没有通过考试, 那么在三次开始中都有可能失败,所以失败的条件下,需要重新计算总概率空间\n失败的全概率为: \\[total=(f1+s1*f2+s1*s2*f3) \\tag{1.2}\\]\n\\(f1\\) 可以写为: \\[f1=1-s1 \\tag{1.3}\\] 其他项以此类推,失败全概率为:\n\ntotal=(1-s1)+(s1*(1-s2))+(s1*s2*(1-s3))\n\n\"total_failure\"=&gt;total\n\n\"total_failure\" =&gt; 0.496\n\n\n所以在第二次考试中失败的概率为:\n\\[\\frac{(s1*f2)}{total} \\tag{1.4}\\]\n\n\"failure_at_second\"=&gt;(s1*(1-s2))/total\n\n\"failure_at_second\" =&gt; 0.36290322580645157"
+    "text": "精算师考试\n\n获得精算师证书,需要连续通过三次考试\n\n\n\n考试的分层概率图\n根据描述, 绘出三次考试的分层概率图 Figure 1\n\n\n\n\n\nflowchart LR\n      A(exame) ==s1:0.9 ==&gt; B(success)\n      A(exame) == f1:0.1 ==&gt;C(failure)\n      \n      B(success) ==s2:0.8 ==&gt; D(success)\n      B(success) ==f2:0.2 ==&gt; E(failure)\n      \n      D(success) ==s3:0.7 ==&gt; F(success)\n      D(success) ==f3:0.3==&gt; G(failure)\n      \n    style B  fill: #00FF00, stroke: #333, stroke-width: 4px;\n    style D  fill: #00FF00, stroke: #333, stroke-width: 4px;\n    style F  fill: #00FF00, stroke: #333, stroke-width: 4px;\n\n\nFigure 1: A diagram of exam\n\n\n\n\n\n\n通过三次考试,获得精算师证书的概率\n在 Figure 1 中,沿着绿色的路径就是三次考试成功的路径, 成功获得证书就是三次成功概率的乘积 \\[p_{succsss}=s1*s2*s3  \\tag{1.1}\\]\n\n   s1=0.9;s2=0.8;s3=0.7\n   \"p_success\"=&gt;s1*s2*s3\n\n\"p_success\" =&gt; 0.504\n\n\n\n\n在第二次考试中失败的概率\n如果没有通过考试, 那么在三次开始中都有可能失败,所以失败的条件下,需要重新计算总概率空间\n失败的全概率为: \\[total=(f1+s1*f2+s1*s2*f3) \\tag{1.2}\\]\n\\(f1\\) 可以写为: \\[f1=1-s1 \\tag{1.3}\\] 其他项以此类推,失败全概率为:\n\ntotal=(1-s1)+(s1*(1-s2))+(s1*s2*(1-s3))\n\n\"total_failure\"=&gt;total\n\n\"total_failure\" =&gt; 0.496\n\n\n所以在第二次考试中失败的概率为:\n\\[\\frac{(s1*f2)}{total} \\tag{1.4}\\]\n\n\"failure_at_second\"=&gt;(s1*(1-s2))/total\n\n\"failure_at_second\" =&gt; 0.36290322580645157"
   },
   {
     "objectID": "schedule.html",
@@ -557,6 +683,6 @@
     "href": "turing/1-urn-ball.html",
     "title": "1. question",
     "section": "",
-    "text": "Note\n\n\n\nfrom hakank-bayes-code\nUrns and balls\nurn1 contains 40 blue balls and 20 red balls urn2 contains 25 blue balls and 30 red balls.\nthrow a fair coin to descide to choos which urn, head for urn1, tail for urn2 “What is the probability of drawing a blue ball?”\nThe exact answer of drawing a blue call is 0.540/60 + 0.525/55 = 0.56060606060606060606\n\n\n\n概率路径图\n\n\n\n\nflowchart LR\n     A[\"🪙\"]\n     Urn1[(\"🔵:40\\n 🔴:20\")]\n     Urn2[(\" 🔵:25\\n 🔴:30\")]\n    A==h1:1/2==&gt;Urn1\n    A==t1:1/2==&gt;Urn2\n    Urn1==h1b2:40/60==&gt;h1b2(\"🔵\")\n    Urn1==h1r2:20/60==&gt;h1r2(\"🔴\")\n    Urn2==t1b2:25/55==&gt;t1b2(\"🔵\")\n    Urn2==t1r2:30/55==&gt;t1r2(\"🔴\")\n\n\n\n\n\n\n\n3. turing model\n\n3.1 define model\n\n    using Turing,Distributions\n    include(\"./utils.jl\")\n    \n\n    @model function urns_and_balls()\n        tail = 1\n        head = 2\n        coin ~ Categorical(simplex([0.5,0.5]))\n        \n        blue = 1\n        red = 2\n        urn1=Categorical(simplex([40,20]))\n        urn2=Categorical(simplex([25,30]))\n        draw ~ coin == head ? urn1 : urn2 \n    end\n\nurns_and_balls (generic function with 2 methods)\n\n\n\n\n3.2 mcmc sampling\n\n    model = urns_and_balls()\n    chns = sample(model, IS(), 40_000)\n    display(chns)\n\nSampling:   7%|██▉                                      |  ETA: 0:00:01Sampling:  59%|████████████████████████▎                |  ETA: 0:00:01Sampling:  71%|█████████████████████████████▏           |  ETA: 0:00:01Sampling:  78%|███████████████████████████████▊         |  ETA: 0:00:00Sampling:  84%|██████████████████████████████████▌      |  ETA: 0:00:00Sampling:  90%|█████████████████████████████████████▏   |  ETA: 0:00:00Sampling:  97%|███████████████████████████████████████▊ |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:01\n\n\n\nChains MCMC chain (40000×3×1 Array{Float64, 3}):\nLog evidence      = 0.0\nIterations        = 1:1:40000\nNumber of chains  = 1\nSamples per chain = 40000\nWall duration     = 4.7 seconds\nCompute duration  = 4.7 seconds\nparameters        = coin, draw\ninternals         = lp\nSummary Statistics\n  parameters      mean       std   naive_se      mcse          ess      rhat   ⋯\n      Symbol   Float64   Float64    Float64   Float64      Float64   Float64   ⋯\n        coin    1.4937    0.5000     0.0025    0.0024   40079.2892    1.0000   ⋯\n        draw    1.4435    0.4968     0.0025    0.0024   39303.0486    1.0000   ⋯\n                                                                1 column omitted\nQuantiles\n  parameters      2.5%     25.0%     50.0%     75.0%     97.5% \n      Symbol   Float64   Float64   Float64   Float64   Float64 \n        coin    1.0000    1.0000    1.0000    2.0000    2.0000\n        draw    1.0000    1.0000    1.0000    2.0000    2.0000\n\n\n\n\n\n\n3.3 results\n\n    show_var_dist_pct(chns,:draw,[\"blue\",\"red\"])\n    show_var_dist_pct(chns,:coin,[\"tail\",\"head\"])\n\nDistributions of variable draw\nblue       =&gt;   22260  (0.556500)\nred        =&gt;   17740  (0.443500)\nDistributions of variable coin\ntail       =&gt;   20250  (0.506250)\nhead       =&gt;   19750  (0.493750)"
+    "text": "Note\n\n\n\nfrom hakank-bayes-code\nUrns and balls\nurn1 contains 40 blue balls and 20 red balls urn2 contains 25 blue balls and 30 red balls.\nthrow a fair coin to descide to choos which urn, head for urn1, tail for urn2 “What is the probability of drawing a blue ball?”\nThe exact answer of drawing a blue call is 0.540/60 + 0.525/55 = 0.56060606060606060606\n\n\n\n概率路径图\n\n\n\n\nflowchart LR\n     A[\"🪙\"]\n     Urn1[(\"🔵:40\\n 🔴:20\")]\n     Urn2[(\" 🔵:25\\n 🔴:30\")]\n    A==h1:1/2==&gt;Urn1\n    A==t1:1/2==&gt;Urn2\n    Urn1==h1b2:40/60==&gt;h1b2(\"🔵\")\n    Urn1==h1r2:20/60==&gt;h1r2(\"🔴\")\n    Urn2==t1b2:25/55==&gt;t1b2(\"🔵\")\n    Urn2==t1r2:30/55==&gt;t1r2(\"🔴\")\n\n\n\n\n\n\n\n3. turing model\n\n3.1 define model\n\n    using Turing,Distributions\n    include(\"./utils.jl\")\n    \n\n    @model function urns_and_balls()\n        tail = 1\n        head = 2\n        coin ~ Categorical(simplex([0.5,0.5]))\n        \n        blue = 1\n        red = 2\n        urn1=Categorical(simplex([40,20]))\n        urn2=Categorical(simplex([25,30]))\n        draw ~ coin == head ? urn1 : urn2 \n    end\n\nurns_and_balls (generic function with 2 methods)\n\n\n\n\n3.2 mcmc sampling\n\n    model = urns_and_balls()\n    chns = sample(model, IS(), 40_000)\n    display(chns)\n\nSampling:   6%|██▌                                      |  ETA: 0:00:02Sampling:  42%|█████████████████▍                       |  ETA: 0:00:02Sampling:  54%|██████████████████████▏                  |  ETA: 0:00:01Sampling:  60%|████████████████████████▍                |  ETA: 0:00:01Sampling:  66%|██████████████████████████▉              |  ETA: 0:00:01Sampling:  71%|█████████████████████████████▏           |  ETA: 0:00:01Sampling:  76%|███████████████████████████████▍         |  ETA: 0:00:01Sampling:  82%|█████████████████████████████████▋       |  ETA: 0:00:00Sampling:  88%|████████████████████████████████████▏    |  ETA: 0:00:00Sampling:  94%|██████████████████████████████████████▌  |  ETA: 0:00:00Sampling: 100%|████████████████████████████████████████▊|  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:02\n\n\n\nChains MCMC chain (40000×3×1 Array{Float64, 3}):\nLog evidence      = 0.0\nIterations        = 1:1:40000\nNumber of chains  = 1\nSamples per chain = 40000\nWall duration     = 4.87 seconds\nCompute duration  = 4.87 seconds\nparameters        = coin, draw\ninternals         = lp\nSummary Statistics\n  parameters      mean       std   naive_se      mcse          ess      rhat   ⋯\n      Symbol   Float64   Float64    Float64   Float64      Float64   Float64   ⋯\n        coin    1.5025    0.5000     0.0025    0.0025   40177.7494    1.0000   ⋯\n        draw    1.4401    0.4964     0.0025    0.0024   40910.0832    1.0000   ⋯\n                                                                1 column omitted\nQuantiles\n  parameters      2.5%     25.0%     50.0%     75.0%     97.5% \n      Symbol   Float64   Float64   Float64   Float64   Float64 \n        coin    1.0000    1.0000    2.0000    2.0000    2.0000\n        draw    1.0000    1.0000    1.0000    2.0000    2.0000\n\n\n\n\n\n\n3.3 results\n\n    show_var_dist_pct(chns,:draw,[\"blue\",\"red\"])\n    show_var_dist_pct(chns,:coin,[\"tail\",\"head\"])\n\nDistributions of variable draw\nblue       =&gt;   22395  (0.559875)\nred        =&gt;   17605  (0.440125)\nDistributions of variable coin\nhead       =&gt;   20099  (0.502475)\ntail       =&gt;   19901  (0.497525)"
   }
 ]
