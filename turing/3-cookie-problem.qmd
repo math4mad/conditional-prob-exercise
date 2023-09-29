@@ -1,0 +1,94 @@
+---
+ title: "3-cookie-problem"
+---
+
+## 1. question
+:::{.callout-note title="Question"}
+  Suppose there are two bowls of cookies. 
+  Bowl 1 contains 30 vanilla cookies and 10 chocolate cookies. 
+  Bowl 2 contains 20 of each.
+
+  Now suppose you choose one of the bowls at random and, without looking,
+  select a cookie at random. The cookie is vanilla. 
+  What is the probability that it came from Bowl 1?
+  """
+:::
+
+## 2. 概率路径图
+ 根据介绍,绘出概率路径图
+```{mermaid}
+        %%| fig-width: 6.5
+        flowchart LR
+        Bowl([bowl])==b1:1/2==>bowl1[("vanilla cookies:30 \n chocolate cookies:10")]
+        Bowl==b2:1/2==>bowl2[("vanilla cookies:20 \n chocolate cookies:20")]
+        bowl1==b1v2:3/4==>vanillacookies1("vanilla cookies")
+        bowl1==b1c2:1/4==>chocolatecookies1("chocolate cookies")
+        bowl2==b2v2:1/2==>vanillacookies2("vanilla cookies") 
+        bowl2==b2c2:1/2==>chocolatecookies2("chocolate cookies")
+        classDef plain fill:#ddd,stroke:#fff,stroke-width:4px,color:#000;
+        class bowl plain;
+```
+
+### 3.条件概率
+### 3.1  取出的是香草味("vanilla")
+有两条路径
+```{julia}
+b1=1//2;b1v2=3//4;b1c2=1//4
+b2=1//2;b2v2=1//2;b2c2=1//2
+p1=b1*b1v2
+p2=b2*b2v2 
+pv=p1+p2
+@info "取出的vanilla cookie 来自第一个bowl的概率"=>p1/pv
+@info "取出的vanilla cookie 来自第二个bowl的概率"=>p2/pv
+```
+### 3.2 取出的是巧克力味("chocolate")
+```{julia}
+    p3=b1*b1c2
+    p4=b2*b2c2
+    pc=p3+p4
+    @info "取出的chocolate cookie来自第一个bowl的概率"=>p3/pc
+    @info "取出的chocolate cookie来自第二个bowl的概率"=>p4/pc
+```
+## 4. turing modeling
+
+### 4.1 define model 
+```{julia}
+    include("./utils.jl")
+    using Turing
+
+    "pickup 取出的 cookie, 1: vanilla,2: chocolate"
+    @model function cookie_problem(pickup::Int=1)
+        vanilla = 1
+        chocolate = 2
+        
+        bowl1 = 1
+        bowl2 = 2
+        
+        bowl ~ DiscreteUniform(bowl1,bowl2)
+        cookie ~ (bowl == bowl1) ? Categorical(simplex([30,10])) : 
+                                Categorical(simplex([20,20]))
+        true ~ Dirac(cookie == pickup)
+
+    end
+```
+
+### 4.2 MCMC1-取出的是香草味("vanilla")
+
+```{julia}
+    model = cookie_problem(1)
+    num_chains = 4
+    chns = sample(model, PG(5), 10_000)
+    display(chns)
+```
+### 4.3 香草味("vanilla")-results
+```{julia}
+    show_var_dist_pct(chns, :bowl)
+```
+
+### 4.4 取出的是巧克力味("chocolate")
+```{julia}
+    model2 = cookie_problem(2)
+    chns2 = sample(model2, PG(5), 10_000)
+    display(chns2)
+    show_var_dist_pct(chns2, :bowl)
+```
