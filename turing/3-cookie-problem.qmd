@@ -72,7 +72,7 @@ pv=p1+p2
     end
 ```
 
-### 4.2 MCMC1-取出的是香草味("vanilla")
+### 4.2 MCMC-取出的是香草味("vanilla") cookie
 
 ```{julia}
     model = cookie_problem(1)
@@ -85,7 +85,7 @@ pv=p1+p2
     show_var_dist_pct(chns, :bowl)
 ```
 
-### 4.4 取出的是巧克力味("chocolate")
+### 4.4 取出的是巧克力味("chocolate") cookie
 ```{julia}
     model2 = cookie_problem(2)
     chns2 = sample(model2, MH(), 10_000)
