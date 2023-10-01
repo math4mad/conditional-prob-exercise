@@ -1,0 +1,89 @@
+---
+title: "1-basic-probability-dice "
+---
+
+## 1. define  tools
+### 1.1 Dice🎲
+
+
+```{julia}
+emoji_dice1=["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
+emoji_dice2=["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
+dice1=Vector(1:6)
+dice2=Vector(1:6)
+show(dice1)
+```
+
+```{julia}
+using PrettyTables
+
+matrix=[[i,j] for i in dice1, j in dice2]
+display(matrix)
+two_dice_space=vec(matrix)
+two_dice_size=length(two_dice_space)
+"two_dice_size"=>two_dice_size
+```
+
+## 2.question 
+
+### 2.1 两个骰子乘积为4
+```julia
+  cond(arr::Array,cond_number=4)=*(arr...)==cond_number
+```
+```{julia}
+cond1(arr::Array,cond_number=4)::Bool=*(arr...)==cond_number
+res1=filter(arr->cond1(arr),two_dice_space)
+show("两个骰子乘积为4"=>res1)
+println("\n")
+show("两个骰子乘积为4概率"=>length(res1)//two_dice_size)
+```
+
+### 2.2 两个骰子点数合计等于小于 5
+```{julia}
+cond2(arr::Array)::Bool=sum(arr)<=5
+res2=filter(arr->cond2(arr),two_dice_space)
+show("两个骰子点数合计等于小于5"=>length(res2))
+println("\n")
+show("两个骰子点数合计等于小于5的概率"=>length(res2)//two_dice_size)
+```
+### 2.3 两个骰子点数合计大于等于 10
+```{julia}
+cond3(arr::Array)::Bool=sum(arr)>=10
+res3=filter(arr->cond3(arr),two_dice_space)
+show("点数合计大于等于10"=>res3)
+println("\n")
+show("点数合计大于等于10的概率"=>length(res3)//two_dice_size)
+```
+
+### 2.4 两个骰子点数相同
+```{julia}
+cond4(arr::Array)::Bool=arr[1]==arr[2]
+res4=filter(arr->cond4(arr),two_dice_space)
+show("两个骰子点数相同"=>res4)
+println("\n")
+show("两个骰子点数相同的概率"=>length(res4)//two_dice_size)
+```
+
+### 2.5  两个骰子点数合计等于 10
+```{julia}
+cond5(arr::Array)::Bool=sum(arr)==10
+res5=filter(arr->cond5(arr),two_dice_space)
+show("点数合计等于10"=>res5)
+println("\n")
+show("点数合计等于10的概率"=>length(res5)//two_dice_size)
+```
+
+### 2.6  点数之和被5整除
+```{julia}
+cond6(arr::Array)::Bool=sum(arr)|>d->mod(d,5)==0
+res6=filter(arr->cond6(arr),two_dice_space)
+show("点数之和被5整除"=>res6)
+println("\n")
+show("点数之和被5整除的概率"=>length(res6)//two_dice_size)
+```
+
+
+
+
+
+

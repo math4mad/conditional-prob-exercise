@@ -21,9 +21,10 @@ website:
         text: Home
       - section: "AFCP"
         contents: exercises/*
-        
       - section : "Turing"
         contents: turing/*
+      - section : "Basic"
+        contents: basic/*
 
 format:
   html:

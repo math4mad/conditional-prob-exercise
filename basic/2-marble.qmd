@@ -1,0 +1,105 @@
+---
+title: "2-basic-probability-marble"
+---
+
+## 1. define  tools
+### 1.1 Marble
+
+
+
+
+## 2. question
+### 2.1 包内有🔴:4\n 🔵:3\n 🟢:7,连续取出两个红球的概率
+
+概率路径图:
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+    Urn["👜"]---bag("🔴:4\n 🔵:3\n 🟢:7")
+    bag==>bag2("🔴:3\n 🔵:3\n 🟢:7")
+    bag==r1:4/14 ==>r1("🔴")
+    bag2==r2:3/13 ==>r2("🔴")
+    
+```
+
+>连续取出两个红球,等于第一次取出红球的概率和第二次取出红球的概率乘积
+>
+>因为第一取出红球以后,包内的红球数和总球数都发生了改变,红球变为 3, 总的为 13
+
+```{julia}
+r1=4//14
+r2=3//13
+both_red=r1*r2
+"连续取出两个红球的概率"=>both_red
+```
+
+### 2.2 包内有🔴:15\n 🔵:18\n 🟢:10,连续取出两个红球的概率
+和 2.1 方法一样,只不过比例不同
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+    Urn["👜"]---bag("🔴:15\n 🔵:18\n 🟢:10")
+    bag==>bag2("🔴:14\n 🔵:18\n 🟢:10")
+    bag==r1:15/43 ==>r1("🔴")
+    bag2==r2:14/42 ==>r2("🔴")
+    
+```
+```{julia}
+"定义袋子类型"
+struct Bag
+    red::Int
+    blue::Int
+    green::Int
+end
+
+"""
+枚举限定球种类
+@ref:snippetslab://snippet/6016DF64-9B90-420E-83F7-7C6FF7D4A139
+"""
+@enum Ball red = 1 blue = 2 green = 3
+
+function new_bag_space_prob(bag::Bag, pick::Ball=red)::Tuple{Bag,Real}
+    (; red, blue, green) = bag # struct 解构
+    ball = Int(pick) # @enum 类型需要转换为整型
+    prob_size = +(red, blue, green)  # 合计球总数
+    res::Tuple{Bag,Real} = if ball == 1
+        (Bag([red - 1, blue, green]...), red // prob_size)
+    elseif ball == 2
+        (Bag([red, blue - 1, green]...), blue // prob_size)
+    else
+        (Bag([red, blue, green - 1]...), green // prob_size)
+    end
+    return res
+end
+
+bag = Bag(15, 18, 10)
+res1 = new_bag_space_prob(bag, red)
+res2 = new_bag_space_prob(res1[1], red)
+both_red_ball=res1[2] * res2[2]
+"有🔴:15,🔵:18, 🟢:10时,取出两个红球的概率"=>both_red_ball
+```
+
+
+### 2.3 包内有🔴:13  🔵:3  🟢:12,连续取出两个红球的概率
+
+```{mermaid}
+%%| fig-width: 6.5
+flowchart LR
+    Urn["👜"]---bag("🔴:13\n 🔵:3\n 🟢:12")
+    bag==>bag2("🔴:12\n 🔵:3\n 🟢:12")
+    bag==r1:13/28 ==>r1("🔴")
+    bag2==r2:12/27 ==>r2("🔴")
+    
+```
+
+```{julia}
+bag2 = Bag(13, 3, 12)
+res3 = new_bag_space_prob(bag2, red)
+res4 = new_bag_space_prob(res3[1], red)
+both_red_ball2=res3[2] * res4[2]
+"有🔴:13  🔵:3  🟢:12时,取出两个红球的概率"=>both_red_ball2
+```
+
+
+
+
