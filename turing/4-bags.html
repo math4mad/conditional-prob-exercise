@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="math4mad">
 
-<title>Conditional-Probability-Exercise - afcp-ex3.11</title>
+<title>Conditional-Probability-Exercise - 4-bags</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,9 +96,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
 <script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
 <link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -110,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.1.html">AFCP</a></li><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.11.html">afcp-ex3.11</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../turing/1-urn-ball.html">Turing</a></li><li class="breadcrumb-item"><a href="../turing/4-bags.html">4-bags</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -146,13 +148,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">AFCP</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/afcp-ex3.1.html" class="sidebar-item-text sidebar-link">
@@ -167,7 +169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exercises/afcp-ex3.11.html" class="sidebar-item-text sidebar-link active">
+  <a href="../exercises/afcp-ex3.11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">afcp-ex3.11</span></a>
   </div>
 </li>
@@ -337,13 +339,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Turing</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../turing/1-urn-ball.html" class="sidebar-item-text sidebar-link">
@@ -364,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../turing/4-bags.html" class="sidebar-item-text sidebar-link">
+  <a href="../turing/4-bags.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">4-bags</span></a>
   </div>
 </li>
@@ -409,10 +411,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#从52-张牌抽出2-张的条件概率计算" id="toc-从52-张牌抽出2-张的条件概率计算" class="nav-link active" data-scroll-target="#从52-张牌抽出2-张的条件概率计算">1.从52 张牌抽出2 张的条件概率计算</a></li>
-  <li><a href="#全概率路径图-fig-1" id="toc-全概率路径图-fig-1" class="nav-link" data-scroll-target="#全概率路径图-fig-1">2. 全概率路径图 Figure&nbsp;1</a></li>
-  <li><a href="#已知一张为黑桃-a-两张都是-a-的概率" id="toc-已知一张为黑桃-a-两张都是-a-的概率" class="nav-link" data-scroll-target="#已知一张为黑桃-a-两张都是-a-的概率">3. 已知一张为黑桃 A, 两张都是 A 的概率</a></li>
-  <li><a href="#至少抽中一张-a的条件下两张都是-a-的-概率" id="toc-至少抽中一张-a的条件下两张都是-a-的-概率" class="nav-link" data-scroll-target="#至少抽中一张-a的条件下两张都是-a-的-概率">4. 至少抽中一张 A的条件下,两张都是 A 的 概率</a></li>
+  <li><a href="#概率路径图" id="toc-概率路径图" class="nav-link active" data-scroll-target="#概率路径图">1. 概率路径图</a>
+  <ul class="collapse">
+  <li><a href="#基于概率路径图的计算" id="toc-基于概率路径图的计算" class="nav-link" data-scroll-target="#基于概率路径图的计算">1.1 基于概率路径图的计算</a></li>
+  <li><a href="#computing" id="toc-computing" class="nav-link" data-scroll-target="#computing">1.2 computing</a></li>
+  </ul></li>
+  <li><a href="#turing-workflow" id="toc-turing-workflow" class="nav-link" data-scroll-target="#turing-workflow">2. turing workflow</a>
+  <ul class="collapse">
+  <li><a href="#define-turing-model" id="toc-define-turing-model" class="nav-link" data-scroll-target="#define-turing-model">2.1 define turing model</a></li>
+  <li><a href="#mcmc-sampling" id="toc-mcmc-sampling" class="nav-link" data-scroll-target="#mcmc-sampling">2.2 MCMC sampling</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -421,13 +429,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">afcp-ex3.11</h1>
+<h1 class="title">4-bags</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>math4mad </p>
+          </div>
+  </div>
     
   
     
@@ -436,61 +450,265 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="从52-张牌抽出2-张的条件概率计算" class="level3">
-<h3 class="anchored" data-anchor-id="从52-张牌抽出2-张的条件概率计算">1.从52 张牌抽出2 张的条件概率计算</h3>
-</section>
-<section id="全概率路径图-fig-1" class="level3">
-<h3 class="anchored" data-anchor-id="全概率路径图-fig-1">2. 全概率路径图 <a href="#fig-1">Figure&nbsp;1</a></h3>
+<div class="callout callout-style-default callout-note callout-titled" title="简介">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+简介
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>参考: <a href="http://www.hakank.org/julia/turing/book_bags.jl"><code>hakank-bayes-code:book_bags</code></a></p>
+<p>有两个包, 分别为 Bag1:[🔴:7,🔵:3],Bag2:[🔴:3,🔵:7] 两者被选中的机会相同,从中挑出一个包,并抽出球,在有放回的条件下: 分别计算在抽出 1:5 个蓝色球时 来自两个包的概率</p>
+</div>
+</div>
+<section id="概率路径图" class="level2">
+<h2 class="anchored" data-anchor-id="概率路径图">1. 概率路径图</h2>
 <div class="cell" data-fig-width="6.5">
 <div class="cell-output-display">
 <div id="fig-1" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <div>
 <pre class="mermaid mermaid-js" data-label="fig-1">flowchart LR
-      A(poker) ==s1:4/52 ==&gt; B("A")
-      A(poker) == f1:48/52 ==&gt;C("NotA")
-      
-      B("A") ==s2:3/51 ==&gt; D("A")
-      B("A") ==f2:48/51 ==&gt; E("NotA")
-      
-      C("NotA") ==s3:4/51 ==&gt; F("A")
-      C("NotA") ==f3:47/51==&gt; G("NotA")
 
-    style B  fill: #9c0312, stroke: #333, stroke-width: 2px;
-    style D  fill: #9c0312, stroke: #333, stroke-width: 2px;
-    style F  fill: #9c0312, stroke: #333, stroke-width: 2px;
+     twoBags("👜")==b1:1/2 ==&gt;Bag1("🔴 🔴 🔴 🔴 🔴 🔴 \n 🔵 🔵 🔵")
+     twoBags("👜")==b1:1/2==&gt;Bag2("🔴 🔴 🔴\n 🔵 🔵 🔵 🔵 🔵 🔵 🔵 ")
+
+      Bag1==b11:3/10==&gt;Obs11("🔵")
+      Bag1==b12:3/10^2==&gt;Obs12("🔵 🔵")
+      Bag1==b13:3/10^3==&gt;Obs13("🔵 🔵 🔵 ")
+      Bag1==b14:3/10^4==&gt;Obs14("🔵 🔵 🔵 🔵")
+      Bag1==b15:3/10^5==&gt;Obs15("🔵 🔵 🔵 🔵 🔵")
+
+
+      Bag2==b21:7/10==&gt;Obs21("🔵")
+      Bag2==b22:7/10^2==&gt;Obs22("🔵 🔵")
+      Bag2==b23:7/10^3==&gt;Obs23("🔵 🔵 🔵 ")
+      Bag2==b24:7/10^4==&gt;Obs24("🔵 🔵 🔵 🔵")
+      Bag2==b25:7/10^5==&gt;Obs25("🔵 🔵 🔵 🔵 🔵")
 
 </pre>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;1: A diagram of pick up two cards</figcaption>
+<figcaption class="figure-caption">Figure&nbsp;1: bags-flowchart</figcaption>
 </figure>
 </div>
 </div>
 </div>
+<section id="基于概率路径图的计算" class="level3">
+<h3 class="anchored" data-anchor-id="基于概率路径图的计算">1.1 基于概率路径图的计算</h3>
+<p>以取出两个蓝色球为例在 <a href="#fig-1">Figure&nbsp;1</a> 中有两条路径</p>
+<ul>
+<li><code>b1-&gt;b12</code></li>
+<li><code>b2-&gt;b22</code></li>
+</ul>
+<p>取出两个蓝色球的概率为两条路径的概率和,每条路径的概率除以总概率就是来自某个包的概率 取出其他求的概率计算类似</p>
 </section>
-<section id="已知一张为黑桃-a-两张都是-a-的概率" class="level3">
-<h3 class="anchored" data-anchor-id="已知一张为黑桃-a-两张都是-a-的概率">3. 已知一张为黑桃 A, 两张都是 A 的概率</h3>
-<blockquote class="blockquote">
-<p>由于有一张已经知道是 A, 另一张也为 A的概率就是:<span class="math inline">\(s2=3/51\)</span>,这里与是否是黑桃无关, 因为这个信息没有参与到概率计算中</p>
-</blockquote>
-</section>
-<section id="至少抽中一张-a的条件下两张都是-a-的-概率" class="level3">
-<h3 class="anchored" data-anchor-id="至少抽中一张-a的条件下两张都是-a-的-概率">4. 至少抽中一张 A的条件下,两张都是 A 的 概率</h3>
-<p>至少有一张 A的全概率为: <span class="math display">\[p_{total}=s_1*s_2+s_1*f_2+f_1*s_3 \tag{1.1}\]</span></p>
-<p>两张都为 A的概率为: <span class="math display">\[p_{doubleA}=s_1*s_2 \tag{1.2}\]</span></p>
-<p>因此概率计算为:</p>
+<section id="computing" class="level3">
+<h3 class="anchored" data-anchor-id="computing">1.2 computing</h3>
+<p>定义基本概率</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>s1<span class="op">=</span><span class="fl">4</span><span class="op">//</span><span class="fl">52</span>;s2<span class="op">=</span><span class="fl">3</span><span class="op">//</span><span class="fl">51</span>;s3<span class="op">=</span><span class="fl">4</span><span class="op">//</span><span class="fl">51</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>total<span class="op">=</span><span class="fu">s1*s2+s1*</span>(<span class="fl">1</span><span class="op">-</span>s2)<span class="fu">+</span>(<span class="fl">1</span><span class="op">-</span>s1)<span class="op">*</span>s3</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pda<span class="op">=</span>s1<span class="op">*</span>s2</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">"both_A"</span><span class="op">=&gt;</span>pda<span class="op">//</span>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>"both_A" =&gt; 1//33</code></pre>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">"选中包的概率"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>select_bag<span class="op">=</span><span class="fl">1</span><span class="op">//</span><span class="fl">2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>b1blue<span class="op">=</span><span class="fl">3</span>;b1red<span class="op">=</span><span class="fl">7</span>;b1total<span class="op">=</span>b1blue<span class="op">+</span>b1red</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>b2blue<span class="op">=</span><span class="fl">7</span>;b2red<span class="op">=</span><span class="fl">3</span>;b2total<span class="op">=</span>b2blue<span class="op">+</span>b2red</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="st">"从 bag1中抽出n个蓝色球的概率"</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>pick_n_bag1<span class="op">=</span>[(b1blue<span class="op">/</span>b1total)<span class="op">^</span>i for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="st">"从 bag2中抽出n个蓝色球的概率"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>pick_n_bag2<span class="op">=</span>[(b2blue<span class="op">/</span>b2total)<span class="op">^</span>i for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span>]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="pp">@info</span> <span class="st">"pick 1:5 🔵 from bag1"</span><span class="op">=&gt;</span> pick_n_bag1</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="pp">@info</span> <span class="st">"pick 1:5 🔵 from bag2"</span><span class="op">=&gt;</span> pick_n_bag2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>[ Info: "pick 1:5 🔵 from bag1" =&gt; [0.3, 0.09, 0.027, 0.0081, 0.0024299999999999994]
+[ Info: "pick 1:5 🔵 from bag2" =&gt; [0.7, 0.48999999999999994, 0.3429999999999999, 0.24009999999999995, 0.16806999999999994]</code></pre>
+</div>
+</div>
+<p>计算概率</p>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span>,<span class="bu">GLMakie</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a> name1<span class="op">=</span><span class="fu">Vector</span><span class="dt">{String}</span>(<span class="cn">undef</span>, <span class="fl">5</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a> b1arr<span class="op">=</span><span class="fu">Vector</span><span class="dt">{Real}</span>(<span class="cn">undef</span>, <span class="fl">5</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a> b2arr<span class="op">=</span><span class="fu">Vector</span><span class="dt">{Real}</span>(<span class="cn">undef</span>, <span class="fl">5</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a> <span class="cf">for</span> idx <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>     total<span class="op">=</span>pick_n_bag1[idx]<span class="op">+</span>pick_n_bag2[idx]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>     name1[idx]<span class="op">=</span><span class="st">"取出</span><span class="sc">$</span>(idx)<span class="st">个🔵"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>     b1arr[idx]<span class="op">=</span>pick_n_bag1[idx]<span class="op">/</span>total</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>     b2arr[idx]<span class="op">=</span>pick_n_bag2[idx]<span class="op">/</span>total</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a> <span class="cf">end</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a> <span class="fu">DataFrame</span>(c1<span class="op">=</span>name1,bag1<span class="op">=</span>b1arr,bag2<span class="op">=</span>b2arr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div><div style="float: left;"><span>5×3 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<table class="data-frame table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header header">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">c1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">bag1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">bag2</th>
+</tr>
+<tr class="odd subheader headerLastRow">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="String">String</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Real">Real</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Real">Real</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
+<td style="text-align: left;">取出1个🔵</td>
+<td style="text-align: right;">0.3</td>
+<td style="text-align: right;">0.7</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
+<td style="text-align: left;">取出2个🔵</td>
+<td style="text-align: right;">0.155172</td>
+<td style="text-align: right;">0.844828</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
+<td style="text-align: left;">取出3个🔵</td>
+<td style="text-align: right;">0.072973</td>
+<td style="text-align: right;">0.927027</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
+<td style="text-align: left;">取出4个🔵</td>
+<td style="text-align: right;">0.032635</td>
+<td style="text-align: right;">0.967365</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">5</td>
+<td style="text-align: left;">取出5个🔵</td>
+<td style="text-align: right;">0.0142522</td>
+<td style="text-align: right;">0.985748</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>绘图</p>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>  fig<span class="op">=</span><span class="fu">Figure</span>(resolution<span class="op">=</span>(<span class="fl">1000</span>,<span class="fl">300</span>))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>  idx <span class="kw">in</span>  <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">local</span> ax<span class="op">=</span><span class="fu">Axis</span>(fig[<span class="fl">1</span>,idx];title<span class="op">=</span><span class="st">"</span><span class="sc">$</span>idx<span class="st"> blueball"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    ax.xticks<span class="op">=</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">2</span>,[<span class="st">"bag1"</span>,<span class="st">"bag2"</span>])</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">local</span> total<span class="op">=</span>b1arr[idx]<span class="op">+</span>b2arr[idx]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="pp">@info</span> [b1arr[idx],b2arr[idx]]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stem!</span>(ax,<span class="fl">1</span><span class="op">:</span><span class="fl">2</span>,[b1arr[idx],b2arr[idx]]; trunkcolor <span class="op">=</span> <span class="op">:</span>blue, marker <span class="op">=</span> <span class="op">:</span>rect,stemcolor <span class="op">=</span> <span class="op">:</span>red, color <span class="op">=</span> <span class="op">:</span>orange)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>[ Info: [0.3, 0.7]
+[ Info: [0.15517241379310345, 0.8448275862068965]
+[ Info: [0.07297297297297299, 0.927027027027027]
+[ Info: [0.03263497179693796, 0.967365028203062]
+[ Info: [0.014252199413489739, 0.9857478005865103]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<p><img src="4-bags_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>连续取出的蓝色球越多, 选出的包为:bag2 的概率越大, 因为初始条件中,bag2 中蓝色球 占比大</p>
+</section>
+</section>
+<section id="turing-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="turing-workflow">2. turing workflow</h2>
+<section id="define-turing-model" class="level3">
+<h3 class="anchored" data-anchor-id="define-turing-model">2.1 define turing model</h3>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">include</span>(<span class="st">"utils.jl"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Turing</span>,<span class="bu">Distributions</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="pp">@model</span> <span class="kw">function</span> <span class="fu">book_bags</span>(num_blue_chips<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    bag1 <span class="op">=</span> <span class="fl">1</span> <span class="co"># 3 blue 7 red</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    bag2 <span class="op">=</span> <span class="fl">2</span> <span class="co">#  7 blue 3 red</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    bag <span class="op">~</span> <span class="fu">Categorical</span>([<span class="fl">0.5</span>,<span class="fl">0.5</span>])</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    blue <span class="op">=</span> <span class="fl">1</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    red <span class="op">=</span> <span class="fl">2</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="fl">5</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    draw <span class="op">=</span> <span class="fu">tzeros</span>(num_blue_chips)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> d <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_blue_chips</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> bag <span class="op">==</span> bag1</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>            draw[d] <span class="op">~</span> <span class="fu">Categorical</span>([<span class="fl">0.3</span>,<span class="fl">0.7</span>])</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>            draw[d] <span class="op">~</span> <span class="fu">Categorical</span>([<span class="fl">0.7</span>,<span class="fl">0.3</span>])</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">end</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># We've seen $test number of blue chips</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> d <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span>num_blue_chips</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="cn">true</span> <span class="op">~</span> <span class="fu">Dirac</span>(draw[d] <span class="op">==</span> blue)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">end</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>book_bags (generic function with 4 methods)</code></pre>
+</div>
+</div>
+</section>
+<section id="mcmc-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="mcmc-sampling">2.2 MCMC sampling</h3>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>   num_chains <span class="op">=</span> <span class="fl">4</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   <span class="cf">for</span> idx <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">5</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">local</span> model <span class="op">=</span> <span class="fu">book_bags</span>(idx)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    chs <span class="op">=</span> <span class="fu">sample</span>(model, <span class="fu">MH</span>(), <span class="fl">10_000</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">show_var_dist_pct</span>(chs,<span class="op">:</span>bag,[<span class="st">"bag1"</span>,<span class="st">"bag2"</span>])</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>   <span class="cf">end</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Sampling:  74%|██████████████████████████████▌          |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00
+Sampling:  62%|█████████████████████████▋               |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00
+Sampling:  43%|█████████████████▋                       |  ETA: 0:00:00Sampling:  86%|███████████████████████████████████▌     |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00
+Sampling:  41%|████████████████▊                        |  ETA: 0:00:00Sampling:  76%|███████████████████████████████▍         |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00
+Sampling:  28%|███████████▎                             |  ETA: 0:00:00Sampling:  57%|███████████████████████▍                 |  ETA: 0:00:00Sampling:  90%|████████████████████████████████████▊    |  ETA: 0:00:00Sampling: 100%|█████████████████████████████████████████| Time: 0:00:00</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Distributions of variable bag
+bag2       =&gt;    7027  (0.702700)
+bag1       =&gt;    2973  (0.297300)
+Distributions of variable bag
+bag2       =&gt;    8494  (0.849400)
+bag1       =&gt;    1506  (0.150600)
+Distributions of variable bag
+bag2       =&gt;    9232  (0.923200)
+bag1       =&gt;     768  (0.076800)
+Distributions of variable bag
+bag2       =&gt;    9708  (0.970800)
+bag1       =&gt;     292  (0.029200)
+Distributions of variable bag
+bag2       =&gt;    9953  (0.995300)
+bag1       =&gt;      47  (0.004700)</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
