@@ -21,6 +21,7 @@
         flowchart LR
         Bowl([bowl])==b1:1/2==>bowl1[("vanilla cookies:30 \n chocolate cookies:10")]
         Bowl==b2:1/2==>bowl2[("vanilla cookies:20 \n chocolate cookies:20")]
+        
         bowl1==b1v2:3/4==>vanillacookies1("vanilla cookies")
         bowl1==b1c2:1/4==>chocolatecookies1("chocolate cookies")
         bowl2==b2v2:1/2==>vanillacookies2("vanilla cookies") 

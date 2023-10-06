@@ -1,0 +1,148 @@
+---
+title: "4-bags"
+author: math4mad
+code-fold: true
+---
+
+:::{.callout-note title="简介"}
+   参考: [`hakank-bayes-code:book_bags`](http://www.hakank.org/julia/turing/book_bags.jl)
+
+   有两个包, 分别为 Bag1:[🔴:7,🔵:3],Bag2:[🔴:3,🔵:7]
+   两者被选中的机会相同,从中挑出一个包,并抽出球,在有放回的条件下:
+   分别计算在抽出 1:5 个蓝色球时 来自两个包的概率
+:::
+
+
+## 1. 概率路径图
+```{mermaid}
+%%| fig-width: 6.5
+%%| label: fig-1
+%%| fig-cap: bags-flowchart
+flowchart LR
+
+     twoBags("👜")==b1:1/2 ==>Bag1("🔴 🔴 🔴 🔴 🔴 🔴 \n 🔵 🔵 🔵")
+     twoBags("👜")==b1:1/2==>Bag2("🔴 🔴 🔴\n 🔵 🔵 🔵 🔵 🔵 🔵 🔵 ")
+
+      Bag1==b11:3/10==>Obs11("🔵")
+      Bag1==b12:3/10^2==>Obs12("🔵 🔵")
+      Bag1==b13:3/10^3==>Obs13("🔵 🔵 🔵 ")
+      Bag1==b14:3/10^4==>Obs14("🔵 🔵 🔵 🔵")
+      Bag1==b15:3/10^5==>Obs15("🔵 🔵 🔵 🔵 🔵")
+
+
+      Bag2==b21:7/10==>Obs21("🔵")
+      Bag2==b22:7/10^2==>Obs22("🔵 🔵")
+      Bag2==b23:7/10^3==>Obs23("🔵 🔵 🔵 ")
+      Bag2==b24:7/10^4==>Obs24("🔵 🔵 🔵 🔵")
+      Bag2==b25:7/10^5==>Obs25("🔵 🔵 🔵 🔵 🔵")
+
+```
+
+### 1.1 基于概率路径图的计算
+以取出两个蓝色球为例在 @fig-1 中有两条路径
+
+-  `b1->b12`
+-  `b2->b22`
+  
+取出两个蓝色球的概率为两条路径的概率和,每条路径的概率除以总概率就是来自某个包的概率
+取出其他求的概率计算类似
+
+### 1.2 computing
+定义基本概率
+```{julia}
+"选中包的概率"
+select_bag=1//2
+
+b1blue=3;b1red=7;b1total=b1blue+b1red
+b2blue=7;b2red=3;b2total=b2blue+b2red
+
+"从 bag1中抽出n个蓝色球的概率"
+pick_n_bag1=[(b1blue/b1total)^i for i in 1:5]
+
+"从 bag2中抽出n个蓝色球的概率"
+pick_n_bag2=[(b2blue/b2total)^i for i in 1:5]
+
+@info "pick 1:5 🔵 from bag1"=> pick_n_bag1
+@info "pick 1:5 🔵 from bag2"=> pick_n_bag2
+```
+计算概率
+```{julia}
+using DataFrames,GLMakie
+ name1=Vector{String}(undef, 5)
+ b1arr=Vector{Real}(undef, 5)
+ b2arr=Vector{Real}(undef, 5)
+ for idx in 1:5
+     total=pick_n_bag1[idx]+pick_n_bag2[idx]
+     name1[idx]="取出$(idx)个🔵"
+     b1arr[idx]=pick_n_bag1[idx]/total
+     b2arr[idx]=pick_n_bag2[idx]/total
+
+ end
+ DataFrame(c1=name1,bag1=b1arr,bag2=b2arr)
+
+```
+绘图
+```{julia}
+  fig=Figure(resolution=(1000,300))
+  for  idx in  1:5
+    local ax=Axis(fig[1,idx];title="$idx blueball")
+    ax.xticks=(1:2,["bag1","bag2"])
+    local total=b1arr[idx]+b2arr[idx]
+    @info [b1arr[idx],b2arr[idx]]
+    stem!(ax,1:2,[b1arr[idx],b2arr[idx]]; trunkcolor = :blue, marker = :rect,stemcolor = :red, color = :orange)
+  end
+  fig
+
+```
+
+连续取出的蓝色球越多, 选出的包为:bag2 的概率越大, 因为初始条件中,bag2 中蓝色球
+占比大
+
+
+
+
+
+
+## 2. turing  workflow
+### 2.1  define turing model
+```{julia}
+include("utils.jl")
+using Turing,Distributions
+@model function book_bags(num_blue_chips=2)
+    bag1 = 1 # 3 blue 7 red
+    bag2 = 2 #  7 blue 3 red
+
+    bag ~ Categorical([0.5,0.5])
+    
+    blue = 1
+    red = 2
+
+    n = 5
+    draw = tzeros(num_blue_chips)
+    for d in 1:num_blue_chips
+        if bag == bag1
+            draw[d] ~ Categorical([0.3,0.7])
+        else
+            draw[d] ~ Categorical([0.7,0.3])
+        end
+    end
+
+    # We've seen $test number of blue chips
+    for d in 1:num_blue_chips
+        true ~ Dirac(draw[d] == blue)
+    end
+
+end
+
+```
+
+### 2.2  MCMC sampling
+```{julia}
+   num_chains = 4
+   for idx in 1:5
+    local model = book_bags(idx)
+    chs = sample(model, MH(), 10_000)
+    show_var_dist_pct(chs,:bag,["bag1","bag2"])
+   end 
+```
+
