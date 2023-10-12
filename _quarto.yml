@@ -27,7 +27,7 @@ website:
         contents: turing/*
       - section : "Basic"
         contents: basic/*
-      - section : "BayesTheorem"
+      - section : "Bayestheorem"
         contents: bayestheorem/*
 
 format:
