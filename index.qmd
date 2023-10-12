@@ -1,12 +1,21 @@
 ---
-title: "Conditional Prob Exe"
+title: "Conditional Prob and Bayes Exercises"
+bibliography: ./references.bib
 ---
 
-Exercise qmd note for  A first course probability  chapter 3 
-
-1. language: Julia
-2. chart:mermaid
+:::{.callout-note title="简介"}
+1. language: [`Julia`](https://julialang.org)
+2. chart:[`mermaid.js`](https://mermaid.js.org)
 3. table: [online table tools ](https://www.rapidtables.com/tools/table-chart.html#)
+:::
+
+## 1. afcp
+
+A First Course in Probability 参见 @ross98
+
+
+
+
 
 
 

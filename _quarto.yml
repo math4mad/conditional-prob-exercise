@@ -16,6 +16,8 @@ website:
         text: GitHub
     style: docked
     
+     
+    
     contents:
       - href: index.qmd
         text: Home
@@ -25,6 +27,8 @@ website:
         contents: turing/*
       - section : "Basic"
         contents: basic/*
+      - section : "BayesTheorem"
+        contents: bayestheorem/*
 
 format:
   html:

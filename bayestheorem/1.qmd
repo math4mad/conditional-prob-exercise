@@ -1,0 +1,15 @@
+---
+title: "1-introtduction"
+---
+
+> based on Bayes Theorem Examples - A Visual Guide For Beginners  by Scott Hartshorn
+
+## 解决问题的流程为:
+
+1. 根据提示,判断我们想要得到的概率是什么,观测值是什么
+2. 列出所有可能答案的初始概率值
+3. 对于每个初始概率值,在假定为真的条件下计算获得观测值的概率
+4. 2.3 步的概率相乘得到每种情况下得到观测值的概率
+5. 标准化结果(所有能获得观测值概率和为 1)
+
+基本流程实际和 afcp 的流程相同

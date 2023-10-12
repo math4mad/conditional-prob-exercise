@@ -1,0 +1,12 @@
+---
+title: "3-reference-test"
+bibliography: ../references.bib
+#csl: ../nature.csl
+---
+
+
+参见 @pml1Book
+
+参见 @gpml
+
+参见 @bishop2006pattern

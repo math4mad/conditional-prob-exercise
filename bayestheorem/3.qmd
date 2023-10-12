@@ -1,0 +1,283 @@
+---
+title: "2-dice-problem"
+code-fold: true
+code-block-border-left: true
+code-line-numbers: true
+code-block-bg: true
+---
+
+:::{.callout-note title="简介"}
+这次有更多的骰子 4,6,8,10,12,20面骰子各一,
+
+随机取出一个骰子, 重复扔 15 次
+:::
+
+## 1 基于概率路径图的公式
+### 1. 概率路径图(略)
+```{mermaid}
+    %%| fig-width: 6.5
+    %%| label: fig-2
+    %%| fig-cap: "multi-dice"
+    flowchart LR
+    Dice["Multi-Dice"]
+    Dice==1/5==>f4("4-faces")
+    Dice==1/5==>f6("6-faces")
+    Dice==1/5==>f8("8-faces")
+    Dice==1/5==>f12("12-faces")
+    Dice==1/5==>f20("20-faces")
+
+    f4==d41:0==>f461("6️⃣")
+    f6==d61:1/6==>f661("6️⃣")
+    f8==d81:1/8==>f861("6️⃣")
+    f12==d121:1/12==>f1261("6️⃣")
+    f20==d201:1/20==>f2061("6️⃣")
+    f861==d82:1/8==>f862("6️⃣")
+    f862==d83:1/8==>f863("6️⃣")
+```
+
+### 1.2 基于概率路径图的条件概率公式
+在 上图中,我们以扔出 "6️⃣" 为例 , 如果是 8 面的骰子, 连续扔出 6 点概为
+$$p(6|d8)=p(d81)*p(d82)*p(d83) \tag{1.1}$$
+其他项类似:
+$$p(6|d6)=p(d61)*p(d62)*p(d63) \tag{1.2}$$
+
+所有骰子扔出 6 点的全概率为:
+$$p(total)=p(6|d4)+p(6|d6)+p(6|d8)+p(6|d10)+p(6|d12)+p(6|d20) \tag{1.3}$$
+
+在扔出 "6️⃣"点的条件下, 为 8 面骰子的概率为:
+
+$$p(d8|6)=\frac{p(d8)*p(6|d8)}{p(total)} \tag{1.4}$$
+
+
+## 2  计算
+### 2.1  单次实验的方法
+- 定义扔出一个点数时,每个骰子的概率
+- 列出1:20 点数, 每个骰子的概率
+
+```{julia}
+using Distributions,DataFrames,Random
+Random.seed!(23232)
+
+dice_faces=[4,6,8,12,20]
+
+
+#= "取出每个骰子的概率数组" =#
+dice_prob=fill(1//5,5)
+
+#= "定义 df 空表" =#
+df=DataFrame(name=String[],d4=Float64[],d6=Float64[],
+   d8=Float64[],d12=Float64[],d20=Float64[]
+)
+
+
+#=  dp_arr(num::Int)
+
+各个骰子扔出 num 的点数时的概率 =#
+function  dp_arr(num::Int)
+  arr=Rational[]
+  for idx in eachindex(dice_faces)
+      res = num <= dice_faces[idx] ? (1//dice_faces[idx]) : 0
+      push!(arr,res)
+      
+  end 
+  total=sum(arr)
+  temp= ([i//total for i in arr])|>(d->Float64.(d))|>d->round.(d,digits=2)
+  
+  return temp 
+end
+
+
+
+#= "计算每个点数的概率" =#
+for idx  in 1:20
+  temp=dp_arr(idx)
+  #@info "点数为$idx,各骰子的概率"=>arr
+
+  push!(df,(name="点数:$idx",d4=temp[1],d6=temp[2],d8=temp[3],
+     d12=temp[4],d20=temp[5]
+  ))
+end
+df
+```
+
+### 2.2 重复多次实验的计算
+随机生成数据 以 8 面骰子为例:`trials=rand(1:8,15)`
+利用 `rand` 函数重复从`1:8`中随机重复取出 15 个数,模拟取出的骰子是 8 面,重复扔 15 次
+的结果
+
+
+```julia
+#使用 reduce方法累乘实验概率
+for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+    total=total+reduce(*,df2[:,d])*dice_prob[idx]
+end
+```
+
+```julia
+# 计算每个骰子获得实验结果的条件概率
+for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+ local pdice=reduce(*,df2[:,d])*dice_prob[idx]
+ @info "dice $(d) prob "=>pdice/total
+end
+```
+
+```{julia}
+#= "定义 df 空表" =#
+df2=DataFrame(name=String[],d4=Float64[],d6=Float64[],
+   d8=Float64[],d12=Float64[],d20=Float64[]
+)
+
+ #= 假设为由 8 面的骰子生成数据 =#
+ trials=rand(1:8,15)
+ show(trials)
+
+ for num in trials
+  temp=dp_arr(num)
+  #@info "点数为$idx,各骰子的概率"=>arr
+
+  push!(df2,(name="点数:$num",d4=temp[1],d6=temp[2],d8=temp[3],
+     d12=temp[4],d20=temp[5]
+  ))
+end
+df2
+```
+
+```{julia}
+total=0
+
+#生成全概率
+for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+    total=total+reduce(*,df2[:,d])*dice_prob[idx]
+end
+
+for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+ local pdice=reduce(*,df2[:,d])*dice_prob[idx]
+ @info "dice $(d) prob "=>pdice/total
+end
+
+```
+
+### 2.3 计算1:15 次实验下,d8 的条件概率变化
+```{julia}
+ trials2=[rand(1:8,i) for i in 1:15]
+ display("15次随机试验的结果")
+ display(trials2)
+
+ for (idx,arr) in enumerate(trials2)
+    local total=0
+    local df=DataFrame(name=String[],d4=Float64[],d6=Float64[],
+    d8=Float64[],d12=Float64[],d20=Float64[])
+    for num in arr
+        temp=dp_arr(num)
+        push!(df,(name="点数:$num",d4=temp[1],d6=temp[2],d8=temp[3],
+        d12=temp[4],d20=temp[5]))
+    end
+     
+        for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+            total=total+reduce(*,df[:,d])*dice_prob[idx]
+        end
+
+    
+        local  pdice=reduce(*,df[:,:d8])*dice_prob[3]
+        @info " $(idx) times  prob "=>pdice/total   
+    
+ end
+ 
+```
+
+当我们用8 面的骰子来生成模拟数据的时候,随着实验次数增加, $p(d8|trials)$ 的概率会趋近于 1
+
+
+### 2.4 计算1:15 次实验下,各骰子的条件概率变化
+```{julia}
+  arrs=[]
+for (idx,arr) in enumerate(trials2)
+    local total=0
+    local df=DataFrame(name=String[],d4=Float64[],d6=Float64[],
+    d8=Float64[],d12=Float64[],d20=Float64[])
+    for num in arr
+        temp=dp_arr(num)
+        push!(df,(name="点数:$num",d4=temp[1],d6=temp[2],d8=temp[3],
+        d12=temp[4],d20=temp[5]))
+    end
+     
+    for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+        total=total+reduce(*,df[:,d])*dice_prob[idx]
+    end
+
+    for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+        pdice=reduce(*,df[:,d])*dice_prob[idx]
+        #@info "$d"=> pdice/total|>d->round(d,digits=2)
+        push!(arrs,pdice/total|>d->round(d,digits=2)|>Real)
+    end
+end
+
+data=reshape(arrs,(5,15))|>transpose
+df3=DataFrame(data,:auto)|>df->rename(df,[:d4,:d6,:d8,:d12,:d20])
+     
+```
+
+plot res
+
+```{julia}
+ using GLMakie
+ fig1=Figure(resolution=(800,900))
+ for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+     ax=Axis(fig1[idx,1];title=L"%$d")
+     ax.xticks=(1:15)
+     stem!(ax,1:15,df3[:,idx].|>Float64)
+ end
+ fig1
+ 
+```
+
+
+### 2.5 计算1:15 次实验下,各骰子的条件概率变化(采用 append方法)
+陆续添加的方法
+```{julia}
+trials3=rand(1:8,15)
+arrs2=[]
+for idx in 1:15
+    local arr=trials3[1:idx]
+  
+    local total=0
+    local df=DataFrame(name=String[],d4=Float64[],d6=Float64[],
+    d8=Float64[],d12=Float64[],d20=Float64[])
+    for num in arr
+        temp=dp_arr(num)
+        push!(df,(name="点数:$num",d4=temp[1],d6=temp[2],d8=temp[3],
+        d12=temp[4],d20=temp[5]))
+    end
+     
+    for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+        total=total+reduce(*,df[:,d])*dice_prob[idx]
+    end
+
+    for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+        pdice=reduce(*,df[:,d])*dice_prob[idx]
+        #@info "$d"=> pdice/total|>d->round(d,digits=2)
+        push!(arrs2,pdice/total|>d->round(d,digits=2)|>Real)
+    end
+end
+
+data2=reshape(arrs2,(5,15))|>transpose
+df4=DataFrame(data2,:auto)|>df->rename(df,[:d4,:d6,:d8,:d12,:d20])
+
+
+```
+plot res
+```{julia}
+ using GLMakie
+ fig2=Figure(resolution=(800,900))
+ for (idx,d) in enumerate([:d4,:d6,:d8,:d12,:d20])
+     ax=Axis(fig2[idx,1];title=L"%$d")
+     ax.xticks=(1:15)
+     stem!(ax,1:15,df4[:,idx].|>Float64)
+ end
+ fig2
+ 
+```
+
+
+
+

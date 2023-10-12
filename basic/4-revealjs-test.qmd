@@ -1,0 +1,42 @@
+---
+title: "reveal.js test"
+author: math4mad
+format: 
+    revealjs:
+        chalkboard: true
+        transition: slide
+---
+
+## {background-color="aquamarine"}
+- Turn off alarm
+- Get out of bed
+
+```{.julia code-line-numbers="4"}
+ c2=c3=1//3
+ c2g1=1
+ c3g1=1//2
+ p1=c2*c2g1;p2=c3*c3g1
+ total= p1+p2
+ "绿色牌面来自第二张牌的概率为"=>p1//total
+```
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+---
+
+- Get in bed
+- Count sheep
+
+::: {.panel-tabset}
+
+### Tab A
+
+Content for `Tab A`
+
+### Tab B
+
+Content for `Tab B`
+
+:::
