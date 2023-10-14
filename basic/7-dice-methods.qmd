@@ -1,0 +1,76 @@
+---
+title: "dice-method"
+author: math4mad
+code-fold: true
+---
+
+```{julia}
+include("./dice-methods.jl")
+```
+
+## question
+### 1 三个骰子点数合计大于 7
+```{julia}
+    
+    summorethan7(arr::Tuple)::Bool=sum(arr)>7  #点数合计大于 7
+    params1=DiceQuesiton("三个骰子点数合计大于7",summorethan7,three_dice_space,three_dice_size)
+    answer_dice_problem(params1;show_dice=false)
+
+```
+
+###  2 两枚骰子点数小于等于5
+```{julia}
+    let 
+    sum_le_eq_5(arr::Tuple)::Bool=sum(arr)<=5  #点数合计大于 7
+    params=DiceQuesiton("两枚骰子点数小于等于5",sum_le_eq_5,two_dice_space,two_dice_size)
+    answer_dice_problem(params;show_dice=true)
+   end
+
+```
+###  3 两枚骰子点数大于等于 10
+```{julia}
+    let 
+    sum_me_eq_10(arr::Tuple)::Bool=sum(arr)>=10  #点数合计大于 7
+    params=DiceQuesiton("两枚骰子点数大于等于 10",sum_me_eq_10,two_dice_space,two_dice_size)
+    answer_dice_problem(params;show_dice=false)
+   end
+
+```
+
+###  4 两枚骰子点数相同(doublet)
+```{julia}
+    let 
+    eq(arr::Tuple)::Bool=arr[1]==arr[2]  #点数合计大于 7
+    params=DiceQuesiton("两枚骰子点数相同",eq,two_dice_space,two_dice_size)
+    answer_dice_problem(params;show_dice=false)
+   end
+
+```
+
+###  4 两枚骰子点数和等于 10
+```{julia}
+    let 
+    eq10(arr::Tuple)::Bool=sum(arr)==10 #点数合计等于 10
+    params=DiceQuesiton("两枚骰子点数和等于 10",eq10,two_dice_space,two_dice_size)
+    answer_dice_problem(params;show_dice=true)
+   end
+
+```
+
+
+
+
+### 5 一枚骰子连续扔三次, 没有出现两点的概率
+因为连续三次试验是独立的,等同于三枚骰子各扔一次,点数都不等于 2
+```{julia}
+    
+    all_neq_2(arr::Tuple)::Bool=(arr[1] !=2)&&(arr[2] !=2)&&(arr[3] !=2) #点数合计大于 7
+    params1=DiceQuesiton("一枚骰子连续扔三次, 没有出现两点的概率",all_neq_2,three_dice_space,three_dice_size)
+    answer_dice_problem(params1;show_dice=false)
+
+```
+
+
+
+
+

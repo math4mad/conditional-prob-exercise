@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conditional-Probability-Exercise - 2-dice-problem</title>
+<title>Conditional-Probability-Exercise - 3-dice-problem</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -113,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bayestheorem/1.html">BayesTheorem</a></li><li class="breadcrumb-item"><a href="../bayestheorem/3.html">2-dice-problem</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bayestheorem/1.html">Bayestheorem</a></li><li class="breadcrumb-item"><a href="../bayestheorem/3.html">3-dice-problem</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -383,6 +383,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">6-card-problem</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../turing/7-infection-disease.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7-infectious-disease</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../turing/8-two-dice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8-two-dice</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -418,12 +430,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">reveal.js test</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basic/5-three-dice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5-basic-probability-3-dice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basic/7-dice-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dice-method</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">BayesTheorem</span></a>
+ <span class="menu-text">Bayestheorem</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -444,7 +468,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../bayestheorem/3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2-dice-problem</span></a>
+ <span class="menu-text">3-dice-problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bayestheorem/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4-is-fair-coin</span></a>
   </div>
 </li>
       </ul>
@@ -480,7 +510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">2-dice-problem</h1>
+<h1 class="title">3-dice-problem</h1>
 </div>
 
 
@@ -604,7 +634,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-42"><a href="#cb1-42"></a><span class="cf">end</span></span>
 <span id="cb1-43"><a href="#cb1-43"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div><div style="float: left;"><span>20×6 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -851,7 +881,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stdout">
 <pre><code>[7, 1, 5, 8, 4, 6, 1, 6, 5, 2, 2, 2, 2, 7, 5]</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div><div style="float: left;"><span>15×6 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -1139,7 +1169,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb12-23"><a href="#cb12-23"></a>data<span class="op">=</span><span class="fu">reshape</span>(arrs,(<span class="fl">5</span>,<span class="fl">15</span>))<span class="op">|&gt;</span>transpose</span>
 <span id="cb12-24"><a href="#cb12-24"></a>df3<span class="op">=</span><span class="fu">DataFrame</span>(data,<span class="op">:</span>auto)<span class="op">|&gt;</span><span class="fu">df-&gt;rename</span>(df,[<span class="op">:</span>d4,<span class="op">:</span>d6,<span class="op">:</span>d8,<span class="op">:</span>d12,<span class="op">:</span>d20])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div><div style="float: left;"><span>15×5 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -1299,7 +1329,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-7"><a href="#cb13-7"></a> <span class="cf">end</span></span>
 <span id="cb13-8"><a href="#cb13-8"></a> fig1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <p><img src="3_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
@@ -1338,7 +1368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-26"><a href="#cb14-26"></a>data2<span class="op">=</span><span class="fu">reshape</span>(arrs2,(<span class="fl">5</span>,<span class="fl">15</span>))<span class="op">|&gt;</span>transpose</span>
 <span id="cb14-27"><a href="#cb14-27"></a>df4<span class="op">=</span><span class="fu">DataFrame</span>(data2,<span class="op">:</span>auto)<span class="op">|&gt;</span><span class="fu">df-&gt;rename</span>(df,[<span class="op">:</span>d4,<span class="op">:</span>d6,<span class="op">:</span>d8,<span class="op">:</span>d12,<span class="op">:</span>d20])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="16">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div><div style="float: left;"><span>15×5 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -1362,27 +1392,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
-<td style="text-align: left;">0.37</td>
-<td style="text-align: left;">0.25</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.48</td>
+<td style="text-align: left;">0.32</td>
 <td style="text-align: left;">0.19</td>
-<td style="text-align: left;">0.12</td>
-<td style="text-align: left;">0.07</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
 <td style="text-align: left;">0.0</td>
-<td style="text-align: left;">0.53</td>
-<td style="text-align: left;">0.3</td>
-<td style="text-align: left;">0.13</td>
-<td style="text-align: left;">0.05</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.62</td>
+<td style="text-align: left;">0.28</td>
+<td style="text-align: left;">0.1</td>
 </tr>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
 <td style="text-align: left;">0.0</td>
-<td style="text-align: left;">0.64</td>
-<td style="text-align: left;">0.27</td>
-<td style="text-align: left;">0.08</td>
-<td style="text-align: left;">0.02</td>
+<td style="text-align: left;">0.0</td>
+<td style="text-align: left;">0.74</td>
+<td style="text-align: left;">0.21</td>
+<td style="text-align: left;">0.04</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
@@ -1404,7 +1434,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="rowNumber" style="text-align: right; font-weight: bold;">6</td>
 <td style="text-align: left;">0.0</td>
 <td style="text-align: left;">0.0</td>
-<td style="text-align: left;">0.93</td>
+<td style="text-align: left;">0.92</td>
 <td style="text-align: left;">0.07</td>
 <td style="text-align: left;">0.0</td>
 </tr>
@@ -1436,8 +1466,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td class="rowNumber" style="text-align: right; font-weight: bold;">10</td>
 <td style="text-align: left;">0.0</td>
 <td style="text-align: left;">0.0</td>
-<td style="text-align: left;">0.98</td>
-<td style="text-align: left;">0.02</td>
+<td style="text-align: left;">0.99</td>
+<td style="text-align: left;">0.01</td>
 <td style="text-align: left;">0.0</td>
 </tr>
 <tr class="odd">
@@ -1498,7 +1528,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb15-7"><a href="#cb15-7"></a> <span class="cf">end</span></span>
 <span id="cb15-8"><a href="#cb15-8"></a> fig2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <p><img src="3_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>

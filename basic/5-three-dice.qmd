@@ -1,0 +1,63 @@
+---
+title: "5-basic-probability-3-dice "
+---
+
+## 1. define  dice space
+### 1.1  emoji Dice🎲
+
+
+```{julia}
+emoji_dice=["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
+
+show_dice_emoji(arr)=[[emoji_dice[d[1]],emoji_dice[d[2]],emoji_dice[d[3]]] for d in arr]
+dice=Vector(1:6)
+show(dice)
+```
+
+###  1.2  
+```{julia}
+
+matrix=[[i,j,k] for i in dice, j in dice,k in dice]
+emo_matrix=[[emoji_dice[i],emoji_dice[j],emoji_dice[k]] for i in dice, j in dice,k in dice]
+display(emo_matrix)
+three_dice_space=vec(matrix)
+three_dice_size=length(three_dice_space)
+"three_dice_size"=>three_dice_size
+```
+
+
+## 2.question 
+### 2.1 三枚骰子扔出点数之和大于 7 的概率
+[ref:ch02-Q2](https://nostarch.com/download/resources/Bayes_exercise_solutions_new.pdf)
+
+```{julia}
+cond1(arr::Array)=sum(arr)>7
+res1=filter(arr->cond1(arr),three_dice_space)
+
+show("三个骰子点数大于 7"=>show_dice_emoji(res1))
+println("\n")
+show("三个骰子点数大于7概率"=>length(res1)//three_dice_size)
+```
+
+### 2.2 三枚骰子扔出点数都为六的概率
+
+```{julia}
+struct Three_dice
+ cond::Function
+ str::String
+ space::Array
+ space_size::Int
+end
+cond2(arr::Array)=arr[1]==6&&arr[2]==6&&arr[3]==6
+str2="三个骰子点数都等于6"
+params=Three_dice(cond2,str2,three_dice_space,three_dice_size)
+function three_dice_prob(params::Three_dice)
+    (;cond,str,space,space_size)=params
+    res=filter(arr->cond(arr),space)
+    show(str=>show_dice_emoji(res))
+    println("\n")
+    show("$(str)概率"=>length(res)//space_size)
+end
+three_dice_prob(params)
+```
+

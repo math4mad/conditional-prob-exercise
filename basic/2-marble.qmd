@@ -45,11 +45,18 @@ flowchart LR
     
 ```
 ```{julia}
-"定义袋子类型"
+"定义袋子类型1"
 struct Bag
     red::Int
     blue::Int
     green::Int
+end
+
+"定义袋子类型2,需要传入关键字"
+Base.@kwdef struct Bag2
+           red::Int = 1         # specified default
+           blue::Int=1
+           green::Int=1          # required keyword
 end
 
 """
@@ -58,7 +65,7 @@ end
 """
 @enum Ball red = 1 blue = 2 green = 3
 
-function new_bag_space_prob(bag::Bag, pick::Ball=red)::Tuple{Bag,Real}
+function new_bag_space_prob(bag::Union{Bag,Bag2}, pick::Ball=red)::Tuple{Bag,Real}
     (; red, blue, green) = bag # struct 解构
     ball = Int(pick) # @enum 类型需要转换为整型
     prob_size = +(red, blue, green)  # 合计球总数
@@ -72,7 +79,7 @@ function new_bag_space_prob(bag::Bag, pick::Ball=red)::Tuple{Bag,Real}
     return res
 end
 
-bag = Bag(15, 18, 10)
+bag = Bag(15, 18,10)
 res1 = new_bag_space_prob(bag, red)
 res2 = new_bag_space_prob(res1[1], red)
 both_red_ball=res1[2] * res2[2]
@@ -93,7 +100,8 @@ flowchart LR
 ```
 
 ```{julia}
-bag2 = Bag(13, 3, 12)
+
+bag2 = Bag2(red=13, blue=3, green=12)
 res3 = new_bag_space_prob(bag2, red)
 res4 = new_bag_space_prob(res3[1], red)
 both_red_ball2=res3[2] * res4[2]

@@ -1,0 +1,69 @@
+---
+title: "4-is-fair-coin"
+code-fold: true
+code-block-border-left: true
+code-line-numbers: true
+code-block-bg: true
+---
+
+```{julia}
+data=[1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0 ,0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0 ,0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1,1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1]
+show(data)
+priors=fill(1/11,11).|>d->round(d,digits=4)
+cates=Vector(0.0:0.1:1.0)
+
+```
+
+
+```{julia}
+using DataFrames
+df=DataFrame(name=String[],p00=Float64[],p01=Float64[],
+   p02=Float64[],p03=Float64[],p04=Float64[],p05=Float64[],p06=Float64[],
+   p07=Float64[],p08=Float64[],p09=Float64[],p10=Float64[]
+)
+
+function odds(num::Int)
+  arr=Real[]
+  for idx in eachindex(cates)
+      res = num==1 ? cates[idx] : 1-cates[idx]
+      push!(arr,res)
+      
+  end 
+  total=sum(arr)
+  temp= ([i/total for i in arr])|>(d->Float64.(d))|>d->round.(d,digits=2)
+  return temp 
+end
+
+
+for (idx,flip)  in enumerate(data)
+  temp=odds(flip)
+  #@info "点数为$idx,各骰子的概率"=>arr
+
+  push!(df,(name="flip-$idx",p00=temp[1],p01=temp[2],p02=temp[3],
+     p03=temp[4],p04=temp[5],p05=temp[6],p06=temp[7],p07=temp[8],p08=temp[9],
+     p09=temp[10],p10=temp[11]
+  ))
+end
+df
+
+```
+
+```{julia}
+header=[ "p00", "p01", "p02", "p03", "p04", "p05", "p06", "p07", "p08", "p09", "p10"]
+total=0
+
+#生成全概率
+for (idx,d) in enumerate(header)
+    total=total+reduce(*,df[:,d])*priors[idx]
+end
+
+for (idx,d) in enumerate(header)
+ local pdice=reduce(*,df[:,d])*priors[idx]
+ @info "coin-$(d) prob "=>pdice/total
+end
+
+```
+
+
+
+

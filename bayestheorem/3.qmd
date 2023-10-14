@@ -1,5 +1,5 @@
 ---
-title: "2-dice-problem"
+title: "3-dice-problem"
 code-fold: true
 code-block-border-left: true
 code-line-numbers: true

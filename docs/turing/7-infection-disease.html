@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="math4mad">
 
-<title>Conditional-Probability-Exercise - afcp-ex3.11</title>
+<title>Conditional-Probability-Exercise - 7-infectious-disease</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -92,12 +93,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -110,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.1.html">AFCP</a></li><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.11.html">afcp-ex3.11</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../turing/1-urn-ball.html">Turing</a></li><li class="breadcrumb-item"><a href="../turing/7-infection-disease.html">7-infectious-disease</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -146,13 +142,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">AFCP</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/afcp-ex3.1.html" class="sidebar-item-text sidebar-link">
@@ -167,7 +163,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exercises/afcp-ex3.11.html" class="sidebar-item-text sidebar-link active">
+  <a href="../exercises/afcp-ex3.11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">afcp-ex3.11</span></a>
   </div>
 </li>
@@ -337,13 +333,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Turing</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../turing/1-urn-ball.html" class="sidebar-item-text sidebar-link">
@@ -382,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../turing/7-infection-disease.html" class="sidebar-item-text sidebar-link">
+  <a href="../turing/7-infection-disease.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">7-infectious-disease</span></a>
   </div>
 </li>
@@ -486,10 +482,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#从52-张牌抽出2-张的条件概率计算" id="toc-从52-张牌抽出2-张的条件概率计算" class="nav-link active" data-scroll-target="#从52-张牌抽出2-张的条件概率计算">1.从52 张牌抽出2 张的条件概率计算</a></li>
-  <li><a href="#全概率路径图-fig-1" id="toc-全概率路径图-fig-1" class="nav-link" data-scroll-target="#全概率路径图-fig-1">2. 全概率路径图 Figure&nbsp;1</a></li>
-  <li><a href="#已知一张为黑桃-a-两张都是-a-的概率" id="toc-已知一张为黑桃-a-两张都是-a-的概率" class="nav-link" data-scroll-target="#已知一张为黑桃-a-两张都是-a-的概率">3. 已知一张为黑桃 A, 两张都是 A 的概率</a></li>
-  <li><a href="#至少抽中一张-a的条件下两张都是-a-的-概率" id="toc-至少抽中一张-a的条件下两张都是-a-的-概率" class="nav-link" data-scroll-target="#至少抽中一张-a的条件下两张都是-a-的-概率">4. 至少抽中一张 A的条件下,两张都是 A 的 概率</a></li>
+  <li><a href="#question" id="toc-question" class="nav-link active" data-scroll-target="#question">1. question</a></li>
+  <li><a href="#turing-workflow" id="toc-turing-workflow" class="nav-link" data-scroll-target="#turing-workflow">2. Turing workflow</a>
+  <ul class="collapse">
+  <li><a href="#load-package" id="toc-load-package" class="nav-link" data-scroll-target="#load-package">2.1 load package</a></li>
+  <li><a href="#define-turing-model" id="toc-define-turing-model" class="nav-link" data-scroll-target="#define-turing-model">2.2 define turing model</a></li>
+  <li><a href="#fixed-data-with-y" id="toc-fixed-data-with-y" class="nav-link" data-scroll-target="#fixed-data-with-y">2.3 fixed data with y</a></li>
+  <li><a href="#model" id="toc-model" class="nav-link" data-scroll-target="#model">2.4 model</a></li>
+  <li><a href="#mcmc-sampling" id="toc-mcmc-sampling" class="nav-link" data-scroll-target="#mcmc-sampling">2.5 MCMC Sampling</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -498,13 +499,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">afcp-ex3.11</h1>
+<h1 class="title">7-infectious-disease</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>math4mad </p>
+          </div>
+  </div>
     
   
     
@@ -513,61 +520,115 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="从52-张牌抽出2-张的条件概率计算" class="level3">
-<h3 class="anchored" data-anchor-id="从52-张牌抽出2-张的条件概率计算">1.从52 张牌抽出2 张的条件概率计算</h3>
+<section id="question" class="level2">
+<h2 class="anchored" data-anchor-id="question">1. question</h2>
+<p>infectious disease 实际和硬币试验原理一样,假设有对某个地区的 20人 做诊断, 来检测该地区的传染病感染比例 在短期内,模型会以一个固定的参数来产生数据 类似以某个概率来扔硬币, 对于受检测的居民,检测结果正面(true)为被传染, 反面(false)没有传染 所有模型构建和硬币的贝叶斯方法相同</p>
 </section>
-<section id="全概率路径图-fig-1" class="level3">
-<h3 class="anchored" data-anchor-id="全概率路径图-fig-1">2. 全概率路径图 <a href="#fig-1">Figure&nbsp;1</a></h3>
-<div class="cell" data-fig-width="6.5">
-<div class="cell-output-display">
-<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-1">flowchart LR
-      A(poker) ==s1:4/52 ==&gt; B("A")
-      A(poker) == f1:48/52 ==&gt;C("NotA")
-      
-      B("A") ==s2:3/51 ==&gt; D("A")
-      B("A") ==f2:48/51 ==&gt; E("NotA")
-      
-      C("NotA") ==s3:4/51 ==&gt; F("A")
-      C("NotA") ==f3:47/51==&gt; G("NotA")
-
-    style B  fill: #9c0312, stroke: #333, stroke-width: 2px;
-    style D  fill: #9c0312, stroke: #333, stroke-width: 2px;
-    style F  fill: #9c0312, stroke: #333, stroke-width: 2px;
-
+<section id="turing-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="turing-workflow">2. Turing workflow</h2>
+<section id="load-package" class="level3">
+<h3 class="anchored" data-anchor-id="load-package">2.1 load package</h3>
+<div class="cell" data-execution_count="1">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a> <span class="im">using</span> <span class="bu">Turing</span>,<span class="bu">MCMCChains</span>,<span class="bu">Random</span>,<span class="bu">Distributions</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="bu">Random</span>.<span class="fu">seed!</span>(<span class="fl">343434</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> d<span class="op">=</span><span class="fu">Bernoulli</span>(<span class="fl">0.1</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> data<span class="op">=</span><span class="fu">rand</span>(d,<span class="fl">20</span>)  <span class="co">#利用伯努利分布生成数据</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a> <span class="fu">show</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bool[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]</code></pre>
+</div>
+</div>
+</section>
+<section id="define-turing-model" class="level3">
+<h3 class="anchored" data-anchor-id="define-turing-model">2.2 define turing model</h3>
+<div class="cell" data-execution_count="2">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@model</span> <span class="kw">function</span> <span class="fu">infection</span>(; N<span class="op">::</span><span class="dt">Int</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Our prior belief about the probability of heads in a coin toss.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    p <span class="op">~</span> <span class="fu">Beta</span>(<span class="fl">1</span>, <span class="fl">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Heads or tails of a coin are drawn from `N` independent and identically</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="co"># distributed Bernoulli distributions with success rate `p`.</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    y <span class="op">~</span> <span class="fu">filldist</span>(<span class="fu">Bernoulli</span>(p), N)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> y</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="fixed-data-with-y" class="level3">
+<h3 class="anchored" data-anchor-id="fixed-data-with-y">2.3 fixed data with y</h3>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infection</span>(y<span class="op">::</span><span class="dt">AbstractVector{&lt;:Real}</span>) <span class="op">=</span> <span class="fu">infection</span>(; N<span class="op">=</span><span class="fu">length</span>(y)) <span class="op">|</span> (; y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>infection (generic function with 3 methods)</code></pre>
+</div>
+</div>
+</section>
+<section id="model" class="level3">
+<h3 class="anchored" data-anchor-id="model">2.4 model</h3>
+<div class="cell" data-execution_count="4">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> <span class="fu">infection</span>(data);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="mcmc-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="mcmc-sampling">2.5 MCMC Sampling</h3>
+<div class="cell" data-execution_count="5">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span>,<span class="bu">GLMakie</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sampler <span class="op">=</span> <span class="fu">NUTS</span>();</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>chain <span class="op">=</span> <span class="fu">sample</span>(model, sampler, <span class="fl">10_000</span>; progress<span class="op">=</span><span class="cn">false</span>);</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(chain)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span><span class="fu">DataFrame</span>(chain)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">#hist(df[:,:p];strokewidth =0.5, strokecolor = :black)</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>fig,ax,plt<span class="op">=</span><span class="fu">density</span>(df[<span class="op">:</span>,<span class="op">:</span>p];color<span class="op">=</span>(<span class="op">:</span>green,<span class="fl">0.5</span>))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">vlines!</span>(ax,[<span class="fl">0.1</span>];color<span class="op">=</span>(<span class="op">:</span>red,<span class="fl">0.5</span>),linewidth<span class="op">=</span><span class="fl">1</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>┌ Info: Found initial step size
+└   ϵ = 1.6</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre>Chains MCMC chain (10000×13×1 Array{Float64, 3}):
+Iterations        = 1001:1:11000
+Number of chains  = 1
+Samples per chain = 10000
+Wall duration     = 4.7 seconds
+Compute duration  = 4.7 seconds
+parameters        = p
+internals         = lp, n_steps, is_accept, acceptance_rate, log_density, hamiltonian_energy, hamiltonian_energy_error, max_hamiltonian_energy_error, tree_depth, numerical_error, step_size, nom_step_size
+Summary Statistics
+ <span class="ansi-bold"> parameters </span> <span class="ansi-bold">    mean </span> <span class="ansi-bold">     std </span> <span class="ansi-bold"> naive_se </span> <span class="ansi-bold">    mcse </span> <span class="ansi-bold">       ess </span> <span class="ansi-bold">    rhat </span> <span class="ansi-bold"> </span> ⋯
+ <span class="ansi-bright-black-fg">     Symbol </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg">  Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg">   Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> </span> ⋯
+           p    0.0910    0.0606     0.0006    0.0007   5391.5469    0.9999    ⋯
+<span class="ansi-cyan-fg">                                                                1 column omitted</span>
+Quantiles
+ <span class="ansi-bold"> parameters </span> <span class="ansi-bold">    2.5% </span> <span class="ansi-bold">   25.0% </span> <span class="ansi-bold">   50.0% </span> <span class="ansi-bold">   75.0% </span> <span class="ansi-bold">   97.5% </span>
+ <span class="ansi-bright-black-fg">     Symbol </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span> <span class="ansi-bright-black-fg"> Float64 </span>
+           p    0.0117    0.0462    0.0780    0.1229    0.2388
 </pre>
 </div>
-<figcaption class="figure-caption">Figure&nbsp;1: A diagram of pick up two cards</figcaption>
-</figure>
 </div>
-</div>
-</div>
-</section>
-<section id="已知一张为黑桃-a-两张都是-a-的概率" class="level3">
-<h3 class="anchored" data-anchor-id="已知一张为黑桃-a-两张都是-a-的概率">3. 已知一张为黑桃 A, 两张都是 A 的概率</h3>
-<blockquote class="blockquote">
-<p>由于有一张已经知道是 A, 另一张也为 A的概率就是:<span class="math inline">\(s2=3/51\)</span>,这里与是否是黑桃无关, 因为这个信息没有参与到概率计算中</p>
-</blockquote>
-</section>
-<section id="至少抽中一张-a的条件下两张都是-a-的-概率" class="level3">
-<h3 class="anchored" data-anchor-id="至少抽中一张-a的条件下两张都是-a-的-概率">4. 至少抽中一张 A的条件下,两张都是 A 的 概率</h3>
-<p>至少有一张 A的全概率为: <span class="math display">\[p_{total}=s_1*s_2+s_1*f_2+f_1*s_3 \tag{1.1}\]</span></p>
-<p>两张都为 A的概率为: <span class="math display">\[p_{doubleA}=s_1*s_2 \tag{1.2}\]</span></p>
-<p>因此概率计算为:</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>s1<span class="op">=</span><span class="fl">4</span><span class="op">//</span><span class="fl">52</span>;s2<span class="op">=</span><span class="fl">3</span><span class="op">//</span><span class="fl">51</span>;s3<span class="op">=</span><span class="fl">4</span><span class="op">//</span><span class="fl">51</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>total<span class="op">=</span><span class="fu">s1*s2+s1*</span>(<span class="fl">1</span><span class="op">-</span>s2)<span class="fu">+</span>(<span class="fl">1</span><span class="op">-</span>s1)<span class="op">*</span>s3</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pda<span class="op">=</span>s1<span class="op">*</span>s2</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">"both_A"</span><span class="op">=&gt;</span>pda<span class="op">//</span>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>"both_A" =&gt; 1//33</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<p><img src="7-infection-disease_files/figure-html/cell-6-output-3.png" class="img-fluid"></p>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

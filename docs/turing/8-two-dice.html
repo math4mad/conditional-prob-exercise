@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="math4mad">
 
-<title>Conditional-Probability-Exercise - afcp-ex3.11</title>
+<title>Conditional-Probability-Exercise - 8-two-dice</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -92,12 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -110,7 +72,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.1.html">AFCP</a></li><li class="breadcrumb-item"><a href="../exercises/afcp-ex3.11.html">afcp-ex3.11</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../turing/1-urn-ball.html">Turing</a></li><li class="breadcrumb-item"><a href="../turing/8-two-dice.html">8-two-dice</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -146,13 +108,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">AFCP</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../exercises/afcp-ex3.1.html" class="sidebar-item-text sidebar-link">
@@ -167,7 +129,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../exercises/afcp-ex3.11.html" class="sidebar-item-text sidebar-link active">
+  <a href="../exercises/afcp-ex3.11.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">afcp-ex3.11</span></a>
   </div>
 </li>
@@ -337,13 +299,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Turing</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../turing/1-urn-ball.html" class="sidebar-item-text sidebar-link">
@@ -388,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../turing/8-two-dice.html" class="sidebar-item-text sidebar-link">
+  <a href="../turing/8-two-dice.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">8-two-dice</span></a>
   </div>
 </li>
@@ -482,29 +444,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#从52-张牌抽出2-张的条件概率计算" id="toc-从52-张牌抽出2-张的条件概率计算" class="nav-link active" data-scroll-target="#从52-张牌抽出2-张的条件概率计算">1.从52 张牌抽出2 张的条件概率计算</a></li>
-  <li><a href="#全概率路径图-fig-1" id="toc-全概率路径图-fig-1" class="nav-link" data-scroll-target="#全概率路径图-fig-1">2. 全概率路径图 Figure&nbsp;1</a></li>
-  <li><a href="#已知一张为黑桃-a-两张都是-a-的概率" id="toc-已知一张为黑桃-a-两张都是-a-的概率" class="nav-link" data-scroll-target="#已知一张为黑桃-a-两张都是-a-的概率">3. 已知一张为黑桃 A, 两张都是 A 的概率</a></li>
-  <li><a href="#至少抽中一张-a的条件下两张都是-a-的-概率" id="toc-至少抽中一张-a的条件下两张都是-a-的-概率" class="nav-link" data-scroll-target="#至少抽中一张-a的条件下两张都是-a-的-概率">4. 至少抽中一张 A的条件下,两张都是 A 的 概率</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">afcp-ex3.11</h1>
+<h1 class="title">8-two-dice</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>math4mad </p>
+          </div>
+  </div>
     
   
     
@@ -513,62 +472,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="从52-张牌抽出2-张的条件概率计算" class="level3">
-<h3 class="anchored" data-anchor-id="从52-张牌抽出2-张的条件概率计算">1.从52 张牌抽出2 张的条件概率计算</h3>
-</section>
-<section id="全概率路径图-fig-1" class="level3">
-<h3 class="anchored" data-anchor-id="全概率路径图-fig-1">2. 全概率路径图 <a href="#fig-1">Figure&nbsp;1</a></h3>
-<div class="cell" data-fig-width="6.5">
-<div class="cell-output-display">
-<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-1">flowchart LR
-      A(poker) ==s1:4/52 ==&gt; B("A")
-      A(poker) == f1:48/52 ==&gt;C("NotA")
-      
-      B("A") ==s2:3/51 ==&gt; D("A")
-      B("A") ==f2:48/51 ==&gt; E("NotA")
-      
-      C("NotA") ==s3:4/51 ==&gt; F("A")
-      C("NotA") ==f3:47/51==&gt; G("NotA")
-
-    style B  fill: #9c0312, stroke: #333, stroke-width: 2px;
-    style D  fill: #9c0312, stroke: #333, stroke-width: 2px;
-    style F  fill: #9c0312, stroke: #333, stroke-width: 2px;
-
-</pre>
-</div>
-<figcaption class="figure-caption">Figure&nbsp;1: A diagram of pick up two cards</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="已知一张为黑桃-a-两张都是-a-的概率" class="level3">
-<h3 class="anchored" data-anchor-id="已知一张为黑桃-a-两张都是-a-的概率">3. 已知一张为黑桃 A, 两张都是 A 的概率</h3>
-<blockquote class="blockquote">
-<p>由于有一张已经知道是 A, 另一张也为 A的概率就是:<span class="math inline">\(s2=3/51\)</span>,这里与是否是黑桃无关, 因为这个信息没有参与到概率计算中</p>
-</blockquote>
-</section>
-<section id="至少抽中一张-a的条件下两张都是-a-的-概率" class="level3">
-<h3 class="anchored" data-anchor-id="至少抽中一张-a的条件下两张都是-a-的-概率">4. 至少抽中一张 A的条件下,两张都是 A 的 概率</h3>
-<p>至少有一张 A的全概率为: <span class="math display">\[p_{total}=s_1*s_2+s_1*f_2+f_1*s_3 \tag{1.1}\]</span></p>
-<p>两张都为 A的概率为: <span class="math display">\[p_{doubleA}=s_1*s_2 \tag{1.2}\]</span></p>
-<p>因此概率计算为:</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>s1<span class="op">=</span><span class="fl">4</span><span class="op">//</span><span class="fl">52</span>;s2<span class="op">=</span><span class="fl">3</span><span class="op">//</span><span class="fl">51</span>;s3<span class="op">=</span><span class="fl">4</span><span class="op">//</span><span class="fl">51</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>total<span class="op">=</span><span class="fu">s1*s2+s1*</span>(<span class="fl">1</span><span class="op">-</span>s2)<span class="fu">+</span>(<span class="fl">1</span><span class="op">-</span>s1)<span class="op">*</span>s3</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pda<span class="op">=</span>s1<span class="op">*</span>s2</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">"both_A"</span><span class="op">=&gt;</span>pda<span class="op">//</span>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<pre><code>"both_A" =&gt; 1//33</code></pre>
-</div>
-</div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

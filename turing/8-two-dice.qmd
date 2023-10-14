@@ -1,0 +1,7 @@
+---
+title: "8-two-dice"
+author: math4mad
+code-fold: true
+---
+
+

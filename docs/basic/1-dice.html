@@ -375,6 +375,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">6-card-problem</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../turing/7-infection-disease.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7-infectious-disease</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../turing/8-two-dice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">8-two-dice</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -410,12 +422,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">reveal.js test</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basic/5-three-dice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5-basic-probability-3-dice</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basic/7-dice-methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dice-method</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">BayesTheorem</span></a>
+ <span class="menu-text">Bayestheorem</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -436,7 +460,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../bayestheorem/3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2-dice-problem</span></a>
+ <span class="menu-text">3-dice-problem</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../bayestheorem/4.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4-is-fair-coin</span></a>
   </div>
 </li>
       </ul>
@@ -454,15 +484,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#define-tools" id="toc-define-tools" class="nav-link active" data-scroll-target="#define-tools">1. define tools</a>
   <ul class="collapse">
   <li><a href="#dice" id="toc-dice" class="nav-link" data-scroll-target="#dice">1.1 Dice🎲</a></li>
+  <li><a href="#define-two-dice-space-and-space-size" id="toc-define-two-dice-space-and-space-size" class="nav-link" data-scroll-target="#define-two-dice-space-and-space-size">1.2 define two dice space and space size</a></li>
   </ul></li>
   <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">2.question</a>
   <ul class="collapse">
-  <li><a href="#两个骰子乘积为4" id="toc-两个骰子乘积为4" class="nav-link" data-scroll-target="#两个骰子乘积为4">2.1 两个骰子乘积为4</a></li>
-  <li><a href="#两个骰子点数合计等于小于-5" id="toc-两个骰子点数合计等于小于-5" class="nav-link" data-scroll-target="#两个骰子点数合计等于小于-5">2.2 两个骰子点数合计等于小于 5</a></li>
-  <li><a href="#两个骰子点数合计大于等于-10" id="toc-两个骰子点数合计大于等于-10" class="nav-link" data-scroll-target="#两个骰子点数合计大于等于-10">2.3 两个骰子点数合计大于等于 10</a></li>
-  <li><a href="#两个骰子点数相同" id="toc-两个骰子点数相同" class="nav-link" data-scroll-target="#两个骰子点数相同">2.4 两个骰子点数相同</a></li>
-  <li><a href="#两个骰子点数合计等于-10" id="toc-两个骰子点数合计等于-10" class="nav-link" data-scroll-target="#两个骰子点数合计等于-10">2.5 两个骰子点数合计等于 10</a></li>
-  <li><a href="#点数之和被5整除" id="toc-点数之和被5整除" class="nav-link" data-scroll-target="#点数之和被5整除">2.6 点数之和被5整除</a></li>
+  <li><a href="#define-method" id="toc-define-method" class="nav-link" data-scroll-target="#define-method">2.1 define method</a></li>
+  <li><a href="#两个骰子乘积为4" id="toc-两个骰子乘积为4" class="nav-link" data-scroll-target="#两个骰子乘积为4">2.2 两个骰子乘积为4</a></li>
+  <li><a href="#两个骰子点数合计等于小于-5" id="toc-两个骰子点数合计等于小于-5" class="nav-link" data-scroll-target="#两个骰子点数合计等于小于-5">2.3 两个骰子点数合计等于小于 5</a></li>
+  <li><a href="#两个骰子点数合计大于等于-10" id="toc-两个骰子点数合计大于等于-10" class="nav-link" data-scroll-target="#两个骰子点数合计大于等于-10">2.4 两个骰子点数合计大于等于 10</a></li>
+  <li><a href="#两个骰子点数相同" id="toc-两个骰子点数相同" class="nav-link" data-scroll-target="#两个骰子点数相同">2.5 两个骰子点数相同</a></li>
+  <li><a href="#两个骰子点数合计等于-10" id="toc-两个骰子点数合计等于-10" class="nav-link" data-scroll-target="#两个骰子点数合计等于-10">2.6 两个骰子点数合计等于 10</a></li>
+  <li><a href="#点数之和被5整除" id="toc-点数之和被5整除" class="nav-link" data-scroll-target="#点数之和被5整除">2.7 点数之和被5整除</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -492,21 +524,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dice" class="level3">
 <h3 class="anchored" data-anchor-id="dice">1.1 Dice🎲</h3>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>emoji_dice1<span class="op">=</span>[<span class="st">"1️⃣"</span>,<span class="st">"2️⃣"</span>,<span class="st">"3️⃣"</span>,<span class="st">"4️⃣"</span>,<span class="st">"5️⃣"</span>,<span class="st">"6️⃣"</span>]</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>emoji_dice2<span class="op">=</span>[<span class="st">"1️⃣"</span>,<span class="st">"2️⃣"</span>,<span class="st">"3️⃣"</span>,<span class="st">"4️⃣"</span>,<span class="st">"5️⃣"</span>,<span class="st">"6️⃣"</span>]</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">show_dice_emoji</span>(arr)<span class="op">=</span>[[emoji_dice1[d[<span class="fl">1</span>]],emoji_dice2[d[<span class="fl">2</span>]]] for d <span class="kw">in</span> arr]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>dice1<span class="op">=</span><span class="fu">Vector</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">6</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>dice2<span class="op">=</span><span class="fu">Vector</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">6</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(dice1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>emoji_dice<span class="op">=</span>[<span class="st">"1️⃣"</span>,<span class="st">"2️⃣"</span>,<span class="st">"3️⃣"</span>,<span class="st">"4️⃣"</span>,<span class="st">"5️⃣"</span>,<span class="st">"6️⃣"</span>]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dice<span class="op">=</span><span class="fu">Vector</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">6</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">show_dice_emoji</span>(arr)<span class="op">=</span>[[emoji_dice[d[<span class="fl">1</span>]],emoji_dice[d[<span class="fl">2</span>]]] for d <span class="kw">in</span> arr]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(dice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1, 2, 3, 4, 5, 6]</code></pre>
 </div>
 </div>
+</section>
+<section id="define-two-dice-space-and-space-size" class="level3">
+<h3 class="anchored" data-anchor-id="define-two-dice-space-and-space-size">1.2 define two dice space and space size</h3>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">PrettyTables</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>matrix<span class="op">=</span>[[i,j] for i <span class="kw">in</span> dice1, j <span class="kw">in</span> dice2]</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>emo_matrix<span class="op">=</span>[[emoji_dice1[i],emoji_dice2[j]] for i <span class="kw">in</span> dice1, j <span class="kw">in</span> dice2]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>matrix<span class="op">=</span>[[i,j] for i <span class="kw">in</span> dice, j <span class="kw">in</span> dice]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>emo_matrix<span class="op">=</span>[[emoji_dice[i],emoji_dice[j]] for i <span class="kw">in</span> dice, j <span class="kw">in</span> dice]</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(emo_matrix)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>two_dice_space<span class="op">=</span><span class="fu">vec</span>(matrix)</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>two_dice_size<span class="op">=</span><span class="fu">length</span>(two_dice_space)</span>
@@ -520,7 +553,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  ["5️⃣", "1️⃣"]  ["5️⃣", "2️⃣"]  ["5️⃣", "3️⃣"]  ["5️⃣", "4️⃣"]  ["5️⃣", "5️⃣"]  ["5️⃣", "6️⃣"]
  ["6️⃣", "1️⃣"]  ["6️⃣", "2️⃣"]  ["6️⃣", "3️⃣"]  ["6️⃣", "4️⃣"]  ["6️⃣", "5️⃣"]  ["6️⃣", "6️⃣"]</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="46">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>"two_dice_size" =&gt; 36</code></pre>
 </div>
 </div>
@@ -528,8 +561,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="question" class="level2">
 <h2 class="anchored" data-anchor-id="question">2.question</h2>
+<section id="define-method" class="level3">
+<h3 class="anchored" data-anchor-id="define-method">2.1 define method</h3>
+</section>
 <section id="两个骰子乘积为4" class="level3">
-<h3 class="anchored" data-anchor-id="两个骰子乘积为4">2.1 两个骰子乘积为4</h3>
+<h3 class="anchored" data-anchor-id="两个骰子乘积为4">2.2 两个骰子乘积为4</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cond</span>(arr<span class="op">::</span><span class="dt">Array</span>,cond_number<span class="op">=</span><span class="fl">4</span>)<span class="op">=</span><span class="fu">*</span>(arr<span class="op">...</span>)<span class="op">==</span>cond_number</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cond1</span>(arr<span class="op">::</span><span class="dt">Array</span>,cond_number<span class="op">=</span><span class="fl">4</span>)<span class="op">::</span><span class="dt">Bool</span>=<span class="fu">*</span>(arr<span class="op">...</span>)<span class="op">==</span>cond_number</span>
@@ -546,7 +582,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="两个骰子点数合计等于小于-5" class="level3">
-<h3 class="anchored" data-anchor-id="两个骰子点数合计等于小于-5">2.2 两个骰子点数合计等于小于 5</h3>
+<h3 class="anchored" data-anchor-id="两个骰子点数合计等于小于-5">2.3 两个骰子点数合计等于小于 5</h3>
 <div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cond2</span>(arr<span class="op">::</span><span class="dt">Array</span>)<span class="op">::</span><span class="dt">Bool</span>=<span class="fu">sum</span>(arr)<span class="op">&lt;=</span><span class="fl">5</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>res2<span class="op">=</span><span class="fu">filter</span>(<span class="fu">arr-&gt;cond2</span>(arr),two_dice_space)</span>
@@ -561,7 +597,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="两个骰子点数合计大于等于-10" class="level3">
-<h3 class="anchored" data-anchor-id="两个骰子点数合计大于等于-10">2.3 两个骰子点数合计大于等于 10</h3>
+<h3 class="anchored" data-anchor-id="两个骰子点数合计大于等于-10">2.4 两个骰子点数合计大于等于 10</h3>
 <div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cond3</span>(arr<span class="op">::</span><span class="dt">Array</span>)<span class="op">::</span><span class="dt">Bool</span>=<span class="fu">sum</span>(arr)<span class="op">&gt;=</span><span class="fl">10</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>res3<span class="op">=</span><span class="fu">filter</span>(<span class="fu">arr-&gt;cond3</span>(arr),two_dice_space)</span>
@@ -576,7 +612,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="两个骰子点数相同" class="level3">
-<h3 class="anchored" data-anchor-id="两个骰子点数相同">2.4 两个骰子点数相同</h3>
+<h3 class="anchored" data-anchor-id="两个骰子点数相同">2.5 两个骰子点数相同</h3>
 <div class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cond4</span>(arr<span class="op">::</span><span class="dt">Array</span>)<span class="op">::</span><span class="dt">Bool</span>=arr[<span class="fl">1</span>]<span class="op">==</span>arr[<span class="fl">2</span>]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>res4<span class="op">=</span><span class="fu">filter</span>(<span class="fu">arr-&gt;cond4</span>(arr),two_dice_space)</span>
@@ -591,7 +627,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="两个骰子点数合计等于-10" class="level3">
-<h3 class="anchored" data-anchor-id="两个骰子点数合计等于-10">2.5 两个骰子点数合计等于 10</h3>
+<h3 class="anchored" data-anchor-id="两个骰子点数合计等于-10">2.6 两个骰子点数合计等于 10</h3>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cond5</span>(arr<span class="op">::</span><span class="dt">Array</span>)<span class="op">::</span><span class="dt">Bool</span>=<span class="fu">sum</span>(arr)<span class="op">==</span><span class="fl">10</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>res5<span class="op">=</span><span class="fu">filter</span>(<span class="fu">arr-&gt;cond5</span>(arr),two_dice_space)</span>
@@ -606,7 +642,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="点数之和被5整除" class="level3">
-<h3 class="anchored" data-anchor-id="点数之和被5整除">2.6 点数之和被5整除</h3>
+<h3 class="anchored" data-anchor-id="点数之和被5整除">2.7 点数之和被5整除</h3>
 <div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cond6</span>(arr<span class="op">::</span><span class="dt">Array</span>)<span class="op">::</span><span class="dt">Bool</span>=<span class="fu">sum</span>(arr)<span class="op">|&gt;</span><span class="fu">d-&gt;mod</span>(d,<span class="fl">5</span>)<span class="op">==</span><span class="fl">0</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>res6<span class="op">=</span><span class="fu">filter</span>(<span class="fu">arr-&gt;cond6</span>(arr),two_dice_space)</span>

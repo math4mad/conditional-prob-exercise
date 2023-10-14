@@ -1,0 +1,67 @@
+---
+title: "7-infectious-disease"
+author: math4mad
+code-fold: true
+---
+
+## 1. question
+
+infectious disease 实际和硬币试验原理一样,假设有对某个地区的 20人
+做诊断, 来检测该地区的传染病感染比例
+在短期内,模型会以一个固定的参数来产生数据
+类似以某个概率来扔硬币, 对于受检测的居民,检测结果正面(true)为被传染, 反面(false)没有传染
+所有模型构建和硬币的贝叶斯方法相同
+
+## 2. Turing workflow
+### 2.1 load package
+```{julia}
+ using Turing,MCMCChains,Random,Distributions
+ Random.seed!(343434)
+ d=Bernoulli(0.1)
+ data=rand(d,20)  #利用伯努利分布生成数据
+ show(data)
+```
+
+### 2.2 define turing model
+```{julia}
+@model function infection(; N::Int)
+    # Our prior belief about the probability of heads in a coin toss.
+    p ~ Beta(1, 1)
+
+    # Heads or tails of a coin are drawn from `N` independent and identically
+    # distributed Bernoulli distributions with success rate `p`.
+    y ~ filldist(Bernoulli(p), N)
+
+    return y
+end;
+```
+
+### 2.3  fixed data with y
+
+```{julia}
+infection(y::AbstractVector{<:Real}) = infection(; N=length(y)) | (; y)
+```
+
+
+### 2.4 model
+```{julia}
+model = infection(data);
+```
+
+### 2.5 MCMC Sampling
+```{julia}
+using DataFrames,GLMakie
+sampler = NUTS();
+chain = sample(model, sampler, 10_000; progress=false);
+display(chain)
+df=DataFrame(chain)
+#hist(df[:,:p];strokewidth =0.5, strokecolor = :black)
+fig,ax,plt=density(df[:,:p];color=(:green,0.5))
+vlines!(ax,[0.1];color=(:red,0.5),linewidth=1)
+fig
+```
+
+
+
+
+

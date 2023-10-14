@@ -7,19 +7,18 @@ title: "1-basic-probability-dice "
 
 
 ```{julia}
-emoji_dice1=["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
-emoji_dice2=["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
-show_dice_emoji(arr)=[[emoji_dice1[d[1]],emoji_dice2[d[2]]] for d in arr]
-dice1=Vector(1:6)
-dice2=Vector(1:6)
-show(dice1)
+emoji_dice=["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
+dice=Vector(1:6)
+show_dice_emoji(arr)=[[emoji_dice[d[1]],emoji_dice[d[2]]] for d in arr]
+show(dice)
 ```
 
+### 1.2 define two dice space and space size
 ```{julia}
 using PrettyTables
 
-matrix=[[i,j] for i in dice1, j in dice2]
-emo_matrix=[[emoji_dice1[i],emoji_dice2[j]] for i in dice1, j in dice2]
+matrix=[[i,j] for i in dice, j in dice]
+emo_matrix=[[emoji_dice[i],emoji_dice[j]] for i in dice, j in dice]
 display(emo_matrix)
 two_dice_space=vec(matrix)
 two_dice_size=length(two_dice_space)
@@ -27,8 +26,10 @@ two_dice_size=length(two_dice_space)
 ```
 
 ## 2.question 
+### 2.1 define method
 
-### 2.1 两个骰子乘积为4
+
+### 2.2 两个骰子乘积为4
 ```julia
   cond(arr::Array,cond_number=4)=*(arr...)==cond_number
 ```
@@ -41,7 +42,7 @@ println("\n")
 show("两个骰子乘积为4概率"=>length(res1)//two_dice_size)
 ```
 
-### 2.2 两个骰子点数合计等于小于 5
+### 2.3 两个骰子点数合计等于小于 5
 ```{julia}
 cond2(arr::Array)::Bool=sum(arr)<=5
 res2=filter(arr->cond2(arr),two_dice_space)
@@ -49,7 +50,7 @@ show("两个骰子点数合计等于小于5"=>length(res2))
 println("\n")
 show("两个骰子点数合计等于小于5的概率"=>length(res2)//two_dice_size)
 ```
-### 2.3 两个骰子点数合计大于等于 10
+### 2.4 两个骰子点数合计大于等于 10
 ```{julia}
 cond3(arr::Array)::Bool=sum(arr)>=10
 res3=filter(arr->cond3(arr),two_dice_space)
@@ -58,7 +59,7 @@ println("\n")
 show("点数合计大于等于10的概率"=>length(res3)//two_dice_size)
 ```
 
-### 2.4 两个骰子点数相同
+### 2.5 两个骰子点数相同
 ```{julia}
 cond4(arr::Array)::Bool=arr[1]==arr[2]
 res4=filter(arr->cond4(arr),two_dice_space)
@@ -67,7 +68,7 @@ println("\n")
 show("两个骰子点数相同的概率"=>length(res4)//two_dice_size)
 ```
 
-### 2.5  两个骰子点数合计等于 10
+### 2.6  两个骰子点数合计等于 10
 ```{julia}
 cond5(arr::Array)::Bool=sum(arr)==10
 res5=filter(arr->cond5(arr),two_dice_space)
@@ -76,7 +77,7 @@ println("\n")
 show("点数合计等于10的概率"=>length(res5)//two_dice_size)
 ```
 
-### 2.6  点数之和被5整除
+### 2.7  点数之和被5整除
 ```{julia}
 cond6(arr::Array)::Bool=sum(arr)|>d->mod(d,5)==0
 res6=filter(arr->cond6(arr),two_dice_space)

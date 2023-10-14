@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="math4mad">
 
-<title>Conditional-Probability-Exercise - 5-multi-side-dice</title>
+<title>Conditional-Probability-Exercise - 4-is-fair-coin</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -93,15 +92,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -114,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../turing/1-urn-ball.html">Turing</a></li><li class="breadcrumb-item"><a href="../turing/5-multi-side-dice.html">5-multi-side-dice</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../bayestheorem/1.html">Bayestheorem</a></li><li class="breadcrumb-item"><a href="../bayestheorem/4.html">4-is-fair-coin</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -341,13 +335,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Turing</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../turing/1-urn-ball.html" class="sidebar-item-text sidebar-link">
@@ -374,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../turing/5-multi-side-dice.html" class="sidebar-item-text sidebar-link active">
+  <a href="../turing/5-multi-side-dice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">5-multi-side-dice</span></a>
   </div>
 </li>
@@ -447,13 +441,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
  <span class="menu-text">Bayestheorem</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../bayestheorem/1.html" class="sidebar-item-text sidebar-link">
@@ -474,7 +468,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../bayestheorem/4.html" class="sidebar-item-text sidebar-link">
+  <a href="../bayestheorem/4.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">4-is-fair-coin</span></a>
   </div>
 </li>
@@ -486,37 +480,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#通过概率路径图的计算" id="toc-通过概率路径图的计算" class="nav-link active" data-scroll-target="#通过概率路径图的计算">1. 通过概率路径图的计算</a>
-  <ul class="collapse">
-  <li><a href="#概率路径图" id="toc-概率路径图" class="nav-link" data-scroll-target="#概率路径图">1.1 概率路径图</a></li>
-  <li><a href="#计算单次点数概率" id="toc-计算单次点数概率" class="nav-link" data-scroll-target="#计算单次点数概率">1.2 计算单次点数概率</a></li>
-  <li><a href="#计算多次抛掷概率" id="toc-计算多次抛掷概率" class="nav-link" data-scroll-target="#计算多次抛掷概率">1.2 计算多次抛掷概率</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">5-multi-side-dice</h1>
+<h1 class="title">4-is-fair-coin</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>math4mad </p>
-          </div>
-  </div>
     
   
     
@@ -525,371 +502,93 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="callout callout-style-default callout-note callout-titled" title="简介">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-简介
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>骰子有很多面的类型 <a href="#fig-1">Figure&nbsp;1</a></p>
-<p>参考 hakank-bayes-code dice_problem</p>
-<p>问题: 如果一个袋子内有 4面,6 面, 8 面, 12 面, 20面的骰子.</p>
-<ol type="1">
-<li>如果一个人从袋子内随机取出一枚骰子, 告诉你扔出点数为 <span class="math inline">\(6\)</span>, 根据点数判断是哪个骰子</li>
-<li>如果结果是 [ 6, 8, 7, 7, 5,4] 那么最有可能的是哪个骰子</li>
-</ol>
-</div>
-</div>
-<div id="fig-1" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="./imgs/dice.jpeg" class="img-fluid figure-img" width="300"></p>
-<figcaption class="figure-caption">Figure&nbsp;1: 多面骰子</figcaption>
-</figure>
-</div>
-<section id="通过概率路径图的计算" class="level2">
-<h2 class="anchored" data-anchor-id="通过概率路径图的计算">1. 通过概率路径图的计算</h2>
-<section id="概率路径图" class="level3">
-<h3 class="anchored" data-anchor-id="概率路径图">1.1 概率路径图</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<div>
-<pre class="mermaid mermaid-js">    %%| fig-width: 6.5
-    %%| label: fig-2
-    %%| fig-cap: "bags-flowchart"
-    flowchart LR
-    Dice["Multi-Dice"]
-    Dice==1/5==&gt;f4("4-faces")
-    Dice==1/5==&gt;f6("6-faces")
-    Dice==1/5==&gt;f8("8-faces")
-    Dice==1/5==&gt;f12("12-faces")
-    Dice==1/5==&gt;f20("20-faces")
-
-    f4==0==&gt;f46("6️⃣")
-    f6==1/6==&gt;f66("6️⃣")
-    f8==1/8==&gt;f86("6️⃣")
-    f12==1/12==&gt;f126("6️⃣")
-    f20==1/20==&gt;f206("6️⃣")
-</pre>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="计算单次点数概率" class="level3">
-<h3 class="anchored" data-anchor-id="计算单次点数概率">1.2 计算单次点数概率</h3>
 <div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Distributions</span>,<span class="bu">DataFrames</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dice_faces<span class="op">=</span>[<span class="fl">4</span>,<span class="fl">6</span>,<span class="fl">8</span>,<span class="fl">12</span>,<span class="fl">20</span>]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">"取出每个骰子的概率数组"</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>dice_prob<span class="op">=</span><span class="fu">fill</span>(<span class="fl">1</span><span class="op">//</span><span class="fl">5</span>,<span class="fl">5</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span><span class="fu">DataFrame</span>(name<span class="op">=</span><span class="dt">String</span>[],d4<span class="op">=</span><span class="dt">Float64</span>[],d6<span class="op">=</span><span class="dt">Float64</span>[],</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   d8<span class="op">=</span><span class="dt">Float64</span>[],d12<span class="op">=</span><span class="dt">Float64</span>[],d20<span class="op">=</span><span class="dt">Float64</span>[]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span>  <span class="fu">dp_arr</span>(num<span class="op">::</span><span class="dt">Int</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  arr<span class="op">=</span><span class="dt">Rational</span>[]</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> idx <span class="kw">in</span> <span class="fu">eachindex</span>(dice_faces)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>      res <span class="op">=</span> num <span class="op">&lt;=</span> dice_faces[idx] ? (<span class="fl">1</span><span class="op">//</span>dice_faces[idx]) <span class="op">:</span> <span class="fl">0</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>      <span class="fu">push!</span>(arr,res)</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span> </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  total<span class="op">=</span><span class="fu">sum</span>(arr)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">=</span> ([i<span class="op">//</span>total for i <span class="kw">in</span> arr])<span class="op">|&gt;</span>(<span class="fu">d-&gt;Float64</span>.(d))<span class="op">|&gt;</span><span class="fu">d-&gt;round</span>.(d,digits<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> temp </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> idx  <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">20</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  temp<span class="op">=</span><span class="fu">dp_arr</span>(idx)</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">#@info "点数为$idx,各骰子的概率"=&gt;arr</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">push!</span>(df,(name<span class="op">=</span><span class="st">"点数:</span><span class="sc">$</span>idx<span class="st">"</span>,d4<span class="op">=</span>temp[<span class="fl">1</span>],d6<span class="op">=</span>temp[<span class="fl">2</span>],d8<span class="op">=</span>temp[<span class="fl">3</span>],</span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>     d12<span class="op">=</span>temp[<span class="fl">4</span>],d20<span class="op">=</span>temp[<span class="fl">5</span>]</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1"></a>data<span class="op">=</span>[<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span> ,<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span> ,<span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>,<span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">0</span>, <span class="fl">1</span>]</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">show</span>(data)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>priors<span class="op">=</span><span class="fu">fill</span>(<span class="fl">1</span><span class="op">/</span><span class="fl">11</span>,<span class="fl">11</span>)<span class="op">.|&gt;</span><span class="fu">d-&gt;round</span>(d,digits<span class="op">=</span><span class="fl">4</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>cates<span class="op">=</span><span class="fu">Vector</span>(<span class="fl">0.0</span><span class="op">:</span><span class="fl">0.1</span><span class="op">:</span><span class="fl">1.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div><div style="float: left;"><span>20×6 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
-<table class="data-frame table table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header header">
-<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d4</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d6</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d8</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d12</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d20</th>
-</tr>
-<tr class="odd subheader headerLastRow">
-<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="String">String</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
-<td style="text-align: left;">点数:1</td>
-<td style="text-align: right;">0.37</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.07</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
-<td style="text-align: left;">点数:2</td>
-<td style="text-align: right;">0.37</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.07</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
-<td style="text-align: left;">点数:3</td>
-<td style="text-align: right;">0.37</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.07</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
-<td style="text-align: left;">点数:4</td>
-<td style="text-align: right;">0.37</td>
-<td style="text-align: right;">0.25</td>
-<td style="text-align: right;">0.19</td>
-<td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.07</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: left;">点数:5</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.39</td>
-<td style="text-align: right;">0.29</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">0.12</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">6</td>
-<td style="text-align: left;">点数:6</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.39</td>
-<td style="text-align: right;">0.29</td>
-<td style="text-align: right;">0.2</td>
-<td style="text-align: right;">0.12</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">7</td>
-<td style="text-align: left;">点数:7</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.48</td>
-<td style="text-align: right;">0.32</td>
-<td style="text-align: right;">0.19</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">8</td>
-<td style="text-align: left;">点数:8</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.48</td>
-<td style="text-align: right;">0.32</td>
-<td style="text-align: right;">0.19</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">9</td>
-<td style="text-align: left;">点数:9</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.62</td>
-<td style="text-align: right;">0.38</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">10</td>
-<td style="text-align: left;">点数:10</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.62</td>
-<td style="text-align: right;">0.38</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">11</td>
-<td style="text-align: left;">点数:11</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.62</td>
-<td style="text-align: right;">0.38</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">12</td>
-<td style="text-align: left;">点数:12</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.62</td>
-<td style="text-align: right;">0.38</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">13</td>
-<td style="text-align: left;">点数:13</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.0</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">14</td>
-<td style="text-align: left;">点数:14</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.0</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">15</td>
-<td style="text-align: left;">点数:15</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.0</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">16</td>
-<td style="text-align: left;">点数:16</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.0</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">17</td>
-<td style="text-align: left;">点数:17</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.0</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">18</td>
-<td style="text-align: left;">点数:18</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.0</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">19</td>
-<td style="text-align: left;">点数:19</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.0</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">20</td>
-<td style="text-align: left;">点数:20</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">1.0</td>
-</tr>
-</tbody>
-</table>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 1]</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>11-element Vector{Float64}:
+ 0.0
+ 0.1
+ 0.2
+ 0.3
+ 0.4
+ 0.5
+ 0.6
+ 0.7
+ 0.8
+ 0.9
+ 1.0</code></pre>
 </div>
 </div>
-</div>
-</section>
-<section id="计算多次抛掷概率" class="level3">
-<h3 class="anchored" data-anchor-id="计算多次抛掷概率">1.2 计算多次抛掷概率</h3>
-<blockquote class="blockquote">
-<p>例:当 结果为[6, 6, 8, 7, 7, 5, 4] 时各骰子的概率</p>
-</blockquote>
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="st">"dice 概率 数组 2"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span>  <span class="fu">dp_arr</span>(nums<span class="op">::</span><span class="dt">Array{Int}</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  arr<span class="op">=</span><span class="dt">Rational</span>[]</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> idx <span class="kw">in</span> <span class="fu">eachindex</span>(dice_faces)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>      res <span class="op">=</span> <span class="fu">mapreduce</span>(x<span class="op">-&gt;</span> x<span class="op">&lt;=</span> dice_faces[idx] ? (<span class="fl">1</span><span class="op">//</span>dice_faces[idx]) <span class="op">:</span> <span class="fl">0</span>, <span class="op">*</span>, nums)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">push!</span>(arr,res)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>      </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">end</span> </span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  total<span class="op">=</span><span class="fu">sum</span>(arr)</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> ([i<span class="op">//</span>total for i <span class="kw">in</span> arr])<span class="op">|&gt;</span>(<span class="fu">d-&gt;Float64</span>.(d))<span class="op">|&gt;</span><span class="fu">d-&gt;round</span>.(d,digits<span class="op">=</span><span class="fl">2</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="kw">end</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>res<span class="op">=</span>[[<span class="fl">6</span>, <span class="fl">6</span>],[<span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">8</span>],[<span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">7</span>],[<span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">7</span>],[<span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">7</span>, <span class="fl">5</span>],</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>     [<span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">7</span>, <span class="fl">5</span>, <span class="fl">4</span>], [<span class="fl">6</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">7</span>, <span class="fl">7</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">11</span>]]</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co">#res=dp_arr2([6, 6, 8, 7, 7, 5, 4])</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#= res-dp_arr2([6, 6, 8, 7])</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">Dict("dice-$(dice_faces[idx])" =&gt;res[idx]  for  idx in eachindex(dice_faces)) =#</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span><span class="fu">DataFrame</span>(name<span class="op">=</span><span class="dt">String</span>[],d4<span class="op">=</span><span class="dt">Float64</span>[],d6<span class="op">=</span><span class="dt">Float64</span>[],</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>   d8<span class="op">=</span><span class="dt">Float64</span>[],d12<span class="op">=</span><span class="dt">Float64</span>[],d20<span class="op">=</span><span class="dt">Float64</span>[]</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>  r <span class="kw">in</span> res</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a> arr<span class="op">=</span>prob_res<span class="op">=</span><span class="fu">dp_arr</span>(r)</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co">#  arr=Dict("$(dice_faces[idx])"=&gt;prob_res[idx]  for  idx in eachindex(dice_faces)) </span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a> <span class="co">#arr=[prob_res[idx]  for  idx in eachindex(dice_faces)]</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a> <span class="co">#@info  "$r "=&gt;arr</span></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a> <span class="fu">push!</span>(df2,(name<span class="op">=</span><span class="st">"</span><span class="sc">$</span>(r)<span class="st">"</span>,d4<span class="op">=</span>arr[<span class="fl">1</span>],d6<span class="op">=</span>arr[<span class="fl">2</span>],d8<span class="op">=</span>arr[<span class="fl">3</span>],d12<span class="op">=</span>arr[<span class="fl">4</span>],d20<span class="op">=</span>arr[<span class="fl">5</span>]))</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>df<span class="op">=</span><span class="fu">DataFrame</span>(name<span class="op">=</span><span class="dt">String</span>[],p00<span class="op">=</span><span class="dt">Float64</span>[],p01<span class="op">=</span><span class="dt">Float64</span>[],</span>
+<span id="cb4-3"><a href="#cb4-3"></a>   p02<span class="op">=</span><span class="dt">Float64</span>[],p03<span class="op">=</span><span class="dt">Float64</span>[],p04<span class="op">=</span><span class="dt">Float64</span>[],p05<span class="op">=</span><span class="dt">Float64</span>[],p06<span class="op">=</span><span class="dt">Float64</span>[],</span>
+<span id="cb4-4"><a href="#cb4-4"></a>   p07<span class="op">=</span><span class="dt">Float64</span>[],p08<span class="op">=</span><span class="dt">Float64</span>[],p09<span class="op">=</span><span class="dt">Float64</span>[],p10<span class="op">=</span><span class="dt">Float64</span>[]</span>
+<span id="cb4-5"><a href="#cb4-5"></a>)</span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="kw">function</span> <span class="fu">odds</span>(num<span class="op">::</span><span class="dt">Int</span>)</span>
+<span id="cb4-8"><a href="#cb4-8"></a>  arr<span class="op">=</span><span class="dt">Real</span>[]</span>
+<span id="cb4-9"><a href="#cb4-9"></a>  <span class="cf">for</span> idx <span class="kw">in</span> <span class="fu">eachindex</span>(cates)</span>
+<span id="cb4-10"><a href="#cb4-10"></a>      res <span class="op">=</span> num<span class="op">==</span><span class="fl">1</span> ? cates[idx] <span class="op">:</span> <span class="fl">1</span><span class="op">-</span>cates[idx]</span>
+<span id="cb4-11"><a href="#cb4-11"></a>      <span class="fu">push!</span>(arr,res)</span>
+<span id="cb4-12"><a href="#cb4-12"></a>      </span>
+<span id="cb4-13"><a href="#cb4-13"></a>  <span class="cf">end</span> </span>
+<span id="cb4-14"><a href="#cb4-14"></a>  total<span class="op">=</span><span class="fu">sum</span>(arr)</span>
+<span id="cb4-15"><a href="#cb4-15"></a>  temp<span class="op">=</span> ([i<span class="op">/</span>total for i <span class="kw">in</span> arr])<span class="op">|&gt;</span>(<span class="fu">d-&gt;Float64</span>.(d))<span class="op">|&gt;</span><span class="fu">d-&gt;round</span>.(d,digits<span class="op">=</span><span class="fl">2</span>)</span>
+<span id="cb4-16"><a href="#cb4-16"></a>  <span class="cf">return</span> temp </span>
+<span id="cb4-17"><a href="#cb4-17"></a><span class="kw">end</span></span>
+<span id="cb4-18"><a href="#cb4-18"></a></span>
+<span id="cb4-19"><a href="#cb4-19"></a></span>
+<span id="cb4-20"><a href="#cb4-20"></a><span class="cf">for</span> (idx,flip)  <span class="kw">in</span> <span class="fu">enumerate</span>(data)</span>
+<span id="cb4-21"><a href="#cb4-21"></a>  temp<span class="op">=</span><span class="fu">odds</span>(flip)</span>
+<span id="cb4-22"><a href="#cb4-22"></a>  <span class="co">#@info "点数为$idx,各骰子的概率"=&gt;arr</span></span>
+<span id="cb4-23"><a href="#cb4-23"></a></span>
+<span id="cb4-24"><a href="#cb4-24"></a>  <span class="fu">push!</span>(df,(name<span class="op">=</span><span class="st">"flip-</span><span class="sc">$</span>idx<span class="st">"</span>,p00<span class="op">=</span>temp[<span class="fl">1</span>],p01<span class="op">=</span>temp[<span class="fl">2</span>],p02<span class="op">=</span>temp[<span class="fl">3</span>],</span>
+<span id="cb4-25"><a href="#cb4-25"></a>     p03<span class="op">=</span>temp[<span class="fl">4</span>],p04<span class="op">=</span>temp[<span class="fl">5</span>],p05<span class="op">=</span>temp[<span class="fl">6</span>],p06<span class="op">=</span>temp[<span class="fl">7</span>],p07<span class="op">=</span>temp[<span class="fl">8</span>],p08<span class="op">=</span>temp[<span class="fl">9</span>],</span>
+<span id="cb4-26"><a href="#cb4-26"></a>     p09<span class="op">=</span>temp[<span class="fl">10</span>],p10<span class="op">=</span>temp[<span class="fl">11</span>]</span>
+<span id="cb4-27"><a href="#cb4-27"></a>  ))</span>
+<span id="cb4-28"><a href="#cb4-28"></a><span class="cf">end</span></span>
+<span id="cb4-29"><a href="#cb4-29"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="3">
-<div><div style="float: left;"><span>7×6 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div><div style="float: left;"><span>100×12 DataFrame</span></div><div style="float: right;"><span style="font-style: italic;">75 rows omitted</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header header">
 <th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d4</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d6</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d8</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d12</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">d20</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p00</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p01</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p02</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p03</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p04</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p05</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p06</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p07</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p08</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p09</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">p10</th>
 </tr>
 <tr class="odd subheader headerLastRow">
 <th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
 <th style="text-align: left;" data-quarto-table-cell-role="th" title="String">String</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
@@ -900,76 +599,431 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
-<td style="text-align: left;">[6, 6]</td>
+<td style="text-align: left;">flip-1</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.53</td>
-<td style="text-align: right;">0.3</td>
-<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
 <td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
-<td style="text-align: left;">[6, 6, 8]</td>
+<td style="text-align: left;">flip-2</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.74</td>
-<td style="text-align: right;">0.22</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
 <td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
 </tr>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
-<td style="text-align: left;">[6, 6, 8, 7]</td>
+<td style="text-align: left;">flip-3</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.82</td>
-<td style="text-align: right;">0.16</td>
 <td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
-<td style="text-align: left;">[6, 6, 8, 7, 7]</td>
+<td style="text-align: left;">flip-4</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.88</td>
-<td style="text-align: right;">0.12</td>
-<td style="text-align: right;">0.01</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
 </tr>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: left;">[6, 6, 8, 7, 7, 5]</td>
+<td style="text-align: left;">flip-5</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.92</td>
-<td style="text-align: right;">0.08</td>
-<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">6</td>
-<td style="text-align: left;">[6, 6, 8, 7, 7, 5, 4]</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.94</td>
-<td style="text-align: right;">0.06</td>
+<td style="text-align: left;">flip-6</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.02</td>
 <td style="text-align: right;">0.0</td>
 </tr>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">7</td>
-<td style="text-align: left;">[6, 6, 8, 7, 7, 5, 4, 11]</td>
+<td style="text-align: left;">flip-7</td>
 <td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.0</td>
-<td style="text-align: right;">0.98</td>
 <td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">8</td>
+<td style="text-align: left;">flip-8</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">9</td>
+<td style="text-align: left;">flip-9</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">10</td>
+<td style="text-align: left;">flip-10</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">11</td>
+<td style="text-align: left;">flip-11</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">12</td>
+<td style="text-align: left;">flip-12</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">13</td>
+<td style="text-align: left;">flip-13</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+<td style="text-align: right;">⋮</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">89</td>
+<td style="text-align: left;">flip-89</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">90</td>
+<td style="text-align: left;">flip-90</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">91</td>
+<td style="text-align: left;">flip-91</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">92</td>
+<td style="text-align: left;">flip-92</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">93</td>
+<td style="text-align: left;">flip-93</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">94</td>
+<td style="text-align: left;">flip-94</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">95</td>
+<td style="text-align: left;">flip-95</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">96</td>
+<td style="text-align: left;">flip-96</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">97</td>
+<td style="text-align: left;">flip-97</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">98</td>
+<td style="text-align: left;">flip-98</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">99</td>
+<td style="text-align: left;">flip-99</td>
+<td style="text-align: right;">0.18</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.0</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">100</td>
+<td style="text-align: left;">flip-100</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">0.02</td>
+<td style="text-align: right;">0.04</td>
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;">0.07</td>
+<td style="text-align: right;">0.09</td>
+<td style="text-align: right;">0.11</td>
+<td style="text-align: right;">0.13</td>
+<td style="text-align: right;">0.15</td>
+<td style="text-align: right;">0.16</td>
+<td style="text-align: right;">0.18</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
+<div class="cell" data-execution_count="3">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1"></a>header<span class="op">=</span>[ <span class="st">"p00"</span>, <span class="st">"p01"</span>, <span class="st">"p02"</span>, <span class="st">"p03"</span>, <span class="st">"p04"</span>, <span class="st">"p05"</span>, <span class="st">"p06"</span>, <span class="st">"p07"</span>, <span class="st">"p08"</span>, <span class="st">"p09"</span>, <span class="st">"p10"</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a>total<span class="op">=</span><span class="fl">0</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#生成全概率</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="cf">for</span> (idx,d) <span class="kw">in</span> <span class="fu">enumerate</span>(header)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    total<span class="op">=</span><span class="fu">total+reduce</span>(<span class="op">*</span>,df[<span class="op">:</span>,d])<span class="op">*</span>priors[idx]</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="cf">end</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="cf">for</span> (idx,d) <span class="kw">in</span> <span class="fu">enumerate</span>(header)</span>
+<span id="cb5-10"><a href="#cb5-10"></a> <span class="kw">local</span> pdice<span class="op">=</span><span class="fu">reduce</span>(<span class="op">*</span>,df[<span class="op">:</span>,d])<span class="op">*</span>priors[idx]</span>
+<span id="cb5-11"><a href="#cb5-11"></a> <span class="pp">@info</span> <span class="st">"coin-</span><span class="sc">$</span>(d)<span class="st"> prob "</span><span class="op">=&gt;</span>pdice<span class="op">/</span>total</span>
+<span id="cb5-12"><a href="#cb5-12"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>[ Info: "coin-p00 prob " =&gt; 0.0
+[ Info: "coin-p01 prob " =&gt; 2.930655265908151e-34
+[ Info: "coin-p02 prob " =&gt; 2.481942345740868e-16
+[ Info: "coin-p03 prob " =&gt; 1.5872668957411356e-12
+[ Info: "coin-p04 prob " =&gt; 5.276446291732883e-6
+[ Info: "coin-p05 prob " =&gt; 0.02365301972986262
+[ Info: "coin-p06 prob " =&gt; 0.6698881503326363
+[ Info: "coin-p07 prob " =&gt; 0.09771404815886629
+[ Info: "coin-p08 prob " =&gt; 0.20873950524218193
+[ Info: "coin-p09 prob " =&gt; 8.857362048364852e-11
+[ Info: "coin-p10 prob " =&gt; 0.0</code></pre>
+</div>
+</div>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
