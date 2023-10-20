@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conditional-Probability-Exercise - 3-reference-test</title>
+<title>Conditional-Probability-Exercise - afcp-ex3.47</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -90,7 +105,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../basic/1-dice.html">Basic</a></li><li class="breadcrumb-item"><a href="../basic/3-reference-test.html">3-reference-test</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../afcp-exercises/afcp-ex3.1.html">AFCP</a></li><li class="breadcrumb-item"><a href="../afcp-exercises/afcp-ex3.47.html">afcp-ex3.47</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,13 +141,13 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">AFCP</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../afcp-exercises/afcp-ex3.1.html" class="sidebar-item-text sidebar-link">
@@ -279,7 +294,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../afcp-exercises/afcp-ex3.47.html" class="sidebar-item-text sidebar-link">
+  <a href="../afcp-exercises/afcp-ex3.47.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">afcp-ex3.47</span></a>
   </div>
 </li>
@@ -388,13 +403,13 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Basic</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../basic/1-dice.html" class="sidebar-item-text sidebar-link">
@@ -409,7 +424,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../basic/3-reference-test.html" class="sidebar-item-text sidebar-link active">
+  <a href="../basic/3-reference-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3-reference-test</span></a>
   </div>
 </li>
@@ -478,14 +493,20 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#question" id="toc-question" class="nav-link active" data-scroll-target="#question">1. question</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">3-reference-test</h1>
+<h1 class="title">afcp-ex3.47</h1>
 </div>
 
 
@@ -500,24 +521,34 @@ div.csl-indent {
 
 </header>
 
-<p>参见 <span class="citation" data-cites="pml1Book">Murphy (<a href="#ref-pml1Book" role="doc-biblioref">2022</a>)</span></p>
-<p>参见 <span class="citation" data-cites="gpml">Rasmussen and Williams (<a href="#ref-gpml" role="doc-biblioref">2006</a>)</span></p>
-<p>参见 <span class="citation" data-cites="bishop2006pattern">Bishop (<a href="#ref-bishop2006pattern" role="doc-biblioref">2006</a>)</span></p>
-
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-bishop2006pattern" class="csl-entry" role="listitem">
-Bishop, Christopher. 2006. <em>Pattern Recognition and Machine Learning</em>. Springer. <a href="https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/">https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/</a>.
+<section id="question" class="level2">
+<h2 class="anchored" data-anchor-id="question">1. question</h2>
+<blockquote class="blockquote">
+<p>坛子里有5个白球和10个黑球.若掷一枚均匀的假子，掷出几点就从坛子中取几个球，则取出的球</p>
+<ul>
+<li>1都是白球的概率是多少?</li>
+<li>2在取出的球都是白球的条件下，掷出的骰 子点数为3的条件概率是多少?</li>
+</ul>
+</blockquote>
+<p>用<code>cumprod</code> 方法累乘取出白球的概率</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>paths<span class="op">=</span><span class="fu">cumprod</span>([<span class="fl">5</span><span class="op">//</span><span class="fl">15</span>,<span class="fl">4</span><span class="op">//</span><span class="fl">14</span>,<span class="fl">3</span><span class="op">//</span><span class="fl">13</span>,<span class="fl">2</span><span class="op">//</span><span class="fl">12</span>,<span class="fl">1</span><span class="op">//</span><span class="fl">11</span>])</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>total<span class="op">=</span><span class="fu">sum</span>(paths)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">show</span>(<span class="st">"全部为白色球的全概率"</span><span class="op">=&gt;</span>total)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>path3<span class="op">=</span>paths[<span class="fl">3</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">" 色子点数为 3 的概率为:"</span><span class="op">=&gt;</span>path3<span class="op">//</span>total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>"全部为白色球的全概率" =&gt; 5//11</code></pre>
 </div>
-<div id="ref-pml1Book" class="csl-entry" role="listitem">
-Murphy, Kevin P. 2022. <em>Probabilistic Machine Learning: An Introduction</em>. MIT Press. <a href="https://probml.ai">probml.ai</a>.
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>" 色子点数为 3 的概率为:" =&gt; 22//455</code></pre>
 </div>
-<div id="ref-gpml" class="csl-entry" role="listitem">
-Rasmussen, C., and C. Williams. 2006. <span>“Gaussian Process for Machine Learning,”</span> January.
 </div>
-</div></section></div></main> <!-- /main -->
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

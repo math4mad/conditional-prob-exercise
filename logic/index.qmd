@@ -1,0 +1,7 @@
+---
+title: "logic intro"
+author: math4mad
+code-fold: true
+---
+
+##  logic introduction

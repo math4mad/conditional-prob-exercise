@@ -1,0 +1,38 @@
+---
+title: "9-bias-coins"
+author: math4mad
+code-fold: true
+---
+
+:::{.callout-note title="简介"}
+ @ref  hakank-bayes-code
+ 
+ 从一组硬币试验观察结果推测该硬币的期望值
+:::
+
+## 1. load package
+```{julia}
+include("./utils.jl")
+using Turing,Distributions, StatsBase
+data=[1,1,0,1,0]
+```
+
+## 2. Turing Workflow
+### 2.1 define model
+```{julia}
+    @model function coin_bias(x::Array) 
+        n = length(x)
+        # Beta(2,5) has mean about 0.2855
+        bias ~ Beta(1,1)
+        x ~ filldist(Bernoulli(bias),n)
+        
+    end 
+```
+
+### 2.2 MCMC Sampling
+```{julia}
+    model=coin_bias(data)
+    chns = sample(model, NUTS(), 10_000)
+    display(chns)
+    show_var_dist_pct(chns,:bias,20)
+```

@@ -1,0 +1,56 @@
+---
+title: "11-bayesian-logsitics-regression"
+author: math4mad
+code-fold: true
+---
+
+## 1. load package
+```{julia}
+using Turing, StatsFuns,DataFrames,GLMakie,Pipe
+```
+
+## 2. define data
+```{julia}
+xs = [-10, -5, 2, 6, 10]
+labels = [0, 0, 1, 1, 1]
+```
+
+## 3. turing workflow
+### 3.1 define model
+```{julia}
+@model function logistic_regression(x, labels)
+    m ~ Normal(0, 1)
+    b ~ Normal(0, 1)
+    sigma ~ Gamma(1, 1)
+
+    n = length(x)
+    y = tzeros(n)
+    sigmoid = tzeros(n)
+    for i in 1:n
+        y[i] ~ Normal(m * x[i] + b, sigma)
+        sigmoid[i] = logistic(y[i])
+        labels[i] ~ Bernoulli(sigmoid[i])
+    end
+
+    # Post predictive of labels
+    labels_post = tzeros(n)
+    for i in 1:n
+        labels_post[i] ~ Bernoulli(sigmoid[i])
+    end
+end
+```
+
+### 3.2 MCMC Sampling
+```{julia}
+    model = logistic_regression(xs,labels)
+    chns = sample(model, MH(), 10_000)
+    display(chns)
+```
+
+### 3.3 plot res
+```{julia}
+fig=Figure()
+ax=Axis(fig[1,1])
+scatter!(ax,xs,labels)
+fig
+```

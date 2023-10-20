@@ -22,13 +22,15 @@ website:
       - href: index.qmd
         text: Home
       - section: "AFCP"
-        contents: exercises/*
+        contents: afcp-exercises/*
       - section : "Turing"
         contents: turing/*
       - section : "Basic"
         contents: basic/*
       - section : "Bayestheorem"
         contents: bayestheorem/*
+      - section : "Logics"
+        contents: logic/*
 
 format:
   html:

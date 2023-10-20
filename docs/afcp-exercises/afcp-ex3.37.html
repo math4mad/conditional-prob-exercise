@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Conditional-Probability-Exercise - 3-reference-test</title>
+<title>Conditional-Probability-Exercise - afcp-ex3.37</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -77,6 +92,9 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -90,7 +108,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../basic/1-dice.html">Basic</a></li><li class="breadcrumb-item"><a href="../basic/3-reference-test.html">3-reference-test</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../afcp-exercises/afcp-ex3.1.html">AFCP</a></li><li class="breadcrumb-item"><a href="../afcp-exercises/afcp-ex3.37.html">afcp-ex3.37</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -126,13 +144,13 @@ div.csl-indent {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">AFCP</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../afcp-exercises/afcp-ex3.1.html" class="sidebar-item-text sidebar-link">
@@ -237,7 +255,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../afcp-exercises/afcp-ex3.37.html" class="sidebar-item-text sidebar-link">
+  <a href="../afcp-exercises/afcp-ex3.37.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">afcp-ex3.37</span></a>
   </div>
 </li>
@@ -388,13 +406,13 @@ div.csl-indent {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Basic</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../basic/1-dice.html" class="sidebar-item-text sidebar-link">
@@ -409,7 +427,7 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../basic/3-reference-test.html" class="sidebar-item-text sidebar-link active">
+  <a href="../basic/3-reference-test.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3-reference-test</span></a>
   </div>
 </li>
@@ -478,14 +496,23 @@ div.csl-indent {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#question" id="toc-question" class="nav-link active" data-scroll-target="#question">1. question</a></li>
+  <li><a href="#a-的概率路径图" id="toc-a-的概率路径图" class="nav-link" data-scroll-target="#a-的概率路径图">2. (a) 的概率路径图</a></li>
+  <li><a href="#b-的概率路径图" id="toc-b-的概率路径图" class="nav-link" data-scroll-target="#b-的概率路径图">3. (b) 的概率路径图</a></li>
+  <li><a href="#c-的概率路径图" id="toc-c-的概率路径图" class="nav-link" data-scroll-target="#c-的概率路径图">4. (c) 的概率路径图</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">3-reference-test</h1>
+<h1 class="title">afcp-ex3.37</h1>
 </div>
 
 
@@ -500,24 +527,138 @@ div.csl-indent {
 
 </header>
 
-<p>参见 <span class="citation" data-cites="pml1Book">Murphy (<a href="#ref-pml1Book" role="doc-biblioref">2022</a>)</span></p>
-<p>参见 <span class="citation" data-cites="gpml">Rasmussen and Williams (<a href="#ref-gpml" role="doc-biblioref">2006</a>)</span></p>
-<p>参见 <span class="citation" data-cites="bishop2006pattern">Bishop (<a href="#ref-bishop2006pattern" role="doc-biblioref">2006</a>)</span></p>
-
-
-
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-bishop2006pattern" class="csl-entry" role="listitem">
-Bishop, Christopher. 2006. <em>Pattern Recognition and Machine Learning</em>. Springer. <a href="https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/">https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/</a>.
+<section id="question" class="level2">
+<h2 class="anchored" data-anchor-id="question">1. question</h2>
+<blockquote class="blockquote">
+<p>赌徒口袋中有一枚均匀的硬币, 还有一枚两面都是正面的硬币,他随机拿出一枚硬币</p>
+<ul>
+<li><ol type="a">
+<li>抛出来是正面, 是均匀硬币的概率</li>
+</ol></li>
+<li><ol start="2" type="a">
+<li>再抛一次,仍是正面, 是均匀硬币的概率</li>
+</ol></li>
+<li><ol start="3" type="a">
+<li>第三次抛,发现是反面,是均匀硬币的概率</li>
+</ol></li>
+</ul>
+</blockquote>
+</section>
+<section id="a-的概率路径图" class="level2">
+<h2 class="anchored" data-anchor-id="a-的概率路径图">2. (a) 的概率路径图</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A(Coin)==fc:1/2==&gt;B(faircoin)
+    A(Coin)==nfc:1/2==&gt;C(notfaircoin)
+    B(faircoin)==fc1h:1/2==&gt;D(head)
+    B(faircoin)-.fc1t:1/2.-&gt;E(tail)
+    C(notfaircoin)==nfc1h:1==&gt;F(head)
+    style D  fill: #FF0000, stroke: #333, stroke-width: 2px;
+    style F  fill: #FF0000, stroke: #333, stroke-width: 2px;
+    
+</pre>
 </div>
-<div id="ref-pml1Book" class="csl-entry" role="listitem">
-Murphy, Kevin P. 2022. <em>Probabilistic Machine Learning: An Introduction</em>. MIT Press. <a href="https://probml.ai">probml.ai</a>.
 </div>
-<div id="ref-gpml" class="csl-entry" role="listitem">
-Rasmussen, C., and C. Williams. 2006. <span>“Gaussian Process for Machine Learning,”</span> January.
 </div>
-</div></section></div></main> <!-- /main -->
+</div>
+<p>第一次抛出正面的概率有两个路径,均匀硬币是第一条路径</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fc<span class="op">=</span>nfc<span class="op">=</span><span class="fl">1</span><span class="op">//</span><span class="fl">2</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>fc1h<span class="op">=</span>fc1t<span class="op">=</span><span class="fl">1</span><span class="op">//</span><span class="fl">2</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>nfc1h<span class="op">=</span><span class="fl">1</span>;nfc1t<span class="op">=</span><span class="fl">0</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>path1<span class="op">=</span>fc<span class="op">*</span>fc1h</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>path2<span class="op">=</span>nfc<span class="op">*</span>nfc1h</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>p1head<span class="op">=</span>path1<span class="op">+</span>path2</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="st">"第一次抛出正面条件下,为均匀硬币的概率"</span><span class="op">=&gt;</span>path1<span class="op">//</span>p1head</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>"第一次抛出正面条件下,为均匀硬币的概率" =&gt; 1//3</code></pre>
+</div>
+</div>
+</section>
+<section id="b-的概率路径图" class="level2">
+<h2 class="anchored" data-anchor-id="b-的概率路径图">3. (b) 的概率路径图</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A(Coin)==fc:1/2==&gt;B(faircoin)
+    A(Coin)==nfc:1/2==&gt;C(notfaircoin)
+    B(faircoin)==fc1h:1/2==&gt;D(head)
+    B(faircoin)==fc1t:1/2==&gt;E(tail)
+    C(notfaircoin)==nfc1h:1==&gt;F(head)
+    
+    D(head)==fc2h:1/2==&gt;I(head)
+    D(head)==fc2t:1/2==&gt;J(tail)
+    E(tail)==fc2h:1/2==&gt;K(head)
+    E(tail)==fc2t:1/2==&gt;L(tail)
+    F(head)==nfc2h:1==&gt;M(head)
+
+    style D  fill: #FF0000, stroke: #333, stroke-width: 2px;
+    style F  fill: #FF0000, stroke: #333, stroke-width: 2px;
+    style I  fill: #FF0000, stroke: #333, stroke-width: 2px;
+    style M  fill: #FF0000, stroke: #333, stroke-width: 2px;
+    
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p>第一次抛是正面, 第二次仍是正面仍是两条路径,但是概率发生变化</p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    fc2h<span class="op">=</span>fc2t<span class="op">=</span><span class="fl">1</span><span class="op">//</span><span class="fl">2</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    nfc2h<span class="op">=</span><span class="fl">1</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    path3<span class="op">=</span>fc<span class="op">*</span>fc1h<span class="op">*</span>fc2h</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    path4<span class="op">=</span>nfc<span class="op">*</span>nfc1h<span class="op">*</span>nfc2h</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    p2head<span class="op">=</span>path3<span class="op">+</span>path4</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"第一次抛是正面, 第二次仍是正面的硬币是均匀硬币的概率"</span><span class="op">=&gt;</span>path3<span class="op">//</span>p2head</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>"第一次抛是正面, 第二次仍是正面的硬币是均匀硬币的概率" =&gt; 1//5</code></pre>
+</div>
+</div>
+</section>
+<section id="c-的概率路径图" class="level2">
+<h2 class="anchored" data-anchor-id="c-的概率路径图">4. (c) 的概率路径图</h2>
+<p>实际因为两面都是人头的硬币不可能出现反面, 一旦出现反面, 整个路径就不存在. 这就是著名的黑天鹅理论. 对于硬币试验, 如果从开始连续抛硬币都是正面,不能因为没有观察 到反面的现象,就匆忙下结论:硬币两面都是正面, 这个结论是经不起试验验证的.</p>
+<p>因为即使观察到连续100次正面,一旦观察到一次反面,整个对模型的结论就完全失去作用了.</p>
+<p>我们看到 100 次白天鹅,不能下结论:所有天鹅都是白色的, 因为只要观察到一只黑天鹅, 这个结论 就是错误的.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    A(Coin)==fc:1/2==&gt;B(faircoin)
+    A(Coin)==nfc:1/2==&gt;C(notfaircoin)
+    B(faircoin)==fc1h:1/2==&gt;D(head)
+    B(faircoin)==fc1t:1/2==&gt;E(tail)
+    C(notfaircoin)==nfc1h:1==&gt;F(head)
+    
+    D(head)==fc2h:1/2==&gt;I(head)
+    D(head)==fc2t:1/2==&gt;J(tail)
+    E(tail)==fc2h:1/2==&gt;K(head)
+    E(tail)==fc2t:1/2==&gt;L(tail)
+    F(head)==nfc2h:1==&gt;M(head)
+    I(head)==fc3h:1/2==&gt;N(head)
+    I(head)==fc3t:1/2==&gt;O(tail)
+
+    style D  fill: #FF0000, stroke: #333, stroke-width: 2px;
+    style I  fill: #FF0000, stroke: #333, stroke-width: 2px;
+    style O  fill: #FF0000, stroke: #333, stroke-width: 2px;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<p><code>head-&gt;head-&gt;tail</code> 的路径只有一条,所以如果第三次抛出反面,肯定这枚硬币是均匀的硬币</p>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,0 +1,45 @@
+---
+title: "10-coins-learning"
+author: math4mad
+code-fold: true
+---
+
+:::{.callout-note title="简介"}
+@ref : hakank-bayes-code
+
+扔一枚不知道权重的硬币
+
+先验: uniform(0,1)
+
+观测值: head 比 tail 多 5 倍
+:::
+
+## 1. load package
+```{julia}
+include("./utils.jl")
+using Turing,Distributions, StatsBase
+
+```
+
+## 2. Turing Workflow
+### 2.1 define model
+```{julia}
+@model function coins_learning(obs::Array{Bool})
+    n = length(obs)
+    p ~ Uniform(0,1)
+    obs ~ filldist(flip(p),n)
+    # post ~ filldist(flip(p),n)
+    
+end
+```
+
+### 2. 2  MCMC Sampling
+```{julia}
+    obs = Bool[true,false,true,true,true,true,true,false,false,true,false,false,true]
+    model = coins_learning(obs)
+    num_chains = 4
+    chns = sample(model, SMC(1000), 10_000)
+    display(chns)
+```
+
+
